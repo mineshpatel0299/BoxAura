@@ -11,6 +11,8 @@ const CUBE_IMAGES = [
   "/images/wedding_box_3.png",
 ];
 
+const MOBILE_BREAKPOINT = 768;
+
 function useCubeSize() {
   const [size, setSize] = useState(260);
 
@@ -30,10 +32,26 @@ function useCubeSize() {
   return size;
 }
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    update();
+    window.addEventListener("resize", update, { passive: true });
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return isMobile;
+}
+
 export default function CubeHero() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [rotation, setRotation] = useState({ x: -20, y: 30 });
+  const autoAngle = useRef(30);
+  const rafRef = useRef<number>(0);
   const size = useCubeSize();
+  const isMobile = useIsMobile();
   const half = size / 2;
 
   const handlePointerMove = useCallback((e: PointerEvent) => {
@@ -46,11 +64,27 @@ export default function CubeHero() {
   }, []);
 
   useEffect(() => {
+    if (isMobile) {
+      let lastTime = performance.now();
+      const animate = (now: number) => {
+        const delta = (now - lastTime) / 1000;
+        lastTime = now;
+        autoAngle.current += delta * 25;
+        setRotation({
+          x: -15,
+          y: autoAngle.current,
+        });
+        rafRef.current = requestAnimationFrame(animate);
+      };
+      rafRef.current = requestAnimationFrame(animate);
+      return () => cancelAnimationFrame(rafRef.current);
+    }
+
     window.addEventListener("pointermove", handlePointerMove, {
       passive: true,
     });
     return () => window.removeEventListener("pointermove", handlePointerMove);
-  }, [handlePointerMove]);
+  }, [isMobile, handlePointerMove]);
 
   const faces = [
     { transform: `rotateY(0deg) translateZ(${half}px)` },
@@ -78,7 +112,7 @@ export default function CubeHero() {
             position: "relative",
             transformStyle: "preserve-3d",
             transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
-            transition: "transform 0.15s ease-out",
+            transition: isMobile ? "none" : "transform 0.15s ease-out",
           }}
         >
           {faces.map((face, i) => (
