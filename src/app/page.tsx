@@ -12,9 +12,9 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <CategoryCards />
-      <Philosophy />
+      {/* <CategoryCards /> */}
       <Collections />
+      <Philosophy />
       <Catalog />
       <ClientExperiences />
       <GoldClubCTA />

@@ -39,10 +39,10 @@ export default function Navbar() {
           <Image
             src="https://res.cloudinary.com/de4pazo51/image/upload/v1781679251/WhatsApp_Image_2026-06-17_at_09.42.19__1_-removebg-preview_1_cupphn.png"
             alt="BoxAura"
-            width={120}
-            height={48}
+            width={160}
+            height={64}
             priority
-            className="h-10 w-auto object-contain"
+            className="h-14 w-auto object-contain"
           />
         </Link>
 
