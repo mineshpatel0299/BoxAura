@@ -1,16 +1,149 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import CubeHero from "./CubeHero";
+
+function FloatingPetals() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animationId: number;
+    const dpr = window.devicePixelRatio || 1;
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * dpr;
+      canvas.height = canvas.offsetHeight * dpr;
+      ctx.scale(dpr, dpr);
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const particles = Array.from({ length: 25 }, () => ({
+      x: Math.random() * canvas.offsetWidth,
+      y: Math.random() * canvas.offsetHeight,
+      size: Math.random() * 2.5 + 1,
+      speedY: -(Math.random() * 0.2 + 0.05),
+      speedX: (Math.random() - 0.5) * 0.15,
+      opacity: Math.random() * 0.25 + 0.05,
+      phase: Math.random() * Math.PI * 2,
+      hue: Math.random() > 0.5 ? "pink" : "beige" as "pink" | "beige",
+    }));
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+      const t = Date.now() * 0.001;
+
+      for (const p of particles) {
+        p.y += p.speedY;
+        p.x += p.speedX + Math.sin(t * 0.8 + p.phase) * 0.2;
+        const flicker = 0.6 + 0.4 * Math.sin(t * 1.2 + p.phase);
+
+        if (p.y < -10) {
+          p.y = canvas.offsetHeight + 10;
+          p.x = Math.random() * canvas.offsetWidth;
+        }
+
+        const color = p.hue === "pink"
+          ? `rgba(236, 180, 196, ${p.opacity * flicker})`
+          : `rgba(220, 200, 170, ${p.opacity * flicker})`;
+        const glowColor = p.hue === "pink"
+          ? `rgba(236, 180, 196, ${p.opacity * flicker * 0.12})`
+          : `rgba(220, 200, 170, ${p.opacity * flicker * 0.12})`;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * 3, 0, Math.PI * 2);
+        ctx.fillStyle = glowColor;
+        ctx.fill();
+      }
+
+      animationId = requestAnimationFrame(animate);
+    };
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      aria-hidden="true"
+    />
+  );
+}
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
-      {/* Ambient pastel blobs */}
+    <section className="relative h-screen -mt-16 pt-16 flex items-center justify-center overflow-hidden">
+      {/* Layered pastel gradient mesh */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-pink-200/20 via-orange-100/15 to-rose-200/10 blur-[120px]" />
-        <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full bg-pink-100/15 blur-[80px]" />
-        <div className="absolute bottom-1/4 left-1/3 w-[250px] h-[250px] rounded-full bg-orange-100/10 blur-[90px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#fdf2f0] via-[#fdf6f0] to-[#faf0e8]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_20%_15%,rgba(251,207,232,0.4)_0%,transparent_50%)]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_80%_85%,rgba(253,230,210,0.35)_0%,transparent_50%)]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_50%_40%,rgba(252,220,235,0.2)_0%,transparent_35%)]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_75%_20%,rgba(245,215,200,0.25)_0%,transparent_40%)]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_25%_80%,rgba(250,200,220,0.2)_0%,transparent_40%)]" />
+      </div>
+
+      {/* Fine diagonal pattern overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.025]"
+        aria-hidden="true"
+        style={{
+          backgroundImage: `repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 40px,
+            rgba(200,160,160,1) 40px,
+            rgba(200,160,160,1) 41px
+          )`,
+        }}
+      />
+
+      {/* Soft vignette */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 50%, rgba(253,240,235,0.6) 100%)",
+        }}
+      />
+
+      {/* Floating petal particles */}
+      <FloatingPetals />
+
+      {/* Animated pastel glow blobs */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <motion.div
+          animate={{ scale: [1, 1.15, 1], opacity: [0.25, 0.4, 0.25] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-pink-200/30 via-rose-100/20 to-orange-100/15 blur-[120px]"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute top-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-pink-200/20 blur-[100px]"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          className="absolute bottom-1/4 left-1/3 w-[280px] h-[280px] rounded-full bg-orange-100/20 blur-[90px]"
+        />
       </div>
 
       {/* Thin decorative side lines */}
@@ -18,21 +151,21 @@ export default function HeroSection() {
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
         transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute left-[8%] top-[15%] bottom-[15%] w-px origin-top bg-gradient-to-b from-transparent via-pink-200/30 to-transparent"
+        className="absolute left-[8%] top-[15%] bottom-[15%] w-px origin-top bg-gradient-to-b from-transparent via-pink-300/25 to-transparent"
         aria-hidden="true"
       />
       <motion.div
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
         transition={{ duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute right-[8%] top-[15%] bottom-[15%] w-px origin-top bg-gradient-to-b from-transparent via-pink-200/30 to-transparent"
+        className="absolute right-[8%] top-[15%] bottom-[15%] w-px origin-top bg-gradient-to-b from-transparent via-pink-300/25 to-transparent"
         aria-hidden="true"
       />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center px-6 py-16 sm:py-20">
         {/* Tagline */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2 }}
@@ -43,7 +176,7 @@ export default function HeroSection() {
             Handcrafted with Love
           </span>
           <span className="h-px w-12 bg-gradient-to-l from-transparent to-pink-300/50" />
-        </motion.div>
+        </motion.div> */}
 
         {/* Headline */}
         <motion.h1
