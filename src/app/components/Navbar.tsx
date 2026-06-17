@@ -30,7 +30,7 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-xl shadow-sm shadow-rose-100/40"
+          ? "bg-white/90 backdrop-blur-xl shadow-sm shadow-pink-100/40"
           : "bg-transparent"
       }`}
     >
@@ -56,7 +56,7 @@ export default function Navbar() {
             >
               <Link
                 href={link.href}
-                className="font-heading text-[13px] font-medium uppercase tracking-[0.15em] text-stone-600 hover:text-rose-400 transition-colors duration-300"
+                className="font-heading text-[13px] font-medium uppercase tracking-[0.15em] text-stone-600 hover:text-pink-400 transition-colors duration-300"
               >
                 {link.label}
               </Link>
@@ -88,7 +88,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-rose-50 overflow-hidden"
+            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-pink-50 overflow-hidden"
           >
             <ul className="flex flex-col gap-1 px-8 py-6">
               {NAV_LINKS.map((link, i) => (
@@ -100,7 +100,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className="block py-3 font-heading text-sm uppercase tracking-[0.15em] text-stone-600 hover:text-rose-400 transition-colors"
+                    className="block py-3 font-heading text-sm uppercase tracking-[0.15em] text-stone-600 hover:text-pink-400 transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}

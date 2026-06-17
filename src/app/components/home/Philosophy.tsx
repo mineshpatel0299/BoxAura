@@ -10,7 +10,7 @@ export default function Philosophy() {
 
   return (
     <section ref={ref} className="relative overflow-hidden py-28 sm:py-36">
-      <SectionBg />
+      <SectionBg variant="left-strip" />
       <div className="mx-auto max-w-7xl px-6 flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -18,7 +18,7 @@ export default function Philosophy() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="lg:w-2/5 shrink-0"
         >
-          <p className="font-heading text-xs font-medium uppercase tracking-[0.3em] text-rose-300 mb-4">
+          <p className="font-heading text-xs font-medium uppercase tracking-[0.3em] text-pink-400/70 mb-4">
             What We Believe
           </p>
           <h2 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-light text-stone-800 leading-[1.05]">
@@ -34,7 +34,7 @@ export default function Philosophy() {
           transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="lg:w-3/5"
         >
-          <div className="w-16 h-px bg-rose-200 mb-8" />
+          <div className="w-16 h-px bg-pink-200 mb-8" />
           <div className="space-y-6 text-lg sm:text-xl text-stone-400 leading-relaxed font-light">
             <p>
               We open this brand with a vision to redefine how celebrations begin.

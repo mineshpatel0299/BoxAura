@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 const CUBE_IMAGES = [
   "/images/wedding_box_2.png",
@@ -11,26 +11,46 @@ const CUBE_IMAGES = [
   "/images/wedding_box_3.png",
 ];
 
+function useCubeSize() {
+  const [size, setSize] = useState(260);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w < 480) setSize(150);
+      else if (w < 640) setSize(180);
+      else if (w < 768) setSize(210);
+      else setSize(260);
+    };
+    update();
+    window.addEventListener("resize", update, { passive: true });
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return size;
+}
+
 export default function CubeHero() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [rotation, setRotation] = useState({ x: -20, y: 30 });
+  const size = useCubeSize();
+  const half = size / 2;
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const px = e.clientX / window.innerWidth;
-      const py = e.clientY / window.innerHeight;
-      setRotation({
-        x: -160 + 320 * py,
-        y: -160 + 320 * px,
-      });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+  const handlePointerMove = useCallback((e: PointerEvent) => {
+    const px = e.clientX / window.innerWidth;
+    const py = e.clientY / window.innerHeight;
+    setRotation({
+      x: -160 + 320 * py,
+      y: -160 + 320 * px,
+    });
   }, []);
 
-  const size = 260;
-  const half = size / 2;
+  useEffect(() => {
+    window.addEventListener("pointermove", handlePointerMove, {
+      passive: true,
+    });
+    return () => window.removeEventListener("pointermove", handlePointerMove);
+  }, [handlePointerMove]);
 
   const faces = [
     { transform: `rotateY(0deg) translateZ(${half}px)` },

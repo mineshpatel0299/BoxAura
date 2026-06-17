@@ -11,7 +11,7 @@ export default function GoldClubCTA() {
 
   return (
     <section ref={ref} className="relative overflow-hidden py-28 sm:py-40">
-      <SectionBg />
+      <SectionBg variant="corner-both" />
 
       {/* Large watermark letter */}
       <motion.span
@@ -68,9 +68,9 @@ export default function GoldClubCTA() {
                 initial={{ opacity: 0, scale: 0.85, y: 15 }}
                 animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.9 }}
-                className="absolute -bottom-5 -right-4 sm:-bottom-6 sm:-right-6 bg-white/80 backdrop-blur-md rounded-xl px-5 py-3 shadow-lg border border-rose-100/60"
+                className="absolute -bottom-5 -right-4 sm:-bottom-6 sm:-right-6 bg-white/80 backdrop-blur-md rounded-xl px-5 py-3 shadow-lg border border-pink-100/60"
               >
-                <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-rose-300 mb-0.5">
+                <p className="font-heading text-[10px] uppercase tracking-[0.3em] text-pink-400/70 mb-0.5">
                   Crafted with
                 </p>
                 <p className="font-heading text-sm text-stone-700 font-light tracking-wide">
@@ -88,8 +88,8 @@ export default function GoldClubCTA() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="flex items-center gap-3 justify-center lg:justify-start mb-7"
             >
-              <span className="h-px w-10 bg-rose-200" />
-              <span className="font-heading text-[11px] uppercase tracking-[0.35em] text-rose-300">
+              <span className="h-px w-10 bg-pink-200" />
+              <span className="font-heading text-[11px] uppercase tracking-[0.35em] text-pink-400/70">
                 The BoxAura Promise
               </span>
             </motion.div>
@@ -147,13 +147,13 @@ export default function GoldClubCTA() {
             >
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-stone-800 px-10 py-3.5 font-heading text-xs uppercase tracking-[0.2em] text-white shadow-lg shadow-stone-200/50 hover:bg-rose-400 transition-all duration-500"
+                className="inline-flex items-center justify-center rounded-full bg-stone-800 px-10 py-3.5 font-heading text-xs uppercase tracking-[0.2em] text-white shadow-lg shadow-stone-200/50 hover:bg-pink-400 transition-all duration-500"
               >
                 Start Your Order
               </a>
               <a
                 href="/premium-wedding-invitation"
-                className="inline-flex items-center justify-center rounded-full border border-stone-200 px-10 py-3.5 font-heading text-xs uppercase tracking-[0.2em] text-stone-500 hover:border-rose-300 hover:text-rose-400 transition-all duration-500"
+                className="inline-flex items-center justify-center rounded-full border border-stone-200 px-10 py-3.5 font-heading text-xs uppercase tracking-[0.2em] text-stone-500 hover:border-pink-300 hover:text-pink-400 transition-all duration-500"
               >
                 Explore More
               </a>
