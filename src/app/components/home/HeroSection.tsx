@@ -163,7 +163,7 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center px-6 py-16 sm:py-20">
+      <div className="relative z-10 flex flex-col items-center px-6 mt-24 sm:mt-0">
         {/* Tagline */}
         {/* <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -189,7 +189,9 @@ export default function HeroSection() {
             The Art of
           </span>
           <span className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl italic font-light mt-1 bg-gradient-to-r from-pink-400 via-rose-300 to-pink-400 bg-clip-text text-transparent">
-            First Impressions
+            <span className="block sm:hidden">First</span>
+            <span className="block sm:hidden">Impressions</span>
+            <span className="hidden sm:inline">First Impressions</span>
           </span>
         </motion.h1>
 
