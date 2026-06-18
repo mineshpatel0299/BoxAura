@@ -50,28 +50,28 @@ export default function Footer() {
 
   return (
     <footer ref={ref} className="relative w-full bg-[#EFECE5] border-t border-stone-400 flex justify-center">
-      <div className="w-full max-w-[1400px] px-8 sm:px-16 lg:px-24 pt-16 sm:pt-24 pb-8 flex flex-col relative z-10">
+      <div className="w-full max-w-[1400px] px-6 sm:px-16 lg:px-24 pt-12 sm:pt-24 pb-8 flex flex-col relative z-10">
 
         {/* Main footer grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-8 pb-12 lg:pb-16">
 
           {/* Brand column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="col-span-1 sm:col-span-2 lg:col-span-4"
+            className="col-span-2 lg:col-span-4"
           >
-            <Link href="/" className="inline-block mb-6">
+            <Link href="/" className="inline-block mb-4 sm:mb-6">
               <Image
                 src="https://res.cloudinary.com/de4pazo51/image/upload/v1781679251/WhatsApp_Image_2026-06-17_at_09.42.19__1_-removebg-preview_1_cupphn.png"
                 alt="BoxAura"
                 width={140}
                 height={56}
-                className="h-10 w-auto object-contain"
+                className="h-8 sm:h-10 w-auto object-contain"
               />
             </Link>
-            <p className="text-sm text-stone-500 leading-relaxed font-light max-w-xs mb-8">
+            <p className="text-xs sm:text-sm text-stone-500 leading-relaxed font-light max-w-xs mb-6 sm:mb-8">
               Handcrafted premium invitation boxes & festive gifting — where
               elegance meets artistry.
             </p>
@@ -96,16 +96,16 @@ export default function Footer() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="col-span-1 lg:col-span-3 lg:pl-8"
           >
-            <h4 className="font-heading text-[10px] uppercase tracking-[0.25em] text-stone-800 mb-6 flex items-center gap-4">
-              <span className="w-4 h-px bg-stone-400" />
+            <h4 className="font-heading text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-stone-800 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-4">
+              <span className="w-2 sm:w-4 h-px bg-stone-400" />
               Quick Links
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5 sm:space-y-3">
               {QUICK_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-stone-500 hover:text-stone-900 transition-colors duration-300 font-light"
+                    className="text-[11px] sm:text-sm text-stone-500 hover:text-stone-900 transition-colors duration-300 font-light"
                   >
                     {link.label}
                   </Link>
@@ -121,16 +121,16 @@ export default function Footer() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="col-span-1 lg:col-span-2"
           >
-            <h4 className="font-heading text-[10px] uppercase tracking-[0.25em] text-stone-800 mb-6 flex items-center gap-4">
-              <span className="w-4 h-px bg-stone-400" />
+            <h4 className="font-heading text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-stone-800 mb-4 sm:mb-6 flex items-center gap-2 sm:gap-4">
+              <span className="w-2 sm:w-4 h-px bg-stone-400" />
               Company
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5 sm:space-y-3">
               {COMPANY.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-stone-500 hover:text-stone-900 transition-colors duration-300 font-light"
+                    className="text-[11px] sm:text-sm text-stone-500 hover:text-stone-900 transition-colors duration-300 font-light"
                   >
                     {link.label}
                   </Link>
@@ -144,7 +144,7 @@ export default function Footer() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="col-span-1 sm:col-span-2 lg:col-span-3"
+            className="col-span-2 lg:col-span-3"
           >
             <h4 className="font-heading text-[10px] uppercase tracking-[0.25em] text-stone-800 mb-6 flex items-center gap-4">
               <span className="w-4 h-px bg-stone-400" />
