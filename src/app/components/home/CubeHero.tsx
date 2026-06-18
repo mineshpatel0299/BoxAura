@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const CUBE_IMAGES = [
   "/images/wedding_box_2.png",
@@ -47,44 +47,90 @@ function useIsMobile() {
 
 export default function CubeHero() {
   const wrapRef = useRef<HTMLDivElement>(null);
-  const [rotation, setRotation] = useState({ x: -20, y: 30 });
-  const autoAngle = useRef(30);
+  const [rotation, setRotation] = useState({ x: -15, y: 30 });
+  const autoAngle = useRef({ x: -15, y: 30 });
+  const isDragging = useRef(false);
+  const previousTouch = useRef({ x: 0, y: 0 });
   const rafRef = useRef<number>(0);
   const size = useCubeSize();
   const isMobile = useIsMobile();
   const half = size / 2;
 
-  const handlePointerMove = useCallback((e: PointerEvent) => {
-    const px = e.clientX / window.innerWidth;
-    const py = e.clientY / window.innerHeight;
-    setRotation({
-      x: -160 + 320 * py,
-      y: -160 + 320 * px,
-    });
-  }, []);
+  // Desktop global mouse tracking (Parallax)
+  useEffect(() => {
+    if (!isMobile) {
+      const onGlobalMove = (e: PointerEvent) => {
+        const px = e.clientX / window.innerWidth;
+        const py = e.clientY / window.innerHeight;
+        setRotation({
+          x: -160 + 320 * py,
+          y: -160 + 320 * px,
+        });
+      };
+      window.addEventListener("pointermove", onGlobalMove, { passive: true });
+      return () => window.removeEventListener("pointermove", onGlobalMove);
+    }
+  }, [isMobile]);
 
+  // Mobile auto-rotation loop
   useEffect(() => {
     if (isMobile) {
       let lastTime = performance.now();
       const animate = (now: number) => {
         const delta = (now - lastTime) / 1000;
         lastTime = now;
-        autoAngle.current += delta * 25;
-        setRotation({
-          x: -15,
-          y: autoAngle.current,
-        });
+        
+        if (!isDragging.current) {
+          autoAngle.current.y += delta * 25; // Rotate 25 deg per sec
+          setRotation({
+            x: autoAngle.current.x,
+            y: autoAngle.current.y,
+          });
+        }
         rafRef.current = requestAnimationFrame(animate);
       };
       rafRef.current = requestAnimationFrame(animate);
       return () => cancelAnimationFrame(rafRef.current);
     }
+  }, [isMobile]);
 
-    window.addEventListener("pointermove", handlePointerMove, {
-      passive: true,
+  // Mobile Drag Handlers
+  const handlePointerDown = (e: React.PointerEvent) => {
+    if (!isMobile) return;
+    isDragging.current = true;
+    previousTouch.current = { x: e.clientX, y: e.clientY };
+    try {
+      (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    } catch (err) {}
+  };
+
+  const handlePointerMoveLocal = (e: React.PointerEvent) => {
+    if (!isMobile || !isDragging.current) return;
+    
+    const deltaX = e.clientX - previousTouch.current.x;
+    const deltaY = e.clientY - previousTouch.current.y;
+    
+    autoAngle.current.y += deltaX * 0.5;
+    autoAngle.current.x -= deltaY * 0.5;
+    
+    // Clamp X rotation so it doesn't flip completely upside down
+    autoAngle.current.x = Math.max(-60, Math.min(60, autoAngle.current.x));
+
+    setRotation({
+      x: autoAngle.current.x,
+      y: autoAngle.current.y,
     });
-    return () => window.removeEventListener("pointermove", handlePointerMove);
-  }, [isMobile, handlePointerMove]);
+    
+    previousTouch.current = { x: e.clientX, y: e.clientY };
+  };
+
+  const handlePointerEnd = (e: React.PointerEvent) => {
+    if (!isMobile) return;
+    isDragging.current = false;
+    try {
+      (e.target as HTMLElement).releasePointerCapture(e.pointerId);
+    } catch (err) {}
+  };
 
   const faces = [
     { transform: `rotateY(0deg) translateZ(${half}px)` },
@@ -96,7 +142,14 @@ export default function CubeHero() {
   ];
 
   return (
-    <div className="flex items-center justify-center">
+    <div 
+      className={`flex items-center justify-center ${isMobile ? "cursor-grab active:cursor-grabbing" : ""}`}
+      style={{ touchAction: isMobile ? "none" : "auto" }}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMoveLocal}
+      onPointerUp={handlePointerEnd}
+      onPointerCancel={handlePointerEnd}
+    >
       <div
         ref={wrapRef}
         style={{
@@ -112,7 +165,7 @@ export default function CubeHero() {
             position: "relative",
             transformStyle: "preserve-3d",
             transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
-            transition: isMobile ? "none" : "transform 0.15s ease-out",
+            transition: isMobile && !isDragging.current ? "none" : "transform 0.1s ease-out",
           }}
         >
           {faces.map((face, i) => (
@@ -128,6 +181,7 @@ export default function CubeHero() {
                 transform: face.transform,
                 backfaceVisibility: "hidden",
                 borderRadius: 4,
+                border: "1px solid rgba(255,255,255,0.1)",
               }}
             />
           ))}

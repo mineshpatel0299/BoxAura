@@ -30,11 +30,11 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-xl shadow-sm shadow-pink-100/40"
-          : "bg-transparent"
+          ? "bg-[#EFECE5]/95 backdrop-blur-md border-b border-stone-400"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="mx-auto max-w-7xl flex items-center justify-between px-8 py-4">
+      <div className="mx-auto max-w-[1400px] flex items-center justify-between px-6 sm:px-12 py-4">
         <Link href="/" className="flex-shrink-0">
           <Image
             src="https://res.cloudinary.com/de4pazo51/image/upload/v1781679251/WhatsApp_Image_2026-06-17_at_09.42.19__1_-removebg-preview_1_cupphn.png"
@@ -42,7 +42,7 @@ export default function Navbar() {
             width={160}
             height={64}
             priority
-            className="h-14 w-auto object-contain"
+            className="h-12 sm:h-14 w-auto object-contain"
           />
         </Link>
 
@@ -56,7 +56,7 @@ export default function Navbar() {
             >
               <Link
                 href={link.href}
-                className="font-heading text-[13px] font-medium uppercase tracking-[0.15em] text-stone-600 hover:text-pink-400 transition-colors duration-300"
+                className="font-heading text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-stone-500 hover:text-stone-900 transition-colors duration-300"
               >
                 {link.label}
               </Link>
@@ -70,13 +70,13 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block h-0.5 w-6 bg-stone-600 transition-all duration-300 ${mobileOpen ? "translate-y-2 rotate-45" : ""}`}
+            className={`block h-px w-6 bg-stone-800 transition-all duration-300 ${mobileOpen ? "translate-y-[7px] rotate-45" : ""}`}
           />
           <span
-            className={`block h-0.5 w-6 bg-stone-600 transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`}
+            className={`block h-px w-6 bg-stone-800 transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`block h-0.5 w-6 bg-stone-600 transition-all duration-300 ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`}
+            className={`block h-px w-6 bg-stone-800 transition-all duration-300 ${mobileOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
           />
         </button>
       </div>
@@ -88,19 +88,20 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-pink-50 overflow-hidden"
+            className="lg:hidden bg-[#EFECE5]/95 backdrop-blur-xl border-t border-stone-400 overflow-hidden"
           >
-            <ul className="flex flex-col gap-1 px-8 py-6">
+            <ul className="flex flex-col gap-0 px-8 py-6">
               {NAV_LINKS.map((link, i) => (
                 <motion.li
                   key={link.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
+                  className="border-b border-stone-300 last:border-b-0"
                 >
                   <Link
                     href={link.href}
-                    className="block py-3 font-heading text-sm uppercase tracking-[0.15em] text-stone-600 hover:text-pink-400 transition-colors"
+                    className="block py-4 font-heading text-xs uppercase tracking-[0.2em] text-stone-600 hover:text-stone-900 transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}

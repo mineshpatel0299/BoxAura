@@ -55,221 +55,129 @@ export default function ClientExperiences() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 sm:py-28 lg:py-40 overflow-hidden"
+      className="relative z-20 w-full bg-[#EFECE5] flex items-stretch justify-center border-t border-stone-400/50 overflow-hidden"
     >
       <SectionBg variant="right-strip" />
 
-      <div className="mx-auto max-w-7xl px-5 sm:px-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16 lg:mb-20"
-        >
-          <div className="flex items-center gap-3 justify-center mb-5">
-            <span className="h-px w-8 sm:w-12 bg-linear-to-r from-transparent to-pink-300/50" />
-            <p className="font-heading text-[10px] sm:text-xs font-medium uppercase tracking-[0.35em] text-pink-400/70">
+      {/* Main Framed Container */}
+      <div className="w-full max-w-[1400px] border-x border-stone-400 flex flex-col relative z-10">
+        
+        {/* Header Bar */}
+        <div className="w-full border-b border-stone-400 py-8 px-6 sm:px-12 flex justify-between items-center bg-[#EFECE5]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-stone-800 tracking-tight">
+            Client <span className="italic font-light text-stone-500">Experiences</span>
+          </h2>
+          <div className="hidden sm:flex items-center gap-4">
+            <span className="h-px w-8 bg-stone-400" />
+            <p className="font-heading text-[10px] uppercase tracking-[0.35em] text-stone-500">
               Voices of Elegance
             </p>
-            <span className="h-px w-8 sm:w-12 bg-linear-to-l from-transparent to-pink-300/50" />
           </div>
-          <h2 className="font-heading text-3xl sm:text-5xl lg:text-7xl font-light text-stone-800 leading-[1.05]">
-            Client{" "}
-            <span className="italic font-normal text-stone-500">
-              Experiences
-            </span>
-          </h2>
-          <div className="mx-auto mt-5 w-12 sm:w-16 h-px bg-pink-200" />
-        </motion.div>
+        </div>
 
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 items-stretch">
-          {/* Left image */}
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{
-              duration: 1,
-              delay: 0.2,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="lg:w-[48%] relative"
-          >
-            <div className="relative aspect-4/3 sm:aspect-3/4">
-              {/* Decorative frame */}
-              <div className="absolute -top-3 -left-3 sm:-top-5 sm:-left-5 w-full h-full rounded-2xl sm:rounded-3xl border border-pink-200/40" />
-
-              {/* Main image */}
-              <div className="relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={active}
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="absolute inset-0"
-                  >
-                    <Image
-                      src={IMAGES[active]}
-                      alt="Client experience"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 48vw"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/5" />
-
-                {/* Bottom overlay — author on image (mobile-friendly) */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
-                  <AnimatePresence mode="wait">
-                    <motion.p
-                      key={active}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="font-heading text-xl sm:text-3xl lg:text-4xl font-light text-white leading-tight"
-                    >
-                      {TESTIMONIALS[active].author}
-                    </motion.p>
-                  </AnimatePresence>
-                  <p className="font-heading text-[10px] sm:text-xs uppercase tracking-[0.25em] text-white/50 mt-1.5">
-                    {TESTIMONIALS[active].location}
-                  </p>
-                </div>
-              </div>
-
-              {/* Decorative accent */}
-              <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-pink-100/30 blur-2xl pointer-events-none" />
-            </div>
-          </motion.div>
-
-          {/* Right testimonial */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{
-              duration: 1,
-              delay: 0.4,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="lg:w-[52%] lg:pl-16 xl:pl-20 flex flex-col justify-center"
-          >
-            {/* Large decorative quote */}
-            <div className="relative mb-0 sm:mb-2">
-              <span className="font-heading text-7xl sm:text-[10rem] lg:text-[12rem] leading-none text-pink-200/30 select-none absolute -top-8 sm:-top-16 -left-1 sm:-left-4">
-                &ldquo;
-              </span>
-            </div>
-
-            <div className="relative z-10 min-h-40 sm:min-h-50 lg:min-h-65 flex flex-col justify-center pt-8 sm:pt-0">
+        {/* Flattened Grid for Mobile Reordering */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 bg-[#EFECE5]">
+          
+          {/* 1. Image (Mobile: Top, Desktop: Bottom Right) */}
+          <div className="col-span-1 lg:col-span-1 order-1 lg:order-3 lg:p-12 flex items-center justify-center border-b border-stone-400 lg:border-b-0">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/6] lg:aspect-[21/9] lg:max-w-[600px] overflow-hidden lg:border border-stone-400">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.6 }}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="absolute inset-0"
                 >
-                  <p className="text-lg sm:text-2xl lg:text-[1.75rem] lg:leading-relaxed text-stone-500 font-light leading-relaxed">
-                    {TESTIMONIALS[active].quote}
+                  <Image
+                    src={IMAGES[active]}
+                    alt="Client experience"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* 2. Quote (Mobile: Middle, Desktop: Top Row) */}
+          <div className="col-span-1 lg:col-span-2 order-2 lg:order-1 w-full h-[280px] sm:h-[360px] lg:h-[400px] border-b border-stone-400 px-8 sm:px-16 lg:px-24 flex flex-col justify-center items-center text-center relative bg-white/30 backdrop-blur-sm">
+            <span className="absolute top-4 left-4 sm:top-8 sm:left-12 text-[6rem] sm:text-[10rem] font-serif leading-none text-stone-200/50 select-none">
+              "
+            </span>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={active}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.5 }}
+                className="relative z-10 text-lg sm:text-2xl lg:text-4xl text-stone-700 font-light leading-snug sm:leading-relaxed italic max-w-4xl"
+              >
+                {TESTIMONIALS[active].quote}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+
+          {/* 3. Author & Controls (Mobile: Bottom, Desktop: Bottom Left) */}
+          <div className="col-span-1 lg:col-span-1 order-3 lg:order-2 lg:border-r border-stone-400 p-8 sm:p-12 flex flex-col justify-between min-h-[180px] lg:min-h-[200px]">
+            
+            {/* Fixed height wrapper to prevent jumping */}
+            <div className="h-[70px] lg:h-[80px] mb-8">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <p className="text-base sm:text-xl font-medium tracking-widest uppercase text-stone-800 mb-2">
+                    {TESTIMONIALS[active].author}
                   </p>
+                  <div className="flex items-center gap-4">
+                    <span className="w-6 sm:w-8 h-px bg-stone-400" />
+                    <p className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-stone-500">
+                      {TESTIMONIALS[active].location}
+                    </p>
+                  </div>
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Author line */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                className="mt-6 sm:mt-8 flex items-center gap-4 sm:gap-5"
-              >
-                <div className="w-8 sm:w-12 h-px bg-linear-to-r from-pink-300 to-pink-100" />
-                <div>
-                  <p className="font-heading text-xs sm:text-sm uppercase tracking-[0.2em] font-light text-stone-800">
-                    {TESTIMONIALS[active].author}
-                  </p>
-                  <p className="font-heading text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-stone-400 mt-0.5">
-                    {TESTIMONIALS[active].location}
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Navigation */}
-            <div className="flex items-center gap-4 sm:gap-6 mt-8 sm:mt-12">
+            {/* Navigation Controls */}
+            <div className="flex items-center gap-4 mt-auto">
               <button
                 onClick={goPrev}
                 aria-label="Previous testimonial"
-                className="group w-11 h-11 sm:w-14 sm:h-14 rounded-full border border-stone-200 flex items-center justify-center text-stone-400 hover:border-stone-800 hover:text-stone-800 transition-all duration-500"
+                className="w-10 h-10 sm:w-12 sm:h-12 border border-stone-400 flex items-center justify-center text-stone-500 hover:bg-stone-300 hover:text-stone-800 transition-colors group"
               >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="sm:w-5 sm:h-5 transition-transform duration-300 group-hover:-translate-x-0.5"
-                >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="transition-transform group-hover:-translate-x-1">
                   <path d="M19 12H5M12 19l-7-7 7-7" />
                 </svg>
               </button>
-
-              {/* Progress indicators */}
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                {TESTIMONIALS.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActive(i)}
-                    aria-label={`Go to testimonial ${i + 1}`}
-                    className="relative h-0.5 overflow-hidden rounded-full transition-all duration-500"
-                    style={{ width: i === active ? 28 : 10 }}
-                  >
-                    <span className="absolute inset-0 bg-stone-200" />
-                    {i === active && (
-                      <motion.span
-                        className="absolute inset-0 bg-stone-700"
-                        initial={{ scaleX: 0, transformOrigin: "left" }}
-                        animate={{ scaleX: 1 }}
-                        transition={{ duration: 7, ease: "linear" }}
-                        key={`bar-${active}`}
-                      />
-                    )}
-                  </button>
-                ))}
-              </div>
-
               <button
                 onClick={goNext}
                 aria-label="Next testimonial"
-                className="group w-11 h-11 sm:w-14 sm:h-14 rounded-full border border-stone-200 flex items-center justify-center text-stone-400 hover:border-stone-800 hover:text-stone-800 transition-all duration-500"
+                className="w-10 h-10 sm:w-12 sm:h-12 border border-stone-400 flex items-center justify-center text-stone-500 hover:bg-stone-300 hover:text-stone-800 transition-colors group"
               >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-0.5"
-                >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="transition-transform group-hover:translate-x-1">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
+
+              {/* Counter */}
+              <div className="ml-auto font-heading text-[10px] sm:text-xs text-stone-400 tracking-[0.3em]">
+                0{active + 1} / 0{TESTIMONIALS.length}
+              </div>
             </div>
-          </motion.div>
+
+          </div>
+
         </div>
+
       </div>
     </section>
   );

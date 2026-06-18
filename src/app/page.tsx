@@ -12,10 +12,10 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <Catalog />
+      <Philosophy />
       {/* <CategoryCards /> */}
       <Collections />
-      <Philosophy />
-      <Catalog />
       <ClientExperiences />
       <GoldClubCTA />
     </>
