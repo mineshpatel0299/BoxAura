@@ -2,18 +2,77 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 const PANORAMA_SRC =
   "https://res.cloudinary.com/de4pazo51/image/upload/v1781871639/slider_horizontal-4_xpqof6.png";
 
 const CATALOG_ITEMS = [
-  { category: "Signature Heritage", subtitle: "Timeless Elegance" },
-  { category: "Obsidian Reserve", subtitle: "Bold & Luxurious" },
-  { category: "Lumina Prisma", subtitle: "Radiant Textures" },
+  {
+    category: "Signature Heritage",
+    subtitle: "Timeless Elegance",
+    image:
+      "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.1_kofhcn.png",
+  },
+  {
+    category: "Obsidian Reserve",
+    subtitle: "Bold & Luxurious",
+    image:
+      "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.2_p6edgp.png",
+  },
+  {
+    category: "Lumina Prisma",
+    subtitle: "Radiant Textures",
+    image:
+      "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.3_hrfbhm.png",
+  },
 ];
 
 const TOTAL = CATALOG_ITEMS.length;
+
+function MobileCatalogCard({
+  item,
+  index,
+}: {
+  item: (typeof CATALOG_ITEMS)[number];
+  index: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="relative group"
+    >
+      <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(120,100,80,0.12)]">
+        <Image
+          src={item.image}
+          alt={item.category}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="85vw"
+        />
+      </div>
+
+      <div className="mt-5 flex flex-col items-center">
+        <span className="font-heading text-[8px] uppercase tracking-[0.5em] text-stone-400 mb-2">
+          {String(index + 1).padStart(2, "0")} — {String(TOTAL).padStart(2, "0")}
+        </span>
+        <h3 className="text-xl font-heading text-stone-800 text-center leading-tight tracking-tight">
+          {item.category}
+        </h3>
+        <span className="mt-2.5 w-6 h-px bg-stone-300" />
+        <p className="mt-2.5 text-[10px] text-stone-400 font-light tracking-[0.2em] uppercase">
+          {item.subtitle}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Catalog() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -27,7 +86,7 @@ export default function Catalog() {
 
   return (
     <>
-      {/* Section Header — outside the scroll gallery */}
+      {/* Section Header */}
       <div className="relative bg-[#EFECE5] pt-14 sm:pt-20 lg:pt-24 pb-10 sm:pb-14 lg:pb-16 overflow-hidden border-b border-stone-300">
         <div className="relative z-10 flex flex-col items-center px-4 sm:px-6">
           <div className="flex items-center gap-4 sm:gap-6 mb-4 sm:mb-5">
@@ -52,14 +111,22 @@ export default function Catalog() {
         </div>
       </div>
 
-      {/* Scroll-driven Panorama Gallery */}
+      {/* Mobile: Vertical card gallery */}
+      <section className="md:hidden bg-[#EFECE5] py-12 px-5">
+        <div className="flex flex-col gap-6">
+          {CATALOG_ITEMS.map((item, i) => (
+            <MobileCatalogCard key={i} item={item} index={i} />
+          ))}
+        </div>
+      </section>
+
+      {/* Desktop: Scroll-driven Panorama Gallery */}
       <section
         ref={sectionRef}
-        className="relative bg-stone-950"
+        className="relative bg-stone-950 hidden md:block"
         style={{ height: `${TOTAL * 100}vh` }}
       >
         <div className="sticky top-0 h-screen w-screen overflow-hidden">
-          {/* Single Panorama Image */}
           <motion.div
             className="absolute top-0 left-0 h-full"
             style={{ x: imgX, width: `${TOTAL * 100}%` }}
@@ -74,10 +141,8 @@ export default function Catalog() {
             />
           </motion.div>
 
-          {/* Subtle vignette for depth */}
           <div className="absolute inset-0 z-[1] pointer-events-none shadow-[inset_0_0_120px_40px_rgba(0,0,0,0.3)]" />
 
-          {/* Floating Category Text */}
           {CATALOG_ITEMS.map((item, i) => (
             <CatalogText
               key={i}
@@ -87,7 +152,6 @@ export default function Catalog() {
             />
           ))}
 
-          {/* Luxury Progress Bar */}
           <div className="absolute bottom-10 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-5">
             {CATALOG_ITEMS.map((_, i) => (
               <ProgressLine
