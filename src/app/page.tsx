@@ -15,7 +15,7 @@ export default function Home() {
       <Catalog />
       <Philosophy />
       {/* <CategoryCards /> */}
-      <Collections />
+      {/* <Collections /> */}
       <ClientExperiences />
       <GoldClubCTA />
     </>

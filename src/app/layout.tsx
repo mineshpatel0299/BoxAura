@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Infant, Jost } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AppShell from "./components/AppShell";
 import "./globals.css";
 
 const cormorantInfant = Cormorant_Infant({
@@ -33,9 +34,11 @@ export default function RootLayout({
       className={`${cormorantInfant.variable} ${jost.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <AppShell>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </AppShell>
 
         {/* Floating WhatsApp button */}
         <a

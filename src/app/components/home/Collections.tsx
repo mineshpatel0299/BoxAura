@@ -4,6 +4,7 @@ import { useState, useRef, useMemo, RefObject, createRef, useEffect } from "reac
 import Image from "next/image";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import SectionBg from "../SectionBg";
+import RosePetals from "./RosePetals";
 
 const COLLECTIONS = [
   {
@@ -14,25 +15,25 @@ const COLLECTIONS = [
     category: "Signature Collection",
   },
   {
-    image: "/images/wedding_box_2.png",
+    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg",
     title: "Wedding",
     subtitle: "Love in Every Detail",
     category: "Bespoke Event",
   },
   {
-    image: "/images/wedding_box_3.png",
+    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.09_1_qzulax.jpg",
     title: "Festive",
     subtitle: "Celebrate in Style",
     category: "Seasonal Edition",
   },
   {
-    image: "/images/wedding_box_4.png",
+    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861841/ChatGPT_Image_Jun_19_2026_01_46_12_PM_1_1_egihmx.png",
     title: "Premium",
     subtitle: "Crafted to Perfection",
     category: "Luxury Line",
   },
   {
-    image: "/images/wedding_box_5.png",
+    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861840/ChatGPT_Image_Jun_19_2026_01_43_40_PM_zfkduw.png",
     title: "Custom",
     subtitle: "Your Vision, Our Craft",
     category: "Personalized",
@@ -141,6 +142,7 @@ export default function Collections() {
   return (
     <section ref={sectionRef} className="relative bg-[#EFECE5] py-20 sm:py-28 text-stone-900 font-sans border-t border-stone-400/50">
       <SectionBg variant="bottom-left" />
+      <RosePetals count={6} />
       <div className="mx-auto max-w-[1400px] px-6 sm:px-12 relative z-10">
         {/* Header */}
         <motion.div 
