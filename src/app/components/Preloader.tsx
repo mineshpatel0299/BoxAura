@@ -61,7 +61,7 @@ export default function Preloader({
       >
         <button
           onClick={handleExplore}
-          className="group relative px-10 py-4 font-[family-name:var(--font-heading)] text-lg tracking-[0.2em] uppercase text-white border border-white/40 rounded-none bg-transparent backdrop-blur-sm cursor-pointer overflow-hidden transition-all duration-500 hover:border-white/80 hover:tracking-[0.3em]"
+          className="group relative px-7 py-3 sm:px-10 sm:py-4 font-[family-name:var(--font-heading)] text-sm sm:text-lg tracking-[0.15em] sm:tracking-[0.2em] uppercase text-white border border-white/40 rounded-none bg-transparent backdrop-blur-sm cursor-pointer overflow-hidden transition-all duration-500 hover:border-white/80 hover:tracking-[0.3em]"
         >
           <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           <span className="relative z-10">Start Exploring</span>

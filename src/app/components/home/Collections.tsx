@@ -157,7 +157,7 @@ export default function Collections() {
               The Catalog
             </p>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-serif text-stone-800 tracking-tight leading-tight max-w-3xl">
+          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-heading text-stone-800 tracking-tight leading-tight max-w-3xl">
             Curated <br className="hidden sm:block" /> <span className="italic font-light text-stone-500">Masterpieces</span>
           </h2>
         </motion.div>

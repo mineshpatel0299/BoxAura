@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Cormorant_Infant, Jost } from "next/font/google";
+import { Poppins } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AppShell from "./components/AppShell";
 import "./globals.css";
 
-const cormorantInfant = Cormorant_Infant({
+const poppins = Poppins({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["200", "300", "400", "500", "600", "700"],
 });
 
-const jost = Jost({
+const poppinsBody = Poppins({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600"],
+  weight: ["200", "300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorantInfant.variable} ${jost.variable} h-full antialiased`}
+      className={`${poppins.variable} ${poppinsBody.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <AppShell>

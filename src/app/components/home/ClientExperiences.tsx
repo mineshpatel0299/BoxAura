@@ -41,7 +41,7 @@ export default function ClientExperiences() {
   return (
     <section className="relative w-full bg-stone-950 flex flex-col lg:flex-row min-h-[100svh] overflow-hidden border-t border-stone-800">
       {/* Left side: Imagery */}
-      <div className="relative w-full lg:w-1/2 h-[50vh] sm:h-[60vh] lg:h-auto overflow-hidden bg-stone-900">
+      <div className="relative w-full lg:w-1/2 h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-auto overflow-hidden bg-stone-900">
         <AnimatePresence initial={false}>
           <motion.div
             key={active}
@@ -66,16 +66,16 @@ export default function ClientExperiences() {
       </div>
 
       {/* Right side: Content */}
-      <div className="relative w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-12 lg:px-24 py-16 lg:py-32 bg-[#EFECE5]">
-        
-        <div className="flex items-center gap-4 mb-12 lg:mb-24">
+      <div className="relative w-full lg:w-1/2 flex flex-col justify-center px-4 sm:px-12 lg:px-24 py-10 sm:py-16 lg:py-32 bg-[#EFECE5]">
+
+        <div className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-12 lg:mb-24">
           <span className="w-8 sm:w-12 h-px bg-stone-300" />
           <span className="font-heading text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-stone-500">
             Voices of Elegance
           </span>
         </div>
 
-        <div className="flex-1 flex flex-col justify-center relative min-h-[250px] sm:min-h-[300px]">
+        <div className="flex-1 flex flex-col justify-center relative min-h-[220px] sm:min-h-[300px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -86,11 +86,11 @@ export default function ClientExperiences() {
               className="absolute inset-0 flex flex-col justify-center"
             >
               {/* Massive Quote Mark */}
-              <span className="text-stone-300 text-6xl sm:text-8xl font-serif leading-none absolute -top-6 sm:-top-12 -left-2 sm:-left-8 opacity-50 select-none">
-                "
+              <span className="text-stone-300 text-5xl sm:text-8xl font-heading leading-none absolute -top-4 sm:-top-12 -left-1 sm:-left-8 opacity-50 select-none">
+                &ldquo;
               </span>
-              
-              <h3 className="text-2xl sm:text-3xl lg:text-[2.5rem] text-stone-800 font-serif font-light leading-[1.5] sm:leading-[1.5] lg:leading-[1.4] mb-8 sm:mb-12 relative z-10">
+
+              <h3 className="text-lg sm:text-3xl lg:text-[2.5rem] text-stone-800 font-heading font-light leading-[1.6] sm:leading-[1.5] lg:leading-[1.4] mb-6 sm:mb-12 relative z-10">
                 {TESTIMONIALS[active].quote}
               </h3>
 
@@ -107,7 +107,7 @@ export default function ClientExperiences() {
         </div>
 
         {/* Custom Navigation */}
-        <div className="flex items-center justify-between mt-12 sm:mt-16 lg:mt-24">
+        <div className="flex items-center justify-between mt-8 sm:mt-16 lg:mt-24">
           <div className="flex items-center gap-4 sm:gap-6">
             {TESTIMONIALS.map((_, i) => (
               <button

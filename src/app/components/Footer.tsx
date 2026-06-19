@@ -50,10 +50,10 @@ export default function Footer() {
 
   return (
     <footer ref={ref} className="relative w-full bg-[#EFECE5] border-t border-stone-400 flex justify-center">
-      <div className="w-full max-w-[1400px] px-6 sm:px-16 lg:px-24 pt-12 sm:pt-24 pb-8 flex flex-col relative z-10">
+      <div className="w-full max-w-[1400px] px-4 sm:px-16 lg:px-24 pt-10 sm:pt-24 pb-6 sm:pb-8 flex flex-col relative z-10">
 
         {/* Main footer grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-8 pb-12 lg:pb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-4 sm:gap-x-6 gap-y-8 sm:gap-y-10 lg:gap-8 pb-10 sm:pb-12 lg:pb-16">
 
           {/* Brand column */}
           <motion.div
@@ -71,7 +71,7 @@ export default function Footer() {
                 className="h-8 sm:h-10 w-auto object-contain"
               />
             </Link>
-            <p className="text-xs sm:text-sm text-stone-500 leading-relaxed font-light max-w-xs mb-6 sm:mb-8">
+            <p className="text-[11px] sm:text-sm text-stone-500 leading-relaxed font-light max-w-xs mb-5 sm:mb-8">
               Handcrafted premium invitation boxes & festive gifting — where
               elegance meets artistry.
             </p>
@@ -81,7 +81,7 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 border border-stone-400 flex items-center justify-center text-stone-500 hover:bg-stone-300 hover:text-stone-800 transition-all duration-300"
+                  className="w-9 h-9 sm:w-10 sm:h-10 border border-stone-400 flex items-center justify-center text-stone-500 hover:bg-stone-300 hover:text-stone-800 transition-all duration-300"
                 >
                   {social.icon}
                 </a>
@@ -177,7 +177,7 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="pt-8 border-t border-stone-400 flex flex-col sm:flex-row items-center justify-between gap-4"
+          className="pt-6 sm:pt-8 border-t border-stone-400 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4"
         >
           <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400 font-light">
             &copy; {new Date().getFullYear()} BoxAura. All rights reserved.

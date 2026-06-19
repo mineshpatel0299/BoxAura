@@ -34,7 +34,7 @@ export default function Navbar() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="mx-auto max-w-[1400px] flex items-center justify-between px-6 sm:px-12 py-4">
+      <div className="mx-auto max-w-[1400px] flex items-center justify-between px-4 sm:px-6 md:px-12 py-3 sm:py-4">
         <Link href="/" className="flex-shrink-0">
           <Image
             src="https://res.cloudinary.com/de4pazo51/image/upload/v1781679251/WhatsApp_Image_2026-06-17_at_09.42.19__1_-removebg-preview_1_cupphn.png"
@@ -42,7 +42,7 @@ export default function Navbar() {
             width={160}
             height={64}
             priority
-            className="h-12 sm:h-14 w-auto object-contain"
+            className="h-10 sm:h-12 md:h-14 w-auto object-contain"
           />
         </Link>
 
@@ -56,7 +56,7 @@ export default function Navbar() {
             >
               <Link
                 href={link.href}
-                className="font-heading text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-stone-500 hover:text-stone-900 transition-colors duration-300"
+                className="font-heading text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-stone-800 hover:text-stone-950 transition-colors duration-300"
               >
                 {link.label}
               </Link>
@@ -90,7 +90,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="lg:hidden bg-[#EFECE5]/95 backdrop-blur-xl border-t border-stone-400 overflow-hidden"
           >
-            <ul className="flex flex-col gap-0 px-8 py-6">
+            <ul className="flex flex-col gap-0 px-6 sm:px-8 py-4 sm:py-6">
               {NAV_LINKS.map((link, i) => (
                 <motion.li
                   key={link.href}
@@ -101,7 +101,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className="block py-4 font-heading text-xs uppercase tracking-[0.2em] text-stone-600 hover:text-stone-900 transition-colors"
+                    className="block py-4 font-heading text-xs uppercase tracking-[0.2em] text-stone-800 hover:text-stone-950 transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}

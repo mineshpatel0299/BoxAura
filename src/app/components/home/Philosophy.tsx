@@ -17,18 +17,18 @@ export default function Philosophy() {
   const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      className="relative w-full bg-[#EFECE5] flex flex-col items-center justify-center py-16 sm:py-24 lg:py-40 overflow-hidden border-b border-stone-400"
+      className="relative w-full bg-[#EFECE5] flex flex-col items-center justify-center py-12 sm:py-24 lg:py-40 overflow-hidden border-b border-stone-400"
     >
       <SectionBg variant="left-strip" />
       <RosePetals count={8} />
       
-      <div className="w-full max-w-[1400px] px-6 sm:px-12 lg:px-20 relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+      <div className="w-full max-w-[1400px] px-4 sm:px-12 lg:px-20 relative z-10 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-24">
         
         {/* Left Column: Cinematic Image */}
         <div className="w-full lg:w-[45%] flex justify-center lg:justify-start">
-          <div className="relative w-[85%] sm:w-[90%] md:w-full max-w-[400px] lg:max-w-[450px] aspect-[4/5] bg-stone-200">
+          <div className="relative w-full sm:w-[90%] md:w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[450px] aspect-[4/5] bg-stone-200">
             {/* Mask Reveal container */}
             <motion.div 
               initial={{ clipPath: "inset(100% 0 0 0)" }}
@@ -78,19 +78,19 @@ export default function Philosophy() {
           </motion.div>
 
           {/* Staggered Title */}
-          <div className="mb-6 sm:mb-10 overflow-hidden py-2 text-center lg:text-left">
-            <motion.h2 
+          <div className="mb-4 sm:mb-10 overflow-hidden py-2 text-center lg:text-left">
+            <motion.h2
               initial={{ y: "100%", rotate: 2 }}
               whileInView={{ y: "0%", rotate: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-              className="text-4xl sm:text-5xl lg:text-7xl font-serif text-stone-800 tracking-tight leading-none"
+              className="text-3xl sm:text-5xl lg:text-7xl font-heading text-stone-800 tracking-tight leading-none"
             >
               The <span className="italic font-light text-stone-500">Philosophy</span>
             </motion.h2>
           </div>
 
-          <div className="space-y-6 sm:space-y-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-stone-600 font-light text-[13px] sm:text-base leading-[1.8] sm:leading-relaxed tracking-wide">
+          <div className="space-y-4 sm:space-y-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-stone-600 font-light text-[12px] sm:text-base leading-[1.7] sm:leading-relaxed tracking-wide">
             {/* Staggered Paragraphs */}
             {[
               "We open this brand with a vision to redefine how celebrations begin. Every box we craft is an experience — a blend of premium fabrics, satin finishes, velvet textures, and exquisite accessories that transform a simple invitation into an unforgettable first impression.",
@@ -114,7 +114,7 @@ export default function Philosophy() {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
              transition={{ duration: 0.8, delay: 0.6 }}
-             className="mt-10 sm:mt-16 flex justify-center lg:justify-start"
+             className="mt-8 sm:mt-16 flex justify-center lg:justify-start"
           >
              <a href="/premium-wedding-invitation" className="group inline-flex items-center gap-4 sm:gap-6 cursor-pointer">
                 <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-stone-900 font-medium">Discover More</span>
