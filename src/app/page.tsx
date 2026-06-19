@@ -6,6 +6,7 @@ import {
   ClientExperiences,
   Catalog,
   GoldClubCTA,
+  Stats,
 } from "./components/home";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroSection />
       <Philosophy />
       <Catalog />
+      <Stats />
       {/* <CategoryCards /> */}
       {/* <Collections /> */}
       <ClientExperiences />

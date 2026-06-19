@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const PANORAMA_SRC =
   "https://res.cloudinary.com/de4pazo51/image/upload/v1781871639/slider_horizontal-4_xpqof6.png";
@@ -24,90 +24,82 @@ export default function Catalog() {
   });
 
   const imgX = useTransform(scrollYProgress, [0, 1], ["0%", "-66.666%"]);
-  const [headerHidden, setHeaderHidden] = useState(false);
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.005], [1, 0]);
-  const headerY = useTransform(scrollYProgress, [0, 0.005], ["0%", "-10%"]);
-  const headerScale = useTransform(scrollYProgress, [0, 0.005], [1, 0.97]);
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setHeaderHidden(v > 0.01);
-  });
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-stone-950"
-      style={{ height: `${TOTAL * 100}vh` }}
-    >
-      <div className="sticky top-0 h-screen w-screen overflow-hidden">
-        {/* Single Panorama Image */}
-        <motion.div
-          className="absolute top-0 left-0 h-full"
-          style={{ x: imgX, width: `${TOTAL * 100}%` }}
-        >
-          <Image
-            src={PANORAMA_SRC}
-            alt="BoxAura curated catalog"
-            fill
-            className="object-cover"
-            sizes={`${TOTAL * 100}vw`}
-            priority
-          />
-        </motion.div>
-
-        {/* Subtle vignette for depth */}
-        <div className="absolute inset-0 z-[1] pointer-events-none shadow-[inset_0_0_120px_40px_rgba(0,0,0,0.3)]" />
-
-        {/* Section Header — centered, editorial */}
-        <motion.div
-          className={`absolute top-0 left-0 w-full z-20 flex flex-col items-center pt-12 sm:pt-16 lg:pt-20 pointer-events-none ${headerHidden ? "invisible" : ""}`}
-          style={{ opacity: headerOpacity, y: headerY, scale: headerScale }}
-        >
+    <>
+      {/* Section Header — outside the scroll gallery */}
+      <div className="relative bg-[#EFECE5] pt-14 sm:pt-20 lg:pt-24 pb-10 sm:pb-14 lg:pb-16 overflow-hidden border-b border-stone-300">
+        <div className="relative z-10 flex flex-col items-center px-4 sm:px-6">
           <div className="flex items-center gap-4 sm:gap-6 mb-4 sm:mb-5">
-            <span className="w-8 sm:w-12 lg:w-16 h-px bg-gradient-to-r from-transparent to-amber-400/50" />
-            <span className="font-heading text-[9px] sm:text-[10px] uppercase tracking-[0.5em] text-amber-300/60">
+            <span className="w-8 sm:w-12 lg:w-16 h-px bg-gradient-to-r from-transparent to-stone-400" />
+            <span className="font-heading text-[9px] sm:text-[10px] uppercase tracking-[0.5em] text-stone-500">
               The Collection
             </span>
-            <span className="w-8 sm:w-12 lg:w-16 h-px bg-gradient-to-l from-transparent to-amber-400/50" />
+            <span className="w-8 sm:w-12 lg:w-16 h-px bg-gradient-to-l from-transparent to-stone-400" />
           </div>
 
-          <h2 className="text-3xl sm:text-6xl lg:text-8xl font-heading text-white tracking-tight leading-none text-center">
-            Curated
-          </h2>
-          <h2 className="text-3xl sm:text-6xl lg:text-8xl font-heading italic font-light tracking-tight leading-none text-center mt-1 sm:mt-2 bg-gradient-to-r from-white/50 via-amber-200/70 to-white/50 bg-clip-text text-transparent">
-            Catalog
+          <h2 className="text-4xl sm:text-6xl lg:text-8xl font-heading tracking-tight leading-none text-center">
+            <span className="text-stone-800">Curated</span>{" "}
+            <span className="italic font-light text-stone-500">Catalog</span>
           </h2>
 
-          <p className="mt-4 sm:mt-6 max-w-[260px] sm:max-w-sm text-center text-[10px] sm:text-xs text-white/30 font-light tracking-[0.1em] sm:tracking-[0.15em] leading-relaxed uppercase">
+          <p className="mt-4 sm:mt-5 max-w-[280px] sm:max-w-sm text-center text-[10px] sm:text-xs text-stone-400 font-light tracking-widest sm:tracking-[0.15em] leading-relaxed uppercase">
             Handpicked textures &amp; finishes — crafted for those who
             demand the&nbsp;extraordinary
           </p>
 
-          <span className="mt-5 sm:mt-6 w-px h-8 sm:h-10 bg-gradient-to-b from-amber-400/40 to-transparent" />
-        </motion.div>
+          <span className="mt-5 sm:mt-6 w-px h-8 sm:h-10 bg-gradient-to-b from-stone-400 to-transparent" />
+        </div>
+      </div>
 
-        {/* Floating Category Text */}
-        {CATALOG_ITEMS.map((item, i) => (
-          <CatalogText
-            key={i}
-            item={item}
-            index={i}
-            scrollYProgress={scrollYProgress}
-          />
-        ))}
+      {/* Scroll-driven Panorama Gallery */}
+      <section
+        ref={sectionRef}
+        className="relative bg-stone-950"
+        style={{ height: `${TOTAL * 100}vh` }}
+      >
+        <div className="sticky top-0 h-screen w-screen overflow-hidden">
+          {/* Single Panorama Image */}
+          <motion.div
+            className="absolute top-0 left-0 h-full"
+            style={{ x: imgX, width: `${TOTAL * 100}%` }}
+          >
+            <Image
+              src={PANORAMA_SRC}
+              alt="BoxAura curated catalog"
+              fill
+              className="object-cover"
+              sizes={`${TOTAL * 100}vw`}
+              priority
+            />
+          </motion.div>
 
-        {/* Luxury Progress Bar */}
-        <div className="absolute bottom-10 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-5">
-          {CATALOG_ITEMS.map((_, i) => (
-            <ProgressLine
+          {/* Subtle vignette for depth */}
+          <div className="absolute inset-0 z-[1] pointer-events-none shadow-[inset_0_0_120px_40px_rgba(0,0,0,0.3)]" />
+
+          {/* Floating Category Text */}
+          {CATALOG_ITEMS.map((item, i) => (
+            <CatalogText
               key={i}
+              item={item}
               index={i}
               scrollYProgress={scrollYProgress}
             />
           ))}
+
+          {/* Luxury Progress Bar */}
+          <div className="absolute bottom-10 sm:bottom-12 left-1/2 -translate-x-1/2 z-20 flex items-center gap-5">
+            {CATALOG_ITEMS.map((_, i) => (
+              <ProgressLine
+                key={i}
+                index={i}
+                scrollYProgress={scrollYProgress}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
