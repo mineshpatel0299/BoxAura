@@ -28,16 +28,15 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
           ? "bg-[#EFECE5]/95 backdrop-blur-md border-b border-stone-400"
           : "bg-transparent border-b border-transparent"
-      }`}
+        }`}
     >
       <div className="mx-auto max-w-[1400px] flex items-center justify-between px-4 sm:px-6 md:px-12 py-3 sm:py-4">
         <Link href="/" className="flex-shrink-0">
           <Image
-            src="https://res.cloudinary.com/de4pazo51/image/upload/v1781679251/WhatsApp_Image_2026-06-17_at_09.42.19__1_-removebg-preview_1_cupphn.png"
+            src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
             alt="BoxAura"
             width={160}
             height={64}
