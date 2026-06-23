@@ -1,20 +1,34 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SectionBg from "../SectionBg";
 import RosePetals from "./RosePetals";
+import CubeHero from "./CubeHero";
+
+const CUBE_IMAGES = [
+  "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg",
+  "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_wyo6jf.jpg",
+  "https://res.cloudinary.com/de4pazo51/image/upload/v1781861841/ChatGPT_Image_Jun_19_2026_01_46_12_PM_1_1_egihmx.png",
+  "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_wyo6jf.jpg",
+  "https://res.cloudinary.com/de4pazo51/image/upload/v1781861840/ChatGPT_Image_Jun_19_2026_01_43_40_PM_zfkduw.png",
+  "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.09_1_qzulax.jpg",
+];
 
 export default function Philosophy() {
   const containerRef = useRef(null);
-  
-  // Subtle parallax for the image
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const [step, setStep] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStep(s => s + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleNext = () => {
+    setStep(s => s + 1);
+  };
 
   return (
     <section
@@ -26,39 +40,35 @@ export default function Philosophy() {
       
       <div className="w-full max-w-[1400px] px-4 sm:px-12 lg:px-20 relative z-10 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-24">
         
-        {/* Left Column: Cinematic Image */}
-        <div className="w-full lg:w-[45%] flex justify-center lg:justify-start">
-          <div className="relative w-full sm:w-[90%] md:w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[450px] aspect-[4/5] bg-stone-200">
-            {/* Mask Reveal container */}
+        {/* Left Column: 3D Cube */}
+        <div className="w-full lg:w-[45%] flex flex-col items-center justify-center lg:justify-start">
+          <div className="relative w-full sm:w-[90%] md:w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[450px] aspect-[4/5] flex flex-col items-center justify-center">
+            
             <motion.div 
-              initial={{ clipPath: "inset(100% 0 0 0)" }}
-              whileInView={{ clipPath: "inset(0% 0 0 0)" }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.4, ease: [0.76, 0, 0.24, 1] }}
-              className="absolute inset-0 overflow-hidden"
+              className="relative z-20 w-full flex justify-center"
             >
-              <motion.div 
-                style={{ y: imageY }}
-                className="absolute inset-[-15%]" // extra space for parallax
-              >
-                <Image 
-                  src="https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_wyo6jf.jpg" 
-                  alt="BoxAura Philosophy"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 500px"
-                />
-              </motion.div>
+              {/* Glow behind cube */}
+              <div className="absolute inset-0 rounded-full blur-[80px] sm:blur-[120px] bg-stone-400/20" />
+              <CubeHero step={step} onNext={handleNext} images={CUBE_IMAGES} />
             </motion.div>
             
-            {/* Decorative Outline Frame offset */}
-            <motion.div 
-              initial={{ opacity: 0, x: -10, y: 10 }}
-              whileInView={{ opacity: 1, x: 12, y: -12 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
-              className="absolute inset-0 border border-stone-400 pointer-events-none z-10"
-            />
+            {/* Hint text below cube */}
+            <motion.div
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.8, duration: 1 }}
+               className="mt-8 text-stone-500 text-[9px] sm:text-[10px] uppercase tracking-[0.3em] flex items-center gap-2 sm:gap-3 pointer-events-none"
+            >
+              <span className="w-6 sm:w-10 h-px bg-stone-400" />
+              Click to rotate
+              <span className="w-6 sm:w-10 h-px bg-stone-400" />
+            </motion.div>
+
           </div>
         </div>
 

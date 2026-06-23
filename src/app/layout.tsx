@@ -33,7 +33,7 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${poppinsBody.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <AppShell>
           <Navbar />
           <main className="flex-1">{children}</main>

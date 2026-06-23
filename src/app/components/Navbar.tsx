@@ -28,20 +28,25 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-          ? "bg-[#EFECE5]/95 backdrop-blur-md border-b border-stone-400"
-          : "bg-transparent border-b border-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-[#EFECE5]/95 backdrop-blur-md border-b border-stone-400 py-2 sm:py-3"
+          : "bg-transparent border-b border-transparent py-4 sm:py-6"
+      }`}
     >
-      <div className="mx-auto max-w-[1400px] flex items-center justify-between px-4 sm:px-6 md:px-12 py-3 sm:py-4">
+      <div className="mx-auto max-w-[1400px] flex items-center justify-between px-4 sm:px-6 md:px-12">
         <Link href="/" className="flex-shrink-0">
           <Image
             src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
             alt="BoxAura"
-            width={160}
-            height={64}
+            width={300}
+            height={100}
             priority
-            className="h-10 sm:h-12 md:h-14 w-auto object-contain"
+            className={`w-auto object-contain transition-all duration-500 ${
+              scrolled
+                ? "h-8 sm:h-10 md:h-12"
+                : "h-12 sm:h-16 md:h-20 brightness-0 invert drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
+            }`}
           />
         </Link>
 
@@ -55,7 +60,11 @@ export default function Navbar() {
             >
               <Link
                 href={link.href}
-                className="font-heading text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] text-stone-800 hover:text-stone-950 transition-colors duration-300"
+                className={`font-heading text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] transition-colors duration-300 drop-shadow-md ${
+                  scrolled
+                    ? "text-stone-800 hover:text-stone-950 drop-shadow-none"
+                    : "text-white/90 hover:text-white"
+                }`}
               >
                 {link.label}
               </Link>
@@ -64,18 +73,24 @@ export default function Navbar() {
         </ul>
 
         <button
-          className="lg:hidden flex flex-col gap-1.5 p-2"
+          className="lg:hidden flex flex-col gap-1.5 p-2 z-50"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
           <span
-            className={`block h-px w-6 bg-stone-800 transition-all duration-300 ${mobileOpen ? "translate-y-[7px] rotate-45" : ""}`}
+            className={`block h-px w-6 transition-all duration-300 ${
+              scrolled || mobileOpen ? "bg-stone-800" : "bg-white"
+            } ${mobileOpen ? "translate-y-[7px] rotate-45" : ""}`}
           />
           <span
-            className={`block h-px w-6 bg-stone-800 transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`}
+            className={`block h-px w-6 transition-all duration-300 ${
+              scrolled || mobileOpen ? "bg-stone-800" : "bg-white"
+            } ${mobileOpen ? "opacity-0" : ""}`}
           />
           <span
-            className={`block h-px w-6 bg-stone-800 transition-all duration-300 ${mobileOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
+            className={`block h-px w-6 transition-all duration-300 ${
+              scrolled || mobileOpen ? "bg-stone-800" : "bg-white"
+            } ${mobileOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
           />
         </button>
       </div>
