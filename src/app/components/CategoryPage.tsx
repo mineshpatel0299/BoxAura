@@ -88,7 +88,7 @@ export default function CategoryPage({
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative w-full min-h-[85vh] lg:min-h-screen flex items-center justify-center overflow-hidden border-b border-stone-800">
+      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden border-b border-stone-800">
         <div className="absolute inset-0">
           <Image
             src={heroImage}
