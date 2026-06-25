@@ -11,8 +11,6 @@ const NAV_LINKS = [
   { label: "Premium Wedding Invitation", href: "/premium-wedding-invitation" },
   { label: "Diwali Boxes & Gifting", href: "/diwali-boxes-gifting" },
   { label: "Contact", href: "/contact" },
-  // { label: "Social Media", href: "/social-media" },
-  
 ];
 
 export default function Navbar() {
@@ -29,6 +27,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -36,7 +38,7 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         useDarkText
-          ? "bg-[#EFECE5]/95 backdrop-blur-md border-b border-stone-400 py-2 sm:py-3"
+          ? "bg-[#EFECE5]/95 backdrop-blur-md border-b border-stone-300 py-2.5 sm:py-3"
           : "bg-transparent border-b border-transparent py-4 sm:py-6"
       }`}
     >
@@ -50,12 +52,13 @@ export default function Navbar() {
             priority
             className={`w-auto object-contain transition-all duration-500 ${
               useDarkText
-                ? "h-8 sm:h-10 md:h-12"
-                : "h-12 sm:h-16 md:h-20 brightness-0 invert drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
+                ? "h-12 sm:h-12 md:h-14"
+                : "h-14 sm:h-16 md:h-20 brightness-0 invert drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
             }`}
           />
         </Link>
 
+        {/* Desktop links */}
         <ul className="hidden lg:flex items-center gap-10">
           {NAV_LINKS.map((link, i) => (
             <motion.li
@@ -68,7 +71,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`font-heading text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${
                   useDarkText
-                    ? "text-stone-800 hover:text-stone-950"
+                    ? `${pathname === link.href ? "text-stone-950" : "text-stone-800"} hover:text-stone-950`
                     : "text-white/90 hover:text-white drop-shadow-md"
                 }`}
               >
@@ -78,57 +81,86 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* Mobile hamburger */}
         <button
-          className="lg:hidden flex flex-col gap-1.5 p-2 z-50"
+          className="lg:hidden flex flex-col gap-[5px] p-2.5 z-50"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
           <span
-            className={`block h-px w-6 transition-all duration-300 ${
+            className={`block h-[1.5px] w-7 rounded-full transition-all duration-400 ${
               useDarkText || mobileOpen ? "bg-stone-800" : "bg-white"
-            } ${mobileOpen ? "translate-y-[7px] rotate-45" : ""}`}
+            } ${mobileOpen ? "translate-y-[6.5px] rotate-45" : ""}`}
           />
           <span
-            className={`block h-px w-6 transition-all duration-300 ${
+            className={`block h-[1.5px] w-5 ml-auto rounded-full transition-all duration-400 ${
               useDarkText || mobileOpen ? "bg-stone-800" : "bg-white"
-            } ${mobileOpen ? "opacity-0" : ""}`}
+            } ${mobileOpen ? "opacity-0 w-0" : ""}`}
           />
           <span
-            className={`block h-px w-6 transition-all duration-300 ${
+            className={`block h-[1.5px] w-7 rounded-full transition-all duration-400 ${
               useDarkText || mobileOpen ? "bg-stone-800" : "bg-white"
-            } ${mobileOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
+            } ${mobileOpen ? "-translate-y-[6.5px] -rotate-45" : ""}`}
           />
         </button>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-[#EFECE5]/95 backdrop-blur-xl border-t border-stone-400 overflow-hidden"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:hidden absolute top-full left-0 right-0 bg-[#EFECE5]/98 backdrop-blur-2xl border-b border-stone-300 shadow-[0_20px_60px_rgba(80,60,40,0.1)]"
           >
-            <ul className="flex flex-col gap-0 px-6 sm:px-8 py-4 sm:py-6">
-              {NAV_LINKS.map((link, i) => (
-                <motion.li
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  className="border-b border-stone-300 last:border-b-0"
-                >
-                  <Link
-                    href={link.href}
-                    className="block py-4 font-heading text-xs uppercase tracking-[0.2em] text-stone-800 hover:text-stone-950 transition-colors"
-                    onClick={() => setMobileOpen(false)}
+            <div className="px-6 sm:px-8 pt-6 pb-8">
+              {/* Menu label */}
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-6 h-px bg-stone-400" />
+                <span className="text-[8px] uppercase tracking-[0.4em] text-stone-400 font-light">
+                  Menu
+                </span>
+              </div>
+
+              <ul className="flex flex-col">
+                {NAV_LINKS.map((link, i) => (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, x: -15 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + i * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    {link.label}
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
+                    <Link
+                      href={link.href}
+                      className={`flex items-center justify-between py-4 border-b border-stone-200/60 last:border-0 transition-colors duration-300 ${
+                        pathname === link.href
+                          ? "text-stone-900"
+                          : "text-stone-600 hover:text-stone-900"
+                      }`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      <span className="font-heading text-[13px] uppercase tracking-[0.15em]">
+                        {link.label}
+                      </span>
+                      <svg
+                        className={`w-4 h-4 transition-colors ${
+                          pathname === link.href ? "text-stone-800" : "text-stone-300"
+                        }`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                      </svg>
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

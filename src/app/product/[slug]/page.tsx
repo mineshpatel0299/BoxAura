@@ -7,138 +7,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { use } from "react";
 import SectionBg from "../../components/SectionBg";
 import RosePetals from "../../components/home/RosePetals";
-
-const CLOSED_IMAGE =
-  "https://res.cloudinary.com/de4pazo51/image/upload/v1781696657/box_F_sample_bp6c2s.png";
-const OPEN_IMAGE =
-  "https://res.cloudinary.com/de4pazo51/image/upload/v1782378484/box-2.2_ecj267.png";
-
-const IMG_2_1 = "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.1_kofhcn.png";
-const IMG_2_2 = "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.2_p6edgp.png";
-const IMG_2_3 = "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.3_hrfbhm.png";
-const IMG_2_6 = "https://res.cloudinary.com/de4pazo51/image/upload/v1782381227/box-2.6_p9gliw.png";
-const IMG_2_4 = "https://res.cloudinary.com/de4pazo51/image/upload/v1782381226/box-2.4_itwesd.png";
-const IMG_WA = "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_wyo6jf.jpg";
-
-interface Product {
-  name: string;
-  tagline: string;
-  category: string;
-  description: string;
-  whatsInside: string[];
-  closedImage: string;
-  openImage: string;
-  gallery: string[];
-}
-
-const PRODUCTS: Record<string, Product> = {
-  "velvet-noir": {
-    name: "Velvet Noir",
-    tagline: "Dark Sophistication",
-    category: "Luxury Wedding Invitation Box",
-    description: "A bold statement in deep black velvet — our Velvet Noir box exudes dark sophistication with gold foil detailing and a magnetic closure that opens to reveal premium invitation cards, artisan keepsakes, and gourmet chocolates.",
-    whatsInside: [
-      "2 Premium Wedding Invitation Cards",
-      "2 Elegant Keepsake Jars",
-      "Premium Assorted Chocolate Box",
-      "Luxury Rigid Presentation Box",
-    ],
-    closedImage: CLOSED_IMAGE,
-    openImage: OPEN_IMAGE,
-    gallery: [CLOSED_IMAGE, OPEN_IMAGE,  IMG_2_6, IMG_WA],
-  },
-  "royal-amber": {
-    name: "Royal Amber",
-    tagline: "Warm Opulence",
-    category: "Premium Gifting Box",
-    description: "Draped in warm amber-toned satin, the Royal Amber collection radiates warmth and opulence. Each element is hand-finished with intricate embossing and paired with luxurious accessories that elevate the unboxing into a ceremony of its own.",
-    whatsInside: [
-      "2 Embossed Wedding Invitation Cards",
-      "Premium Dry Fruit Jar with Brass Lid",
-      "Satin Pouch with Scented Potpourri",
-      "Luxury Amber-Toned Presentation Box",
-    ],
-    closedImage: IMG_2_1,
-    openImage: IMG_2_2,
-    gallery: [IMG_2_1, IMG_2_2, IMG_2_3],
-  },
-  "ivory-luxe": {
-    name: "Ivory Luxe",
-    tagline: "Pristine Elegance",
-    category: "Luxury Wedding Invitation Box",
-    description: "Pure, pristine, and timeless — the Ivory Luxe box is wrapped in pearl-white fabric with delicate lace accents. Designed for those who appreciate understated luxury, every detail whispers elegance.",
-    whatsInside: [
-      "2 Foil-Pressed Wedding Invitation Cards",
-      "2 Crystal-Cut Keepsake Jars",
-      "Belgian Truffle Collection",
-      "Pearl-White Magnetic Closure Box",
-    ],
-    closedImage: IMG_2_3,
-    openImage: OPEN_IMAGE,
-    gallery: [IMG_2_3, OPEN_IMAGE, CLOSED_IMAGE, IMG_2_6, IMG_WA],
-  },
-  "midnight-gold": {
-    name: "Midnight Gold",
-    tagline: "Gilded Mystery",
-    category: "Premium Festive Box",
-    description: "Where midnight meets gold — this collection combines deep navy tones with brushed gold accents for a truly regal experience. A perfect blend of mystery and majesty for celebrations that demand grandeur.",
-    whatsInside: [
-      "2 Gold-Leaf Wedding Invitation Cards",
-      "Premium Honey Jar with Wax Seal",
-      "Handmade Chocolate Truffles Box",
-      "Navy & Gold Rigid Presentation Box",
-    ],
-    closedImage: IMG_2_4,
-    openImage: IMG_2_1,
-    gallery: [IMG_2_1, IMG_2_4, CLOSED_IMAGE, OPEN_IMAGE, IMG_WA],
-  },
-  "champagne-mist": {
-    name: "Champagne Mist",
-    tagline: "Subtle Radiance",
-    category: "Luxury Wedding Invitation Box",
-    description: "Soft champagne hues meet iridescent shimmer in our most ethereal collection. The Champagne Mist box captures light and attention in equal measure, making every invitation feel like a celebration before the celebration.",
-    whatsInside: [
-      "2 Shimmer-Finish Invitation Cards",
-      "Rose Gold Keepsake Candle",
-      "Assorted Macaron Gift Box",
-      "Champagne Shimmer Presentation Box",
-    ],
-    closedImage: IMG_2_6,
-    openImage: IMG_2_2,
-    gallery: [IMG_2_2, IMG_2_6, OPEN_IMAGE, CLOSED_IMAGE, IMG_WA],
-  },
-  "obsidian-pearl": {
-    name: "Obsidian Pearl",
-    tagline: "Contrast & Charm",
-    category: "Premium Gifting Box",
-    description: "A striking contrast of deep obsidian black and luminous pearl white — this collection is for those who embrace bold aesthetics. Each piece is a study in duality, combining raw edge with refined craftsmanship.",
-    whatsInside: [
-      "2 Dual-Tone Wedding Invitation Cards",
-      "Pearl-Finish Keepsake Jar",
-      "Artisan Dark Chocolate Collection",
-      "Obsidian Black Rigid Presentation Box",
-    ],
-    closedImage: IMG_2_3,
-    openImage: IMG_2_4,
-    gallery: [IMG_2_3, IMG_2_1, IMG_2_4, CLOSED_IMAGE, OPEN_IMAGE],
-  },
-};
-
-const DEFAULT_PRODUCT: Product = {
-  name: "Luxury Invitation Box",
-  tagline: "Premium Craftsmanship",
-  category: "Luxury Wedding Invitation Box",
-  description: "Our Luxury Wedding Invitation Box transforms a traditional invitation into an unforgettable experience. Thoughtfully curated with elegant details, premium keepsakes, and gourmet indulgence.",
-  whatsInside: [
-    "2 Premium Wedding Invitation Cards",
-    "2 Elegant Keepsake Jars",
-    "Premium Assorted Chocolate Box",
-    "Luxury Rigid Presentation Box",
-  ],
-  closedImage: CLOSED_IMAGE,
-  openImage: OPEN_IMAGE,
-  gallery: [CLOSED_IMAGE, OPEN_IMAGE, IMG_2_1, IMG_2_6, IMG_WA],
-};
+import { getProduct, getRelatedProducts } from "@/data/products";
 
 /* ── Fullscreen Lightbox ── */
 function Lightbox({
@@ -240,7 +109,7 @@ export default function ProductDetail({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = use(params);
-  const product = PRODUCTS[slug] ?? DEFAULT_PRODUCT;
+  const product = getProduct(slug);
   const galleryImages = product.gallery;
 
   const [activeImage, setActiveImage] = useState(0);
@@ -262,9 +131,7 @@ export default function ProductDetail({
   const moreRef = useRef<HTMLDivElement>(null);
   const moreInView = useInView(moreRef, { once: true, margin: "-80px" });
 
-  const relatedProducts = Object.entries(PRODUCTS)
-    .filter(([key]) => key !== slug)
-    .slice(0, 4);
+  const relatedProducts = getRelatedProducts(slug, 4);
 
   return (
     <>
@@ -317,7 +184,7 @@ export default function ProductDetail({
                 </h1>
 
                 <p className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-stone-400 font-light mb-8">
-                  {product.category}
+                  {product.categoryLabel}
                 </p>
 
                 {/* Divider */}
@@ -498,14 +365,14 @@ export default function ProductDetail({
           </motion.div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {relatedProducts.map(([prodSlug, prod], i) => (
+            {relatedProducts.map((prod, i) => (
               <motion.div
-                key={prodSlug}
+                key={prod.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={moreInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.15 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
-                <Link href={`/product/${prodSlug}`} className="group block">
+                <Link href={`/product/${prod.id}`} className="group block">
                   <div className="relative overflow-hidden rounded-2xl border border-stone-200/60 bg-gradient-to-b from-white/80 to-[#f8f5f0]/80 backdrop-blur-sm shadow-[0_2px_20px_rgba(120,100,70,0.05)] hover:shadow-[0_12px_50px_rgba(120,100,70,0.13)] transition-all duration-700 hover:-translate-y-1.5">
                     <div className="relative aspect-[4/5] overflow-hidden">
                       <Image

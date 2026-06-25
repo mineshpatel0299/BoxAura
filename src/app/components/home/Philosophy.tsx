@@ -46,6 +46,19 @@ export default function Philosophy() {
         <div className="w-full lg:w-[45%] flex flex-col items-center justify-center lg:justify-start">
           <div className="relative w-full sm:w-[90%] md:w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[450px] aspect-[4/5] flex flex-col items-center justify-center">
             
+            {/* Hint text above cube */}
+            <motion.div
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.8, duration: 1 }}
+               className="mb-8 text-stone-500 text-[9px] sm:text-[10px] uppercase tracking-[0.3em] flex items-center gap-2 sm:gap-3 pointer-events-none"
+            >
+              <span className="w-6 sm:w-10 h-px bg-stone-400" />
+              Click to rotate
+              <span className="w-6 sm:w-10 h-px bg-stone-400" />
+            </motion.div>
+
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -56,19 +69,6 @@ export default function Philosophy() {
               {/* Glow behind cube */}
               <div className="absolute inset-0 rounded-full blur-[80px] sm:blur-[120px] bg-stone-400/20" />
               <CubeHero step={step} onNext={handleNext} images={CUBE_IMAGES} />
-            </motion.div>
-            
-            {/* Hint text below cube */}
-            <motion.div
-               initial={{ opacity: 0 }}
-               whileInView={{ opacity: 1 }}
-               viewport={{ once: true }}
-               transition={{ delay: 0.8, duration: 1 }}
-               className="mt-8 text-stone-500 text-[9px] sm:text-[10px] uppercase tracking-[0.3em] flex items-center gap-2 sm:gap-3 pointer-events-none"
-            >
-              <span className="w-6 sm:w-10 h-px bg-stone-400" />
-              Click to rotate
-              <span className="w-6 sm:w-10 h-px bg-stone-400" />
             </motion.div>
 
           </div>

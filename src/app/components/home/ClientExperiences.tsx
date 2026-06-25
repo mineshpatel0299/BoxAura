@@ -1,12 +1,14 @@
 "use client";
 
 import SectionBg from "../SectionBg";
+import CursorRevealBg from "../CursorRevealBg";
 import { StaggerTestimonials } from "@/components/ui/stagger-testimonials";
 
 export default function ClientExperiences() {
   return (
     <section className="relative w-full bg-[#fdf6f0] py-16 sm:py-24 flex flex-col justify-center items-center px-4 sm:px-6 overflow-hidden">
-      
+
+      <CursorRevealBg />
       <SectionBg variant="corner-both" />
 
       {/* Section Header */}

@@ -21,8 +21,8 @@ const FEATURED_PRODUCTS = [
   },
   {
     name: "Ivory Luxe", tagline: "Pristine Elegance", slug: "ivory-luxe",
-    closedImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.3_hrfbhm.png",
-    openImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1782378484/box-2.2_ecj267.png",
+    closedImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1782385102/box-1_f5iq8n.png",
+    openImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1782385102/box-1.1_zncjlq.png",
   },
   {
     name: "Midnight Gold", tagline: "Gilded Mystery", slug: "midnight-gold",
@@ -146,8 +146,25 @@ export default function FeaturedProducts() {
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
           {FEATURED_PRODUCTS.map((product, i) => (
-            <ProductCard key={i} product={product} index={i} />
+            <div key={i} className={i >= 2 ? "hidden sm:block" : ""}>
+              <ProductCard product={product} index={i} />
+            </div>
           ))}
+        </div>
+
+        {/* Mobile View All */}
+        <div className="flex justify-center mt-10 sm:hidden">
+          <Link
+            href="/premium-wedding-invitation"
+            className="group inline-flex items-center gap-4 border border-stone-800 rounded-full px-7 py-3 hover:bg-stone-800 transition-all duration-500"
+          >
+            <span className="text-[10px] uppercase tracking-[0.25em] text-stone-800 font-medium group-hover:text-white transition-colors duration-500">
+              View All Products
+            </span>
+            <svg className="w-4 h-4 text-stone-800 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </Link>
         </div>
 
         {/* Bottom accent */}
