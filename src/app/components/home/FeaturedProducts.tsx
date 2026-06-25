@@ -125,7 +125,9 @@ export default function FeaturedProducts() {
         {/* Product Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7 lg:gap-8">
           {FEATURED_PRODUCTS.map((product, i) => (
-            <ProductCard key={i} product={product} index={i} />
+            <div key={i} className={i >= 4 ? "hidden md:block" : undefined}>
+              <ProductCard product={product} index={i} />
+            </div>
           ))}
         </div>
 

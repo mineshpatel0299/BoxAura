@@ -18,6 +18,7 @@ const IMG = {
   mg2: "https://res.cloudinary.com/de4pazo51/image/upload/v1782390928/ChatGPT_Image_Jun_25_2026_at_06_01_10_PM_t8lhbq.png",
   mg3: "https://res.cloudinary.com/de4pazo51/image/upload/v1782390928/ChatGPT_Image_Jun_25_2026_at_05_25_45_PM_xo0s7f.png",
   mg4: "https://res.cloudinary.com/de4pazo51/image/upload/v1782390927/ChatGPT_Image_Jun_25_2026_at_05_23_36_PM_txlsli.png",
+  mg5: "https://res.cloudinary.com/de4pazo51/image/upload/v1782391435/ChatGPT_Image_Jun_25_2026_at_06_04_41_PM_vjgdzo.png",
 } as const;
 
 // ── Types ──
@@ -111,7 +112,7 @@ export const PRODUCTS: Record<string, Product> = {
     ],
     closedImage: IMG.mg4,
     openImage: IMG.mg2,
-    gallery: [IMG.mg1, IMG.mg2, IMG.mg3, IMG.mg4],
+    gallery: [IMG.mg1, IMG.mg2, IMG.mg3, IMG.mg4, IMG.mg5],
   },
   "champagne-mist": {
     id: "champagne-mist",

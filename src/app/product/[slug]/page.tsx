@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { use } from "react";
-import SectionBg from "../../components/SectionBg";
+import CursorRevealBg from "../../components/CursorRevealBg";
 import RosePetals from "../../components/home/RosePetals";
 import { getProduct, getRelatedProducts } from "@/data/products";
 
@@ -150,7 +150,7 @@ export default function ProductDetail({
 
       {/* ── Product Detail — E-comm Layout ── */}
       <section className="relative w-full bg-[#EFECE5] overflow-hidden pt-24 sm:pt-28 lg:pt-32">
-        <SectionBg variant="corner-both" />
+        <CursorRevealBg />
         <RosePetals count={6} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 pb-16 sm:pb-20 lg:pb-24">
@@ -406,7 +406,7 @@ export default function ProductDetail({
 
       {/* ── More Products ── */}
       <section className="relative w-full bg-[#EFECE5] py-20 sm:py-28 lg:py-36 overflow-hidden border-b border-stone-300">
-        <SectionBg variant="left-strip" />
+        <CursorRevealBg />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           <motion.div
