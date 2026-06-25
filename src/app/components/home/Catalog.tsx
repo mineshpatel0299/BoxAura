@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 const PANORAMA_SRC =
-  "https://res.cloudinary.com/de4pazo51/image/upload/v1781871639/slider_horizontal-4_xpqof6.png";
+  "https://res.cloudinary.com/de4pazo51/image/upload/v1782377703/slider_horizontal-4.2_v5b6ie.png";
 
 const CATALOG_ITEMS = [
   {
@@ -89,17 +89,11 @@ export default function Catalog() {
       {/* Section Header */}
       <div className="relative bg-[#EFECE5] pt-14 sm:pt-20 lg:pt-24 pb-10 sm:pb-14 lg:pb-16 overflow-hidden border-b border-stone-300">
         <div className="relative z-10 flex flex-col items-center px-4 sm:px-6">
-          <div className="flex items-center gap-4 sm:gap-6 mb-4 sm:mb-5">
-            <span className="w-8 sm:w-12 lg:w-16 h-px bg-gradient-to-r from-transparent to-stone-400" />
-            <span className="font-heading text-[9px] sm:text-[10px] uppercase tracking-[0.5em] text-stone-500">
-              The Collection
-            </span>
-            <span className="w-8 sm:w-12 lg:w-16 h-px bg-gradient-to-l from-transparent to-stone-400" />
-          </div>
+          
 
           <h2 className="text-4xl sm:text-6xl lg:text-8xl font-heading tracking-tight leading-none text-center">
             <span className="text-stone-800">Curated</span>{" "}
-            <span className="italic font-light text-stone-500">Catalog</span>
+            <span className="italic font-light text-stone-500">Collections</span>
           </h2>
 
           <p className="mt-4 sm:mt-5 max-w-[280px] sm:max-w-sm text-center text-[10px] sm:text-xs text-stone-400 font-light tracking-widest sm:tracking-[0.15em] leading-relaxed uppercase">
@@ -204,7 +198,7 @@ function CatalogText({
       className="absolute inset-0 z-10 flex flex-col items-center justify-end pb-20 sm:pb-36 lg:pb-40 px-4 sm:px-6 pointer-events-none"
       style={{ y: textY, opacity }}
     >
-      <motion.div className="flex flex-col items-center rounded-2xl bg-white/10 backdrop-blur-md px-6 sm:px-16 py-6 sm:py-10" style={{ scale }}>
+      <motion.div className="flex flex-col items-center rounded-2xl bg-black/40 backdrop-blur-md px-6 sm:px-16 py-6 sm:py-10" style={{ scale }}>
         <span className="font-heading text-[8px] sm:text-[10px] uppercase tracking-[0.4em] sm:tracking-[0.6em] text-white/40 mb-3 sm:mb-5">
           {String(index + 1).padStart(2, "0")} — {String(TOTAL).padStart(2, "0")}
         </span>

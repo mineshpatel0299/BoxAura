@@ -6,3 +6,4 @@ export { default as ClientExperiences } from "./ClientExperiences";
 export { default as Catalog } from "./Catalog";
 export { default as GoldClubCTA } from "./GoldClubCTA";
 export { default as Stats } from "./Stats";
+export { default as FeaturedProducts } from "./FeaturedProducts";

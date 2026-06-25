@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
@@ -10,12 +11,17 @@ const NAV_LINKS = [
   { label: "Premium Wedding Invitation", href: "/premium-wedding-invitation" },
   { label: "Diwali Boxes & Gifting", href: "/diwali-boxes-gifting" },
   { label: "Contact", href: "/contact" },
-  { label: "Social Media", href: "/social-media" },
+  // { label: "Social Media", href: "/social-media" },
+  
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  const hasHero = pathname === "/";
+  const useDarkText = scrolled || !hasHero;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -29,7 +35,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+        useDarkText
           ? "bg-[#EFECE5]/95 backdrop-blur-md border-b border-stone-400 py-2 sm:py-3"
           : "bg-transparent border-b border-transparent py-4 sm:py-6"
       }`}
@@ -43,7 +49,7 @@ export default function Navbar() {
             height={100}
             priority
             className={`w-auto object-contain transition-all duration-500 ${
-              scrolled
+              useDarkText
                 ? "h-8 sm:h-10 md:h-12"
                 : "h-12 sm:h-16 md:h-20 brightness-0 invert drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
             }`}
@@ -60,10 +66,10 @@ export default function Navbar() {
             >
               <Link
                 href={link.href}
-                className={`font-heading text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] transition-colors duration-300 drop-shadow-md ${
-                  scrolled
-                    ? "text-stone-800 hover:text-stone-950 drop-shadow-none"
-                    : "text-white/90 hover:text-white"
+                className={`font-heading text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${
+                  useDarkText
+                    ? "text-stone-800 hover:text-stone-950"
+                    : "text-white/90 hover:text-white drop-shadow-md"
                 }`}
               >
                 {link.label}
@@ -79,17 +85,17 @@ export default function Navbar() {
         >
           <span
             className={`block h-px w-6 transition-all duration-300 ${
-              scrolled || mobileOpen ? "bg-stone-800" : "bg-white"
+              useDarkText || mobileOpen ? "bg-stone-800" : "bg-white"
             } ${mobileOpen ? "translate-y-[7px] rotate-45" : ""}`}
           />
           <span
             className={`block h-px w-6 transition-all duration-300 ${
-              scrolled || mobileOpen ? "bg-stone-800" : "bg-white"
+              useDarkText || mobileOpen ? "bg-stone-800" : "bg-white"
             } ${mobileOpen ? "opacity-0" : ""}`}
           />
           <span
             className={`block h-px w-6 transition-all duration-300 ${
-              scrolled || mobileOpen ? "bg-stone-800" : "bg-white"
+              useDarkText || mobileOpen ? "bg-stone-800" : "bg-white"
             } ${mobileOpen ? "-translate-y-[7px] -rotate-45" : ""}`}
           />
         </button>

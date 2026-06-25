@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SectionBg from "../SectionBg";
+import CursorRevealBg from "../CursorRevealBg";
 import RosePetals from "./RosePetals";
 import CubeHero from "./CubeHero";
 
@@ -35,6 +36,7 @@ export default function Philosophy() {
       ref={containerRef}
       className="relative w-full bg-[#EFECE5] flex flex-col items-center justify-center py-12 sm:py-24 lg:py-40 overflow-hidden border-b border-stone-400"
     >
+      <CursorRevealBg />
       <SectionBg variant="left-strip" />
       <RosePetals count={8} />
       
