@@ -7,39 +7,18 @@ import { motion, useInView } from "framer-motion";
 import SectionBg from "../SectionBg";
 import CursorRevealBg from "../CursorRevealBg";
 import RosePetals from "./RosePetals";
+import { getProductsByCategory } from "@/data/products";
 
 const FEATURED_PRODUCTS = [
-  {
-    name: "Velvet Noir", tagline: "Dark Sophistication", slug: "velvet-noir",
-    closedImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1781696657/box_F_sample_bp6c2s.png",
-    openImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1782378484/box-2.2_ecj267.png",
-  },
-  {
-    name: "Royal Amber", tagline: "Warm Opulence", slug: "royal-amber",
-    closedImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.1_kofhcn.png",
-    openImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.2_p6edgp.png",
-  },
-  {
-    name: "Ivory Luxe", tagline: "Pristine Elegance", slug: "ivory-luxe",
-    closedImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1782385102/box-1_f5iq8n.png",
-    openImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1782385102/box-1.1_zncjlq.png",
-  },
-  {
-    name: "Midnight Gold", tagline: "Gilded Mystery", slug: "midnight-gold",
-    closedImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1782381226/box-2.4_itwesd.png",
-    openImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.1_kofhcn.png",
-  },
-  {
-    name: "Champagne Mist", tagline: "Subtle Radiance", slug: "champagne-mist",
-    closedImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1782381227/box-2.6_p9gliw.png",
-    openImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.2_p6edgp.png",
-  },
-  {
-    name: "Obsidian Pearl", tagline: "Contrast & Charm", slug: "obsidian-pearl",
-    closedImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.3_hrfbhm.png",
-    openImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1782381226/box-2.4_itwesd.png",
-  },
-];
+  ...getProductsByCategory("wedding").slice(0, 3),
+  ...getProductsByCategory("diwali").slice(0, 3),
+].map((p) => ({
+  name: p.name,
+  tagline: p.tagline,
+  slug: p.id,
+  closedImage: p.closedImage,
+  openImage: p.openImage,
+}));
 
 function ProductCard({
   product,
@@ -87,13 +66,13 @@ function ProductCard({
         </div>
 
         {/* Text area */}
-        <div className="relative px-5 sm:px-6 pt-5 sm:pt-6 pb-5 sm:pb-6">
+        <div className="relative px-3 sm:px-6 pt-3 sm:pt-6 pb-3 sm:pb-6">
           <div className="flex flex-col items-center text-center">
-            <span className="w-8 h-px bg-stone-300 group-hover:w-12 group-hover:bg-stone-500 transition-all duration-600 mb-4" />
-            <h3 className="font-heading text-lg sm:text-xl text-stone-800 tracking-tight leading-tight">
+            <span className="w-6 sm:w-8 h-px bg-stone-300 group-hover:w-12 group-hover:bg-stone-500 transition-all duration-600 mb-2 sm:mb-4" />
+            <h3 className="font-heading text-sm sm:text-xl text-stone-800 tracking-tight leading-tight">
               {product.name}
             </h3>
-            <p className="mt-2 text-[9px] sm:text-[10px] text-stone-400 font-light tracking-[0.3em] uppercase">
+            <p className="mt-1 sm:mt-2 text-[7px] sm:text-[10px] text-stone-400 font-light tracking-[0.3em] uppercase">
               {product.tagline}
             </p>
           </div>
@@ -144,27 +123,10 @@ export default function FeaturedProducts() {
         </motion.div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7 lg:gap-8">
           {FEATURED_PRODUCTS.map((product, i) => (
-            <div key={i} className={i >= 2 ? "hidden sm:block" : ""}>
-              <ProductCard product={product} index={i} />
-            </div>
+            <ProductCard key={i} product={product} index={i} />
           ))}
-        </div>
-
-        {/* Mobile View All */}
-        <div className="flex justify-center mt-10 sm:hidden">
-          <Link
-            href="/premium-wedding-invitation"
-            className="group inline-flex items-center gap-4 border border-stone-800 rounded-full px-7 py-3 hover:bg-stone-800 transition-all duration-500"
-          >
-            <span className="text-[10px] uppercase tracking-[0.25em] text-stone-800 font-medium group-hover:text-white transition-colors duration-500">
-              View All Products
-            </span>
-            <svg className="w-4 h-4 text-stone-800 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
-          </Link>
         </div>
 
         {/* Bottom accent */}

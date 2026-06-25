@@ -33,25 +33,25 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
               alt={`${product.name} — closed`}
               fill
               className="object-cover transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 group-hover:scale-[1.04]"
-              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+              sizes="(max-width: 640px) 45vw, (max-width: 1024px) 45vw, 30vw"
             />
             <Image
               src={product.openImage}
               alt={`${product.name} — open`}
               fill
               className="object-cover opacity-0 scale-[1.06] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 group-hover:scale-100"
-              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
+              sizes="(max-width: 640px) 45vw, (max-width: 1024px) 45vw, 30vw"
             />
             <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white/80 via-white/30 to-transparent pointer-events-none group-hover:from-white/90 transition-all duration-500" />
           </div>
 
-          <div className="relative px-5 sm:px-6 pt-5 sm:pt-6 pb-5 sm:pb-6">
+          <div className="relative px-3 sm:px-6 pt-3 sm:pt-6 pb-3 sm:pb-6">
             <div className="flex flex-col items-center text-center">
-              <span className="w-8 h-px bg-stone-300 group-hover:w-12 group-hover:bg-stone-500 transition-all duration-500 mb-4" />
-              <h3 className="font-heading text-lg sm:text-xl text-stone-800 tracking-tight leading-tight">
+              <span className="w-6 sm:w-8 h-px bg-stone-300 group-hover:w-12 group-hover:bg-stone-500 transition-all duration-500 mb-2 sm:mb-4" />
+              <h3 className="font-heading text-sm sm:text-xl text-stone-800 tracking-tight leading-tight">
                 {product.name}
               </h3>
-              <p className="mt-2 text-[9px] sm:text-[10px] text-stone-400 font-light tracking-[0.3em] uppercase">
+              <p className="mt-1 sm:mt-2 text-[7px] sm:text-[10px] text-stone-400 font-light tracking-[0.3em] uppercase">
                 {product.tagline}
               </p>
             </div>
@@ -186,7 +186,7 @@ export default function CategoryPage({
           </motion.div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7 lg:gap-8">
             {products.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}

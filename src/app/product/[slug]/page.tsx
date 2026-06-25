@@ -268,69 +268,135 @@ export default function ProductDetail({
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
               >
-                {/* Main Image */}
-                <div
-                  className="group relative rounded-2xl overflow-hidden bg-[#f5f2ed] cursor-pointer shadow-[0_10px_40px_rgba(80,60,40,0.08)]"
-                  onClick={() => openLightbox(activeImage)}
-                >
-                  <div className="relative aspect-square overflow-hidden">
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={activeImage}
-                        initial={{ opacity: 0, scale: 1.03 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.97 }}
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="absolute inset-0"
-                      >
-                        <Image
-                          src={galleryImages[activeImage]}
-                          alt={product.name}
-                          fill
-                          className="object-contain group-hover:scale-[1.02] transition-transform duration-700"
-                          sizes="(max-width: 1024px) 90vw, 62vw"
-                          priority
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-
-                    {/* Soft vignette */}
-                    <div className="absolute inset-0 shadow-[inset_0_0_40px_5px_rgba(0,0,0,0.06)] pointer-events-none" />
-
-                    {/* Bottom gradient for counter */}
-                    <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                    {/* Fullscreen icon */}
-                    <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400 shadow-sm">
-                      <svg className="w-4 h-4 text-stone-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
-                      </svg>
+                {/* ── Mobile: Large image + 3 side thumbnails ── */}
+                <div className="lg:hidden">
+                  <div className="flex gap-2">
+                    {/* Large main image */}
+                    <div
+                      className="relative flex-1 aspect-[3/4] rounded-xl overflow-hidden bg-[#f5f2ed] cursor-pointer shadow-[0_10px_40px_rgba(80,60,40,0.08)]"
+                      onClick={() => openLightbox(activeImage)}
+                    >
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={activeImage}
+                          initial={{ opacity: 0, scale: 1.03 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.97 }}
+                          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                          className="absolute inset-0"
+                        >
+                          <Image
+                            src={galleryImages[activeImage]}
+                            alt={product.name}
+                            fill
+                            className="object-cover"
+                            sizes="65vw"
+                            priority
+                          />
+                        </motion.div>
+                      </AnimatePresence>
+                      <div className="absolute inset-0 shadow-[inset_0_0_40px_5px_rgba(0,0,0,0.06)] pointer-events-none" />
                     </div>
 
-                    {/* Image counter */}
-                    <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md rounded-full px-3.5 py-1.5 opacity-0 group-hover:opacity-100 transition-all duration-400 shadow-sm">
-                      <span className="text-[9px] font-heading tracking-[0.3em] text-stone-600">
-                        {String(activeImage + 1).padStart(2, "0")} / {String(galleryImages.length).padStart(2, "0")}
-                      </span>
+                    {/* 3 stacked thumbnails on the right */}
+                    <div className="flex flex-col gap-2 w-[28%]">
+                      {galleryImages.slice(0, 3).map((src, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setActiveImage(i)}
+                          className={`relative flex-1 rounded-xl overflow-hidden transition-all duration-300 ${
+                            activeImage === i
+                              ? "ring-2 ring-stone-700 ring-offset-1 ring-offset-[#EFECE5]"
+                              : "opacity-60"
+                          }`}
+                        >
+                          <Image src={src} alt={`View ${i + 1}`} fill className="object-cover" sizes="28vw" />
+                        </button>
+                      ))}
                     </div>
                   </div>
+
+                  {/* Remaining thumbnails below */}
+                  {galleryImages.length > 3 && (
+                    <div className="mt-2 flex gap-2">
+                      {galleryImages.slice(3).map((src, i) => (
+                        <button
+                          key={i + 3}
+                          onClick={() => setActiveImage(i + 3)}
+                          className={`relative w-16 h-16 rounded-lg overflow-hidden transition-all duration-300 ${
+                            activeImage === i + 3
+                              ? "ring-2 ring-stone-700 ring-offset-1 ring-offset-[#EFECE5]"
+                              : "opacity-50"
+                          }`}
+                        >
+                          <Image src={src} alt={`View ${i + 4}`} fill className="object-cover" sizes="64px" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
-                {/* Thumbnails */}
-                <div className="mt-3 sm:mt-4 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-                  {galleryImages.map((src, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveImage(i)}
-                      className={`relative flex-shrink-0 w-14 h-14 sm:w-[68px] sm:h-[68px] rounded-lg overflow-hidden transition-all duration-300 ${
-                        activeImage === i
-                          ? "ring-2 ring-stone-700 ring-offset-2 ring-offset-[#EFECE5] shadow-md"
-                          : "opacity-40 hover:opacity-90"
-                      }`}
-                    >
-                      <Image src={src} alt={`View ${i + 1}`} fill className="object-cover" sizes="68px" />
-                    </button>
-                  ))}
+                {/* ── Desktop: Original layout ── */}
+                <div className="hidden lg:block">
+                  {/* Main Image */}
+                  <div
+                    className="group relative rounded-2xl overflow-hidden bg-[#f5f2ed] cursor-pointer shadow-[0_10px_40px_rgba(80,60,40,0.08)]"
+                    onClick={() => openLightbox(activeImage)}
+                  >
+                    <div className="relative aspect-square overflow-hidden">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={activeImage}
+                          initial={{ opacity: 0, scale: 1.03 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.97 }}
+                          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                          className="absolute inset-0"
+                        >
+                          <Image
+                            src={galleryImages[activeImage]}
+                            alt={product.name}
+                            fill
+                            className="object-contain group-hover:scale-[1.02] transition-transform duration-700"
+                            sizes="62vw"
+                            priority
+                          />
+                        </motion.div>
+                      </AnimatePresence>
+
+                      <div className="absolute inset-0 shadow-[inset_0_0_40px_5px_rgba(0,0,0,0.06)] pointer-events-none" />
+                      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                      <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-400 shadow-sm">
+                        <svg className="w-4 h-4 text-stone-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                        </svg>
+                      </div>
+
+                      <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md rounded-full px-3.5 py-1.5 opacity-0 group-hover:opacity-100 transition-all duration-400 shadow-sm">
+                        <span className="text-[9px] font-heading tracking-[0.3em] text-stone-600">
+                          {String(activeImage + 1).padStart(2, "0")} / {String(galleryImages.length).padStart(2, "0")}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Thumbnails */}
+                  <div className="mt-4 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                    {galleryImages.map((src, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setActiveImage(i)}
+                        className={`relative flex-shrink-0 w-[68px] h-[68px] rounded-lg overflow-hidden transition-all duration-300 ${
+                          activeImage === i
+                            ? "ring-2 ring-stone-700 ring-offset-2 ring-offset-[#EFECE5] shadow-md"
+                            : "opacity-40 hover:opacity-90"
+                        }`}
+                      >
+                        <Image src={src} alt={`View ${i + 1}`} fill className="object-cover" sizes="68px" />
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             </div>

@@ -12,6 +12,8 @@ const IMG = {
   b1: "https://res.cloudinary.com/de4pazo51/image/upload/v1782385102/box-1_f5iq8n.png",
   b11: "https://res.cloudinary.com/de4pazo51/image/upload/v1782385102/box-1.1_zncjlq.png",
   b12: "https://res.cloudinary.com/de4pazo51/image/upload/v1782385102/box-1.2_rmiqoj.png",
+  b13: "https://res.cloudinary.com/de4pazo51/image/upload/v1782389745/ChatGPT_Image_Jun_25_2026_at_05_13_53_PM_azq8ze.png",
+  b14: "https://res.cloudinary.com/de4pazo51/image/upload/v1782389745/ChatGPT_Image_Jun_25_2026_at_05_10_55_PM_u1nxtr.png",
 } as const;
 
 // ── Types ──
@@ -86,8 +88,8 @@ export const PRODUCTS: Record<string, Product> = {
       "Pearl-White Magnetic Closure Box",
     ],
     closedImage: IMG.b1,
-    openImage: IMG.b11,
-    gallery: [IMG.b1, IMG.b11, IMG.b12],
+    openImage: "https://res.cloudinary.com/de4pazo51/image/upload/v1782389745/ChatGPT_Image_Jun_25_2026_at_05_10_55_PM_u1nxtr.png",
+    gallery: [IMG.b1, IMG.b11, IMG.b12, IMG.b13, IMG.b14],
   },
   "midnight-gold": {
     id: "midnight-gold",
