@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import SectionBg from "../SectionBg";
 import CursorRevealBg from "../CursorRevealBg";
-import RosePetals from "./RosePetals";
+
 import CubeHero from "./CubeHero";
 
 const CUBE_IMAGES = [
@@ -38,7 +38,6 @@ export default function Philosophy() {
     >
       <CursorRevealBg />
       <SectionBg variant="left-strip" />
-      <RosePetals count={8} />
       
       <div className="w-full max-w-[1400px] px-4 sm:px-12 lg:px-20 relative z-10 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-24">
         

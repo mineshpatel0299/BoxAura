@@ -4,7 +4,7 @@ import { useState, useRef, useMemo, RefObject, createRef, useEffect } from "reac
 import Image from "next/image";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import SectionBg from "../SectionBg";
-import RosePetals from "./RosePetals";
+
 
 const COLLECTIONS = [
   {
@@ -142,7 +142,6 @@ export default function Collections() {
   return (
     <section ref={sectionRef} className="relative bg-[#EFECE5] py-20 sm:py-28 text-stone-900 font-sans border-t border-stone-400/50">
       <SectionBg variant="bottom-left" />
-      <RosePetals count={6} />
       <div className="mx-auto max-w-[1400px] px-6 sm:px-12 relative z-10">
         {/* Header */}
         <motion.div 

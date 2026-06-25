@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import SectionBg from "../SectionBg";
 import CursorRevealBg from "../CursorRevealBg";
-import RosePetals from "./RosePetals";
+
 import { getProductsByCategory } from "@/data/products";
 
 const FEATURED_PRODUCTS = [
@@ -91,7 +91,6 @@ export default function FeaturedProducts() {
     <section className="relative w-full bg-[#EFECE5] py-24 sm:py-32 lg:py-40 overflow-hidden border-b border-stone-300">
       <CursorRevealBg />
       <SectionBg variant="corner-both" />
-      <RosePetals count={10} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         {/* Section Header */}

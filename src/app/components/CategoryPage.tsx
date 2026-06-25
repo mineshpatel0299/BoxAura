@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import SectionBg from "./SectionBg";
 import CursorRevealBg from "./CursorRevealBg";
-import RosePetals from "./home/RosePetals";
+
 import type { Product } from "@/data/products";
 
 function ProductCard({ product, index }: { product: Product; index: number }) {
@@ -154,7 +154,6 @@ export default function CategoryPage({
       <section className="relative w-full bg-[#EFECE5] py-16 sm:py-24 lg:py-32 overflow-hidden border-b border-stone-300">
         <CursorRevealBg />
         <SectionBg variant="corner-both" />
-        <RosePetals count={8} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
           {/* Section Header */}

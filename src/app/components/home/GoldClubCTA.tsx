@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import RosePetals from "./RosePetals";
+
 
 export default function GoldClubCTA() {
   const containerRef = useRef(null);
@@ -33,7 +33,6 @@ export default function GoldClubCTA() {
         <div className="absolute inset-0 bg-stone-950/80" />
       </motion.div>
 
-      <RosePetals count={6} />
 
       {/* Main Content Overlay */}
       <div className="relative z-10 w-full max-w-[1400px] px-4 sm:px-12 flex flex-col items-center text-center">

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import SectionBg from "../SectionBg";
 import CursorRevealBg from "../CursorRevealBg";
-import RosePetals from "./RosePetals";
+
 
 const PANORAMA_SRC =
   "https://res.cloudinary.com/de4pazo51/image/upload/v1782377703/slider_horizontal-4.2_v5b6ie.png";
@@ -124,7 +124,6 @@ export default function Catalog() {
         {/* Auto-hovering bgimage exclusively for mobile view */}
         <CursorRevealBg />
         <SectionBg variant="corner-both" />
-        <RosePetals count={6} />
         
         <div className="relative z-10 flex flex-col items-center px-4 sm:px-6 mb-10">
           <h2 className="text-4xl sm:text-6xl font-heading tracking-tight leading-none text-center">

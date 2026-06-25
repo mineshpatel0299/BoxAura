@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import SectionBg from "../components/SectionBg";
 import CursorRevealBg from "../components/CursorRevealBg";
-import RosePetals from "../components/home/RosePetals";
+
 
 export default function ContactPage() {
   const formRef = useRef<HTMLDivElement>(null);
@@ -87,7 +87,6 @@ export default function ContactPage() {
       <section className="relative w-full bg-[#EFECE5] py-20 sm:py-28 lg:py-36 overflow-hidden border-b border-stone-300">
         <CursorRevealBg />
         <SectionBg variant="corner-both" />
-        <RosePetals count={6} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-16">
 
