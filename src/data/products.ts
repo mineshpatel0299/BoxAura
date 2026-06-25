@@ -14,6 +14,10 @@ const IMG = {
   b12: "https://res.cloudinary.com/de4pazo51/image/upload/v1782385102/box-1.2_rmiqoj.png",
   b13: "https://res.cloudinary.com/de4pazo51/image/upload/v1782389745/ChatGPT_Image_Jun_25_2026_at_05_13_53_PM_azq8ze.png",
   b14: "https://res.cloudinary.com/de4pazo51/image/upload/v1782389745/ChatGPT_Image_Jun_25_2026_at_05_10_55_PM_u1nxtr.png",
+  mg1: "https://res.cloudinary.com/de4pazo51/image/upload/v1782390929/ChatGPT_Image_Jun_25_2026_at_06_02_25_PM_w9uwyb.png",
+  mg2: "https://res.cloudinary.com/de4pazo51/image/upload/v1782390928/ChatGPT_Image_Jun_25_2026_at_06_01_10_PM_t8lhbq.png",
+  mg3: "https://res.cloudinary.com/de4pazo51/image/upload/v1782390928/ChatGPT_Image_Jun_25_2026_at_05_25_45_PM_xo0s7f.png",
+  mg4: "https://res.cloudinary.com/de4pazo51/image/upload/v1782390927/ChatGPT_Image_Jun_25_2026_at_05_23_36_PM_txlsli.png",
 } as const;
 
 // ── Types ──
@@ -105,9 +109,9 @@ export const PRODUCTS: Record<string, Product> = {
       "Handmade Chocolate Truffles Box",
       "Navy & Gold Rigid Presentation Box",
     ],
-    closedImage: IMG.s24,
-    openImage: IMG.s21,
-    gallery: [IMG.s21, IMG.s24, IMG.closed, IMG.open, IMG.wa],
+    closedImage: IMG.mg4,
+    openImage: IMG.mg2,
+    gallery: [IMG.mg1, IMG.mg2, IMG.mg3, IMG.mg4],
   },
   "champagne-mist": {
     id: "champagne-mist",

@@ -318,18 +318,18 @@ export default function ProductDetail({
 
                   {/* Remaining thumbnails below */}
                   {galleryImages.length > 3 && (
-                    <div className="mt-2 flex gap-2">
+                    <div className="mt-2 grid grid-cols-4 gap-2">
                       {galleryImages.slice(3).map((src, i) => (
                         <button
                           key={i + 3}
                           onClick={() => setActiveImage(i + 3)}
-                          className={`relative w-16 h-16 rounded-lg overflow-hidden transition-all duration-300 ${
+                          className={`relative aspect-square rounded-xl overflow-hidden transition-all duration-300 ${
                             activeImage === i + 3
                               ? "ring-2 ring-stone-700 ring-offset-1 ring-offset-[#EFECE5]"
-                              : "opacity-50"
+                              : "opacity-60 hover:opacity-90"
                           }`}
                         >
-                          <Image src={src} alt={`View ${i + 4}`} fill className="object-cover" sizes="64px" />
+                          <Image src={src} alt={`View ${i + 4}`} fill className="object-cover" sizes="22vw" />
                         </button>
                       ))}
                     </div>
@@ -382,18 +382,18 @@ export default function ProductDetail({
                   </div>
 
                   {/* Thumbnails */}
-                  <div className="mt-4 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+                  <div className="mt-4 grid grid-cols-4 gap-3">
                     {galleryImages.map((src, i) => (
                       <button
                         key={i}
                         onClick={() => setActiveImage(i)}
-                        className={`relative flex-shrink-0 w-[68px] h-[68px] rounded-lg overflow-hidden transition-all duration-300 ${
+                        className={`relative aspect-square rounded-xl overflow-hidden transition-all duration-300 ${
                           activeImage === i
                             ? "ring-2 ring-stone-700 ring-offset-2 ring-offset-[#EFECE5] shadow-md"
                             : "opacity-40 hover:opacity-90"
                         }`}
                       >
-                        <Image src={src} alt={`View ${i + 1}`} fill className="object-cover" sizes="68px" />
+                        <Image src={src} alt={`View ${i + 1}`} fill className="object-cover" sizes="15vw" />
                       </button>
                     ))}
                   </div>
