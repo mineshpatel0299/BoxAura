@@ -119,7 +119,6 @@ export default function FeaturedProducts() {
             The artistry within — each piece, a statement of refined luxury
           </p>
        
-          <span className="mt-6 sm:mt-8 w-px h-10 sm:h-14 bg-gradient-to-b from-stone-400 to-transparent" />
         </motion.div>
 
         {/* Product Grid */}

@@ -137,7 +137,6 @@ export default function Catalog() {
             demand the&nbsp;extraordinary
           </p>
 
-          <span className="mt-5 sm:mt-6 w-px h-8 sm:h-10 bg-gradient-to-b from-stone-400 to-transparent" />
         </div>
 
         <div className="relative z-10 flex flex-col gap-6">
@@ -162,7 +161,6 @@ export default function Catalog() {
               demand the&nbsp;extraordinary
             </p>
 
-            <span className="mt-6 w-px h-10 bg-gradient-to-b from-stone-400 to-transparent" />
           </div>
         </div>
 
