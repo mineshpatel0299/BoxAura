@@ -180,7 +180,7 @@ export default function Footer() {
           className="pt-6 sm:pt-8 border-t border-stone-400 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4"
         >
           <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400 font-light">
-            &copy; {new Date().getFullYear()} BoxAura. All rights reserved.
+            &copy; {new Date().getFullYear()} BoxAura. All rights reserved.Developed By Edigitify.
           </p>
           <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400 font-light">
             Crafted with passion in India
