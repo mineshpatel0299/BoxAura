@@ -109,7 +109,7 @@ export default function Navbar() {
             priority
             className={`w-auto object-contain transition-all duration-500 ${
               useDarkText
-                ? "h-14 sm:h-16 drop-shadow-sm"
+                ? "h-14 sm:h-16 drop-shadow-sm brightness-100 invert-0"
                 : "h-16 sm:h-20 brightness-0 invert drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
             }`}
           />
