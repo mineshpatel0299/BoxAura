@@ -104,8 +104,8 @@ export default function Philosophy() {
           <div className="space-y-4 sm:space-y-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-stone-600 font-light text-[12px] sm:text-base leading-[1.7] sm:leading-relaxed tracking-wide">
             {/* Staggered Paragraphs */}
             {[
-              "We open this brand with a vision to redefine how celebrations begin. Every box we craft is an experience — a blend of premium fabrics, satin finishes, velvet textures, and exquisite accessories that transform a simple invitation into an unforgettable first impression.",
-              "From hand-picked materials to meticulous detailing, each piece carries the warmth of artisan craftsmanship and the elegance of modern design. We believe your celebration deserves a beginning as beautiful as the occasion itself."
+              "We redefine how celebrations begin. Every crafted box is a blend of premium fabrics and exquisite details that transform an invitation into an unforgettable first impression.",
+              "With artisan craftsmanship and modern elegance, we believe your celebration deserves a beginning as beautiful as the occasion itself."
             ].map((text, i) => (
               <div key={i} className="overflow-hidden">
                  <motion.p

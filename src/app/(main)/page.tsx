@@ -8,7 +8,7 @@ import {
   FeaturedProducts,
   GoldClubCTA,
   Stats,
-} from "./components/home";
+} from "../components/home";
 
 export default function Home() {
   return (

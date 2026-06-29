@@ -62,7 +62,7 @@ export default function Preloader({
         <img 
           src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png" 
           alt="BoxAura Logo" 
-          className="w-56 sm:w-72 md:w-80 h-auto object-contain brightness-0 invert drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+          className="w-56 sm:w-72 md:w-80 h-auto object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]"
         />
         <button
           onClick={handleExplore}

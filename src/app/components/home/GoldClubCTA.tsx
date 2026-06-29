@@ -96,7 +96,9 @@ export default function GoldClubCTA() {
           className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
         >
           <a
-            href="/contact"
+            href="https://wa.me/919999999999?text=Hi%20BoxAura!"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative overflow-hidden inline-flex items-center justify-center border border-white/20 bg-white/10 backdrop-blur-md text-white px-8 py-4 sm:px-12 sm:py-5 text-[9px] sm:text-xs uppercase tracking-[0.2em] font-medium transition-colors hover:bg-white hover:text-stone-900"
           >
             Start Your Order

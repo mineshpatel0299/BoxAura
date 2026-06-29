@@ -250,13 +250,11 @@ export default function SectionBg({ variant = "top-right" }: { variant?: Variant
   const layers = VARIANTS[variant];
   return (
     <>
-      {layers.map((layer, i) =>
-        layer.type === "img" ? (
-          <img key={i} src={IMG} alt="" aria-hidden="true" style={layer.style} />
-        ) : (
+      {layers
+        .filter((layer) => layer.type !== "img")
+        .map((layer, i) => (
           <div key={i} aria-hidden="true" style={layer.style} />
-        ),
-      )}
+        ))}
     </>
   );
 }

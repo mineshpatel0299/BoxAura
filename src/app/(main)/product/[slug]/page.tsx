@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { use } from "react";
-import CursorRevealBg from "../../components/CursorRevealBg";
+import CursorRevealBg from "../../../components/CursorRevealBg";
 
 import { getProduct, getRelatedProducts } from "@/data/products";
 
