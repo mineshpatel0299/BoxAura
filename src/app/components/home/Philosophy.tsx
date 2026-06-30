@@ -82,7 +82,7 @@ export default function Philosophy() {
              viewport={{ once: true }}
              className="flex items-center justify-center lg:justify-start gap-4 mb-6 sm:mb-10"
           >
-             <span className="h-px w-8 sm:w-12 bg-stone-400" />
+             <span className="hidden sm:block h-px w-8 sm:w-12 bg-stone-400" />
              <p className="font-heading text-[10px] sm:text-xs uppercase tracking-[0.35em] text-stone-500">
                Our Heritage
              </p>
@@ -104,10 +104,10 @@ export default function Philosophy() {
           <div className="space-y-4 sm:space-y-8 max-w-xl mx-auto lg:mx-0 text-center lg:text-left text-stone-600 font-light text-[12px] sm:text-base leading-[1.7] sm:leading-relaxed tracking-wide">
             {/* Staggered Paragraphs */}
             {[
-              "We redefine how celebrations begin. Every crafted box is a blend of premium fabrics and exquisite details that transform an invitation into an unforgettable first impression.",
-              "With artisan craftsmanship and modern elegance, we believe your celebration deserves a beginning as beautiful as the occasion itself."
-            ].map((text, i) => (
-              <div key={i} className="overflow-hidden">
+              { text: "We redefine how celebrations begin. Every crafted box is a blend of premium fabrics and exquisite details that transform an invitation into an unforgettable first impression.", mobileHidden: false },
+              { text: "With artisan craftsmanship and modern elegance, we believe your celebration deserves a beginning as beautiful as the occasion itself.", mobileHidden: true },
+            ].map(({ text, mobileHidden }, i) => (
+              <div key={i} className={`overflow-hidden${mobileHidden ? " hidden sm:block" : ""}`}>
                  <motion.p
                    initial={{ y: "100%", opacity: 0 }}
                    whileInView={{ y: "0%", opacity: 1 }}
@@ -129,7 +129,7 @@ export default function Philosophy() {
           >
              <a href="/premium-wedding-invitation" className="group inline-flex items-center gap-4 sm:gap-6 cursor-pointer">
                 <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-stone-900 font-medium">Discover More</span>
-                <span className="w-12 h-px bg-stone-900 transition-all duration-300 group-hover:w-24" />
+                <span className="hidden sm:block w-12 h-px bg-stone-900 transition-all duration-300 group-hover:w-24" />
              </a>
           </motion.div>
 

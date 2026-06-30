@@ -50,17 +50,47 @@ export default function Footer() {
 
   return (
     <footer ref={ref} className="relative w-full bg-[#EFECE5] border-t border-stone-300 flex justify-center">
-      <div className="w-full max-w-[1400px] px-6 sm:px-12 lg:px-24 pt-16 sm:pt-24 pb-8 flex flex-col relative z-10">
+      <div className="w-full max-w-[1400px] px-6 sm:px-12 lg:px-24 pt-8 sm:pt-24 pb-6 sm:pb-8 flex flex-col relative z-10">
+
+        {/* Brand row — mobile only: logo + socials side by side */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="flex md:hidden items-center justify-between mb-6"
+        >
+          <Link href="/">
+            <Image
+              src="https://res.cloudinary.com/de4pazo51/image/upload/v1781679251/WhatsApp_Image_2026-06-17_at_09.42.19__1_-removebg-preview_1_cupphn.png"
+              alt="BoxAura"
+              width={160}
+              height={64}
+              className="h-8 w-auto object-contain"
+            />
+          </Link>
+          <div className="flex items-center gap-3">
+            {SOCIALS.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                aria-label={social.label}
+                className="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-500 hover:bg-stone-800 hover:text-white transition-all duration-300"
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Main footer grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 pb-16 border-b border-stone-300">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:gap-8 pb-6 sm:pb-16 border-b border-stone-300">
 
-          {/* Brand column */}
+          {/* Brand column — desktop only */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="col-span-1 md:col-span-2 flex flex-col items-center md:items-start text-center md:text-left"
+            className="hidden md:flex col-span-1 md:col-span-2 flex-col items-center md:items-start text-center md:text-left"
           >
             <Link href="/" className="inline-block mb-6">
               <Image
@@ -93,18 +123,18 @@ export default function Footer() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="flex flex-col items-center md:items-start text-center md:text-left"
+            className="flex flex-col items-start md:items-start text-left md:text-left"
           >
-            <h4 className="font-heading text-[10px] uppercase tracking-[0.25em] text-stone-900 mb-6 flex items-center gap-3">
+            <h4 className="font-heading text-[10px] uppercase tracking-[0.25em] text-stone-900 mb-4 md:mb-6 flex items-center gap-3">
               <span className="w-4 h-px bg-stone-400 hidden md:block" />
               Quick Links
             </h4>
-            <ul className="space-y-3.5">
+            <ul className="space-y-2.5 md:space-y-3.5">
               {QUICK_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs sm:text-sm text-stone-500 hover:text-stone-900 transition-colors duration-300 font-light"
+                    className="text-xs text-stone-500 hover:text-stone-900 transition-colors duration-300 font-light"
                   >
                     {link.label}
                   </Link>
@@ -118,19 +148,19 @@ export default function Footer() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col items-center md:items-start text-center md:text-left"
+            className="flex flex-col items-start md:items-start text-left md:text-left"
           >
-            <h4 className="font-heading text-[10px] uppercase tracking-[0.25em] text-stone-900 mb-6 flex items-center gap-3">
+            <h4 className="font-heading text-[10px] uppercase tracking-[0.25em] text-stone-900 mb-4 md:mb-6 flex items-center gap-3">
               <span className="w-4 h-px bg-stone-400 hidden md:block" />
               Company
             </h4>
-            <ul className="space-y-3.5">
+            <ul className="space-y-2.5 md:space-y-3.5">
               {COMPANY.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="text-xs sm:text-sm text-stone-500 hover:text-stone-900 transition-colors duration-300 font-light"
+                    className="text-xs text-stone-500 hover:text-stone-900 transition-colors duration-300 font-light"
                   >
                     {link.label}
                   </Link>
