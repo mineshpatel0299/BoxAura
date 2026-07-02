@@ -7,17 +7,14 @@ export default function Preloader({
 }: {
   onComplete: () => void;
 }) {
-  const [logoVisible, setLogoVisible] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
   const [exiting, setExiting] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    const timer = setTimeout(() => setLogoVisible(true), 1500);
     return () => {
       document.body.style.overflow = "";
-      clearTimeout(timer);
     };
   }, []);
 
@@ -60,7 +57,7 @@ export default function Preloader({
           src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
           alt="BoxAura Logo"
           className={`w-56 sm:w-72 md:w-80 h-auto object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all duration-1000 ${
-            logoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            videoEnded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         />
         <button
