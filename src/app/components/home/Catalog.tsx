@@ -13,20 +13,17 @@ const PANORAMA_SRC =
 
 const CATALOG_ITEMS = [
   {
-    category: "Signature Heritage",
-    subtitle: "Timeless Elegance",
+    category: "Wedding",
     image:
       "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.1_kofhcn.png",
   },
   {
-    category: "Obsidian Reserve",
-    subtitle: "Bold & Luxurious",
+    category: "Diwali Boxes",
     image:
       "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.2_p6edgp.png",
   },
   {
-    category: "Lumina Prisma",
-    subtitle: "Radiant Textures",
+    category: "Gifting",
     image:
       "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.3_hrfbhm.png",
   },
@@ -34,18 +31,16 @@ const CATALOG_ITEMS = [
 
 const MOBILE_CATALOG_ITEMS = [
   {
-    category: "Premium Wedding Invitation",
-    subtitle: "Love in Every Detail",
+    category: "Kesar",
     image:
       "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.1_kofhcn.png",
-    href: "/premium-wedding-invitation",
+    href: "/kesar",
   },
   {
-    category: "Diwali Boxes & Gifting",
-    subtitle: "Celebrate in Style",
+    category: "Marigold",
     image:
       "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.2_p6edgp.png",
-    href: "/diwali-boxes-gifting",
+    href: "/marigold",
   },
 ];
 
@@ -95,9 +90,6 @@ function MobileCatalogCard({
             {item.category}
           </h3>
           <span className="mt-2.5 w-6 h-px bg-white/25" />
-          <p className="mt-2.5 text-[10px] text-white/50 font-light tracking-[0.2em] uppercase">
-            {item.subtitle}
-          </p>
           <span className="mt-4 text-[9px] font-medium tracking-[0.3em] uppercase text-white/60 border border-white/20 px-5 py-2 hover:bg-white/10 transition-colors">
             Explore
           </span>
@@ -256,9 +248,6 @@ function CatalogText({
           {item.category}
         </h3>
         <span className="mt-3 sm:mt-5 w-6 sm:w-8 h-px bg-white/25" />
-        <p className="mt-3 sm:mt-5 text-[10px] sm:text-sm lg:text-base text-white/50 font-light tracking-[0.15em] sm:tracking-[0.2em] uppercase">
-          {item.subtitle}
-        </p>
       </motion.div>
     </motion.div>
   );

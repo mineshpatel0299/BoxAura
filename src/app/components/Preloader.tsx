@@ -66,10 +66,10 @@ export default function Preloader({
         />
       )}
 
-      {/* Dark overlay when video ends */}
+      {/* Dark overlay as soon as the logo arrives */}
       <div
         className={`absolute inset-0 bg-black/60 transition-opacity duration-1000 ${
-          videoEnded ? "opacity-100" : "opacity-0 pointer-events-none"
+          doorOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       />
 
