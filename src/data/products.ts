@@ -56,6 +56,12 @@ const IMG = {
   nw4: "https://res.cloudinary.com/de4pazo51/image/upload/v1782977598/ChatGPT_Image_Jul_1_2026_05_39_41_PM_eckxss.png",
   nw5: "https://res.cloudinary.com/de4pazo51/image/upload/v1782977596/ChatGPT_Image_Jul_1_2026_05_31_01_PM_xr3dfz.png",
   nw6: "https://res.cloudinary.com/de4pazo51/image/upload/v1782977591/ChatGPT_Image_Jul_1_2026_05_21_56_PM_np6vzt.png",
+  rd1: "https://res.cloudinary.com/de4pazo51/image/upload/v1783324913/01_xka0xp.png",
+  rd2: "https://res.cloudinary.com/de4pazo51/image/upload/v1783324914/02_xmtrli.png",
+  rd3: "https://res.cloudinary.com/de4pazo51/image/upload/v1783324914/03_knqbtl.png",
+  rd4: "https://res.cloudinary.com/de4pazo51/image/upload/v1783324913/04_cnvyyy.png",
+  rd5: "https://res.cloudinary.com/de4pazo51/image/upload/v1783324914/05_kw3ujq.png",
+  rd6: "https://res.cloudinary.com/de4pazo51/image/upload/v1783324914/06_mjo4sk.png",
 } as const;
 
 // ── Types ──
@@ -278,6 +284,25 @@ export const PRODUCTS: Record<string, Product> = {
     closedImage: IMG.mh1,
     openImage: IMG.mh2,
     gallery: [IMG.mh1, IMG.mh2, IMG.mh3, IMG.mh4, IMG.mh5],
+  },
+  "rajwada-darbar": {
+    id: "rajwada-darbar",
+    name: "Rajwada Darbar",
+    tagline: "A Palace Unveiled",
+    category: "diwali",
+    categoryLabel: "Diwali Luxury Gift Box",
+    description:
+      "Open the doors to a royal Rajasthani courtyard — this collection unfolds into a hand-illustrated palace diorama complete with a gleaming brass Ganesh idol, dancing courtiers, and gilded elephants standing guard. A showstopping keepsake that turns every Diwali gifting moment into grand darbar theatre.",
+    whatsInside: [
+      "Brass Ganesh Idol",
+      "2 Hand-Painted Brass Containers",
+      "Pair of Brass Elephant Figurines",
+      "Decorative Pooja Bells & Tea-Light Holders",
+      "Pop-Up Palace Diorama Gift Box",
+    ],
+    closedImage: IMG.rd4,
+    openImage: IMG.rd6,
+    gallery: [IMG.rd1, IMG.rd2, IMG.rd3, IMG.rd4, IMG.rd5, IMG.rd6],
   },
 
 };
