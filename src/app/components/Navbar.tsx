@@ -7,10 +7,10 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 const NAV_LINKS = [
-  { label: "Home", shortLabel: "Home", href: "/" },
-  { label: "Premium Wedding Invitation", shortLabel: "Wedding", href: "/premium-wedding-invitation" },
-  { label: "Diwali Boxes & Gifting", shortLabel: "Diwali", href: "/diwali-boxes-gifting" },
-  { label: "Contact", shortLabel: "Contact", href: "https://wa.me/919999999999?text=Hi%20BoxAura!", isExternal: true },
+  { label: "Home", mobileLabel: "Home", href: "/" },
+  { label: "Premium Wedding Invitation", mobileLabel: "Wedding Invitation", href: "/premium-wedding-invitation" },
+  { label: "Diwali Boxes & Gifting", mobileLabel: "Boxes & Gifting", href: "/diwali-boxes-gifting" },
+  { label: "Contact", mobileLabel: "Contact", href: "https://wa.me/919999999999?text=Hi%20BoxAura!", isExternal: true },
 ];
 
 export default function Navbar() {
@@ -115,12 +115,13 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="flex items-center gap-2 overflow-x-auto w-full justify-center scrollbar-hide px-2 pb-1">
+        <div className="flex items-stretch gap-1.5 w-full justify-center px-2 pb-1">
           {NAV_LINKS.map((link, i) => {
             const isActive = pathname === link.href;
             return (
               <motion.div
                 key={link.href}
+                className="flex-1 min-w-0"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 + i * 0.08, duration: 0.5 }}
@@ -128,7 +129,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className={`relative font-heading text-[9px] sm:text-[10px] uppercase tracking-[0.15em] px-3.5 py-1.5 rounded-full transition-all duration-300 border whitespace-nowrap backdrop-blur-sm ${
+                  className={`relative flex items-center justify-center text-center h-full font-heading text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest leading-tight px-2 py-1.5 rounded-2xl transition-all duration-300 border backdrop-blur-sm ${
                     isActive
                       ? useDarkText
                         ? "text-stone-900 border-stone-300 bg-stone-100/60 shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
@@ -138,7 +139,7 @@ export default function Navbar() {
                         : "text-white/70 border-transparent hover:text-white hover:bg-white/5"
                   }`}
                 >
-                  {link.shortLabel}
+                  {link.mobileLabel}
                 </Link>
               </motion.div>
             );
