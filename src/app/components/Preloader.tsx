@@ -10,15 +10,22 @@ export default function Preloader({
   const [doorOpen, setDoorOpen] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
   const [exiting, setExiting] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Door starts swinging open around 1.8s into the video; logo follows with a slight delay.
-  const DOOR_OPEN_TIME = 2.3;
+  const videoSrc = isMobile ? "/boxm.mp4" : "/box video.mp4";
+  // Door starts swinging open a little later on the mobile cut; logo follows with a slight delay.
+  const DOOR_OPEN_TIME = isMobile ? 2.7 : 2.3;
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    const mql = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mql.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", onChange);
     return () => {
       document.body.style.overflow = "";
+      mql.removeEventListener("change", onChange);
     };
   }, []);
 
@@ -46,16 +53,18 @@ export default function Preloader({
         exiting ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
-      <video
-        ref={videoRef}
-        src="/box video.mp4"
-        autoPlay
-        muted
-        playsInline
-        onTimeUpdate={handleTimeUpdate}
-        onEnded={handleVideoEnd}
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+      {isMobile !== null && (
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          autoPlay
+          muted
+          playsInline
+          onTimeUpdate={handleTimeUpdate}
+          onEnded={handleVideoEnd}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      )}
 
       {/* Dark overlay when video ends */}
       <div
