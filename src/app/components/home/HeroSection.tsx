@@ -18,11 +18,11 @@ export default function HeroSection() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          src="/Premium Wedding Card Showroom at a glance, Shubh Cards.mp4"
+          src="/boxauravid.mp4"
         />
         {/* Elegant overlay for contrast */}
-        <div className="absolute inset-0 bg-[#4A2F1F]/20 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#4A2F1F]/80 via-[#4A2F1F]/10 to-transparent" />
+        <div className="absolute inset-0 bg-[black]/30 " />
+        <div className="absolute inset-0 bg-[black]/15 " />
       </motion.div>
 
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-12 flex-1 flex flex-col items-center justify-center gap-6 sm:gap-12">
@@ -57,14 +57,14 @@ export default function HeroSection() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="w-full flex flex-col items-center text-center text-white mt-8 sm:mt-12">
+        <div className="w-full flex flex-col items-center text-center text-white   mt-8 sm:mt-12">
           <motion.div
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ delay: 0.8, duration: 0.8 }}
              className="flex flex-col items-center max-w-[280px] sm:max-w-lg mx-auto"
           >
-            <a href="/premium-wedding-invitation" className="inline-flex items-center justify-center rounded-none border border-white/40 bg-white/5 backdrop-blur-md text-white px-8 py-4 sm:px-12 sm:py-5 text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] hover:bg-white hover:text-stone-950 transition-all duration-500 w-max">
+            <a href="/premium-wedding-invitation" className="inline-flex items-center justify-center rounded-none border border-white/40 bg-white/5 backdrop-blur-md text-white px-8 py-4 sm:px-12 sm:py-5 text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] hover:bg-white hover:text-stone-950 transition-all duration-500 w-max font-bold">
                Explore Collection
             </a>
           </motion.div>
