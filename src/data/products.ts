@@ -95,6 +95,13 @@ const IMG = {
   zb4: "https://res.cloudinary.com/de4pazo51/image/upload/v1783581060/closeup_keyse8.png",
   zb5: "https://res.cloudinary.com/de4pazo51/image/upload/v1783581062/mic_evrinm.png",
   zb6: "https://res.cloudinary.com/de4pazo51/image/upload/v1783581065/mic2_ad7dk5.png",
+  eg1: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580030/01_n3kk8i.png",
+  eg2: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580034/2_h16b53.png",
+  eg3: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580223/3_vgn7rz.png",
+  eg4: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580225/4_gusfov.png",
+  eg5: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580226/5_pbkzvb.png",
+  eg6: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580228/6_e7tin0.png",
+  eg7: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580230/7_wioj1a.png",
 } as const;
 
 // ── Types ──
@@ -298,6 +305,25 @@ export const PRODUCTS: Record<string, Product> = {
     closedImage: IMG.ld1,
     openImage: IMG.ld2,
     gallery: [IMG.ld1, IMG.ld5, IMG.ld2, IMG.ld3, IMG.ld6, IMG.ld4],
+  },
+  "elephant-gate": {
+    id: "elephant-gate",
+    name: "Elephant Gate",
+    tagline: "A Royal Welcome",
+    category: "wedding",
+    categoryLabel: "Luxury Wedding Invitation Box",
+    description:
+      "A teal lacquered cabinet hand-painted with a royal elephant procession, mandala medallions, and a gilded haveli skyline, fitted with a brass carry handle and a scalloped jharokha archway. Swing open its gate-like doors to a shrine niche cradling a golden Ganesh idol among faux roses and tea-lights, with a pull-out drawer below revealing gourmet chocolate pralines wrapped in golden satin — a majestic entrance for your wedding invitation.",
+    whatsInside: [
+      "Golden Ganesh Idol Niche with Rose Accents",
+      "Pull-Out Drawer with 9-Cavity Chocolate Praline Tray",
+      "Golden Satin Wrap Cloth",
+      "Hand-Painted Royal Elephant Procession Exterior",
+      "Brass Carry Handle & Scalloped Jharokha Archway",
+    ],
+    closedImage: IMG.eg7,
+    openImage: IMG.eg5,
+    gallery: [IMG.eg7, IMG.eg1, IMG.eg5, IMG.eg2, IMG.eg4, IMG.eg3, IMG.eg6],
   },
 
   // ─── Diwali Boxes & Gifting ───
