@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import SectionBg from "../SectionBg";
 import CursorRevealBg from "../CursorRevealBg";
+import { getProductsByCategory } from "@/data/products";
 
 
 const PANORAMA_SRC =
@@ -29,18 +30,19 @@ const CATALOG_ITEMS = [
   },
 ];
 
+const [weddingFeatured] = getProductsByCategory("wedding");
+const [giftingFeatured] = getProductsByCategory("diwali");
+
 const MOBILE_CATALOG_ITEMS = [
   {
-    category: "Kesar",
-    image:
-      "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.1_kofhcn.png",
-    href: "/kesar",
+    category: "Wedding Invitation",
+    image: weddingFeatured.closedImage,
+    href: `/product/${weddingFeatured.id}`,
   },
   {
-    category: "Marigold",
-    image:
-      "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.2_p6edgp.png",
-    href: "/marigold",
+    category: "Diwali Boxes & Gifting",
+    image: giftingFeatured.closedImage,
+    href: `/product/${giftingFeatured.id}`,
   },
 ];
 
