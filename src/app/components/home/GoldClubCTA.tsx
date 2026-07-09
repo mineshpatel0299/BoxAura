@@ -64,7 +64,7 @@ export default function GoldClubCTA() {
                Where Every Detail
              </motion.h2>
           </div>
-          <div className="overflow-hidden py-1 sm:py-2">
+          <div className="overflow-hidden py-1 sm:py-2 pr-3 sm:pr-6">
              <motion.h2
                initial={{ y: "100%", rotate: -2 }}
                whileInView={{ y: "0%", rotate: 0 }}
