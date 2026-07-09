@@ -129,7 +129,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className={`relative flex items-center justify-center text-center h-full font-heading text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest leading-tight px-2 py-1.5 rounded-2xl transition-all duration-300 border backdrop-blur-sm ${
+                  className={`relative flex items-center justify-center text-center h-full font-heading text-[11px] sm:text-[12px] font-semibold uppercase tracking-widest leading-tight px-2 py-1.5 rounded-2xl transition-all duration-300 border backdrop-blur-sm ${
                     isActive
                       ? useDarkText
                         ? "text-stone-900 border-stone-300 bg-stone-100/60 shadow-[0_2px_8px_rgba(0,0,0,0.04)]"

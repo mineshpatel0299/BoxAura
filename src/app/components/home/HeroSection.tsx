@@ -20,9 +20,9 @@ export default function HeroSection() {
           className="absolute inset-0 w-full h-full object-cover"
           src="/Premium Wedding Card Showroom at a glance, Shubh Cards.mp4"
         />
-        {/* Elegant dark overlay for contrast */}
-        <div className="absolute inset-0 bg-stone-950/20 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/10 to-transparent" />
+        {/* Elegant overlay for contrast */}
+        <div className="absolute inset-0 bg-slate-600/20 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-700/80 via-slate-700/10 to-transparent" />
       </motion.div>
 
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-12 flex-1 flex flex-col items-center justify-center gap-6 sm:gap-12">

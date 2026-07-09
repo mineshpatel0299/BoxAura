@@ -127,12 +127,12 @@ export const PRODUCTS: Record<string, Product> = {
   // ─── Wedding Invitation Boxes ───
   "scarlet-symphony": {
     id: "scarlet-symphony",
-    name: "Scarlet Symphony",
+    name: "Kesari Mahal",
     tagline: "Passionate Elegance",
     category: "wedding",
     categoryLabel: "Luxury Wedding Invitation Box",
     description:
-      "The Scarlet Symphony collection is a masterpiece of passionate design and luxurious detail. From its rich textured exterior to the carefully curated surprises inside, it sets a bold and elegant tone for a celebration of love.",
+      "The Kesari Mahal collection is a masterpiece of passionate design and luxurious detail. From its rich textured exterior to the carefully curated surprises inside, it sets a bold and elegant tone for a celebration of love.",
     whatsInside: [
       "2 Bespoke Wedding Invitation Cards",
       "Personalized Keepsake Box",
@@ -145,12 +145,12 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "ethereal-bloom": {
     id: "ethereal-bloom",
-    name: "Ethereal Bloom",
+    name: "Neel Kamal",
     tagline: "Timeless Romance",
     category: "wedding",
     categoryLabel: "Luxury Wedding Invitation Box",
     description:
-      "Discover the perfect harmony of romance and luxury with the Ethereal Bloom collection. Delicate textures and premium finishes create an unforgettable first impression for your special day.",
+      "Discover the perfect harmony of romance and luxury with the Neel Kamal collection. Delicate textures and premium finishes create an unforgettable first impression for your special day.",
     whatsInside: [
       "2 Premium Textured Invitation Cards",
       "Artisan Wax Seal Kit",
@@ -163,12 +163,12 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "velvet-noir": {
     id: "velvet-noir",
-    name: "Velvet Noir",
+    name: "Rani Bahar",
     tagline: "Dark Sophistication",
     category: "wedding",
     categoryLabel: "Luxury Wedding Invitation Box",
     description:
-      "A bold statement in deep black velvet — our Velvet Noir box exudes dark sophistication with gold foil detailing and a magnetic closure that opens to reveal premium invitation cards, artisan keepsakes, and gourmet chocolates.",
+      "A bold statement in deep black velvet — our Rani Bahar box exudes dark sophistication with gold foil detailing and a magnetic closure that opens to reveal premium invitation cards, artisan keepsakes, and gourmet chocolates.",
     whatsInside: [
       "2 Premium Wedding Invitation Cards",
       "2 Elegant Keepsake Jars",
@@ -181,12 +181,12 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "royal-amber": {
     id: "royal-amber",
-    name: "Royal Amber",
+    name: "Gulal Mahal",
     tagline: "Warm Opulence",
     category: "wedding",
     categoryLabel: "Premium Wedding Invitation Box",
     description:
-      "Draped in warm amber-toned satin, the Royal Amber collection radiates warmth and opulence. Each element is hand-finished with intricate embossing and paired with luxurious accessories that elevate the unboxing into a ceremony of its own.",
+      "Draped in warm amber-toned satin, the Gulal Mahal collection radiates warmth and opulence. Each element is hand-finished with intricate embossing and paired with luxurious accessories that elevate the unboxing into a ceremony of its own.",
     whatsInside: [
       "2 Embossed Wedding Invitation Cards",
       "Premium Dry Fruit Jar with Brass Lid",
@@ -199,12 +199,12 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "ivory-luxe": {
     id: "ivory-luxe",
-    name: "Ivory Luxe",
+    name: "Swarna Dwar",
     tagline: "Pristine Elegance",
     category: "wedding",
     categoryLabel: "Luxury Wedding Invitation Box",
     description:
-      "Pure, pristine, and timeless — the Ivory Luxe box is wrapped in pearl-white fabric with delicate lace accents. Designed for those who appreciate understated luxury, every detail whispers elegance.",
+      "Pure, pristine, and timeless — the Swarna Dwar box is wrapped in pearl-white fabric with delicate lace accents. Designed for those who appreciate understated luxury, every detail whispers elegance.",
     whatsInside: [
       "2 Foil-Pressed Wedding Invitation Cards",
       "2 Crystal-Cut Keepsake Jars",
@@ -217,7 +217,7 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "midnight-gold": {
     id: "midnight-gold",
-    name: "Midnight Gold",
+    name: "Mor Jodi",
     tagline: "Gilded Mystery",
     category: "diwali",
     categoryLabel: "Diwali Premium Gift Box",
@@ -235,12 +235,12 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "champagne-mist": {
     id: "champagne-mist",
-    name: "Champagne Mist",
+    name: "Jaimala Bloom",
     tagline: "Subtle Radiance",
     category: "wedding",
     categoryLabel: "Luxury Wedding Invitation Box",
     description:
-      "Soft champagne hues meet iridescent shimmer in our most ethereal collection. The Champagne Mist box captures light and attention in equal measure, making every invitation feel like a celebration before the celebration.",
+      "Soft champagne hues meet iridescent shimmer in our most ethereal collection. The Jaimala Bloom box captures light and attention in equal measure, making every invitation feel like a celebration before the celebration.",
     whatsInside: [
       "2 Shimmer-Finish Invitation Cards",
       "Rose Gold Keepsake Candle",
@@ -253,7 +253,7 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "obsidian-pearl": {
     id: "obsidian-pearl",
-    name: "Obsidian Pearl",
+    name: "Lal Bagh",
     tagline: "Contrast & Charm",
     category: "wedding",
     categoryLabel: "Premium Wedding Invitation Box",
@@ -308,7 +308,7 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "elephant-gate": {
     id: "elephant-gate",
-    name: "Elephant Gate",
+    name: "Hathi Gate",
     tagline: "A Royal Welcome",
     category: "wedding",
     categoryLabel: "Luxury Wedding Invitation Box",
@@ -329,12 +329,12 @@ export const PRODUCTS: Record<string, Product> = {
   // ─── Diwali Boxes & Gifting ───
   "golden-glow": {
     id: "golden-glow",
-    name: "Golden Glow",
+    name: "Mangal Mandir",
     tagline: "Festive Radiance",
     category: "diwali",
     categoryLabel: "Diwali Premium Gift Box",
     description:
-      "Celebrate the festival of lights with our Golden Glow box — a radiant ensemble of handpicked sweets, artisan diyas, and premium dry fruits, all nestled within a gold-embossed rigid box that becomes a keepsake long after the festivities.",
+      "Celebrate the festival of lights with our Mangal Mandir box — a radiant ensemble of handpicked sweets, artisan diyas, and premium dry fruits, all nestled within a gold-embossed rigid box that becomes a keepsake long after the festivities.",
     whatsInside: [
       "Assorted Premium Mithai Box",
       "2 Handcrafted Brass Diyas",
@@ -347,7 +347,7 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "rangoli-luxe": {
     id: "rangoli-luxe",
-    name: "Rangoli Luxe",
+    name: "Sindoori Mandir",
     tagline: "Artisan Tradition",
     category: "diwali",
     categoryLabel: "Diwali Luxury Gift Box",
@@ -365,7 +365,7 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "marigold-heritage": {
     id: "marigold-heritage",
-    name: "Marigold Heritage",
+    name: "Genda Haveli",
     tagline: "Royal Festivity",
     category: "diwali",
     categoryLabel: "Diwali Premium Gift Box",
@@ -402,7 +402,7 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "ember-mosaic": {
     id: "ember-mosaic",
-    name: "Ember Mosaic",
+    name: "Angaar Mosaic",
     tagline: "Jeweled Radiance",
     category: "diwali",
     categoryLabel: "Diwali Luxury Gift Box",
@@ -456,12 +456,12 @@ export const PRODUCTS: Record<string, Product> = {
   },
   "topaz-geode": {
     id: "topaz-geode",
-    name: "Topaz Geode",
+    name: "Sitara Geode",
     tagline: "Gilded Facets",
     category: "diwali",
     categoryLabel: "Diwali Premium Gift Box",
     description:
-      "A study in quiet glamour — the Topaz Geode box pairs smoked amber glass with a lid inset of raw crystal facets that catch the light like candlelight through cut topaz. Trimmed in gold and lined in ivory velvet with a satin ribbon pull, it's an elegant keepsake box for jewellery, sweets, or whatever treasure your Diwali gifting calls for.",
+      "A study in quiet glamour — the Sitara Geode box pairs smoked amber glass with a lid inset of raw crystal facets that catch the light like candlelight through cut topaz. Trimmed in gold and lined in ivory velvet with a satin ribbon pull, it's an elegant keepsake box for jewellery, sweets, or whatever treasure your Diwali gifting calls for.",
     whatsInside: [
       "Crystal-Embedded Glass Lid",
       "Smoked Topaz Glass Body with Gold Trim",
