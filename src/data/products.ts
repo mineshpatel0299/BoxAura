@@ -101,7 +101,7 @@ const IMG = {
   eg4: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580225/4_gusfov.png",
   eg5: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580226/5_pbkzvb.png",
   eg6: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580228/6_e7tin0.png",
-  eg7: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580230/7_wioj1a.png",
+  eg7: "https://res.cloudinary.com/de4pazo51/image/upload/v1783580030/01_n3kk8i.png",
 } as const;
 
 // ── Types ──
