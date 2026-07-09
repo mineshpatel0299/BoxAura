@@ -115,7 +115,12 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="flex items-stretch gap-1.5 w-full justify-center px-2 pb-1">
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35, duration: 0.5 }}
+          className="flex items-stretch gap-1 w-full max-w-md mx-auto px-1.5 py-1.5 rounded-full border border-stone-300/70 bg-[#EFECE5]/90 backdrop-blur-md shadow-[0_4px_16px_rgba(0,0,0,0.08)]"
+        >
           {NAV_LINKS.map((link, i) => {
             const isActive = pathname === link.href;
             return (
@@ -129,14 +134,10 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className={`relative flex items-center justify-center text-center h-full font-heading text-[11px] sm:text-[12px] font-semibold uppercase tracking-widest leading-tight px-2 py-1.5 rounded-2xl transition-all duration-300 border backdrop-blur-sm ${
+                  className={`relative flex items-center justify-center text-center h-full font-heading text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider leading-tight px-2 py-2 rounded-full transition-all duration-300 ${
                     isActive
-                      ? useDarkText
-                        ? "text-stone-900 border-stone-300 bg-stone-100/60 shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
-                        : "text-white border-white/40 bg-white/10 shadow-[0_2px_12px_rgba(255,255,255,0.08)]"
-                      : useDarkText
-                        ? "text-stone-500 border-transparent hover:text-stone-900 hover:bg-stone-200/30"
-                        : "text-white/70 border-transparent hover:text-white hover:bg-white/5"
+                      ? "bg-[#BF944C] text-white shadow-sm"
+                      : "text-[#BF944C] hover:text-stone-900"
                   }`}
                 >
                   {link.mobileLabel}
@@ -144,7 +145,7 @@ export default function Navbar() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </motion.nav>
   );
