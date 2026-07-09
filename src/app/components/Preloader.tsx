@@ -74,7 +74,7 @@ export default function Preloader({
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black transition-opacity duration-700 ${
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden bg-black transition-opacity duration-700 ${
         exiting ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
@@ -87,7 +87,7 @@ export default function Preloader({
         preload="auto"
         onTimeUpdate={handleTimeUpdate}
         onEnded={handleVideoEnd}
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover scale-125 origin-top"
       />
 
       {/* Dark overlay as soon as the logo arrives */}
