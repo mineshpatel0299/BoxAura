@@ -20,7 +20,7 @@ export default function Preloader({
   );
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const videoSrc = isMobile ? "/boxm.mp4" : "/box video.mp4";
+  const videoSrc = isMobile ? "/m.mp4" : "/box video.mp4";
   // Door starts swinging open a little later on the mobile cut; logo follows with a slight delay.
   const DOOR_OPEN_TIME = isMobile ? 2.7 : 2.3;
   // Logo fades in a touch before the door finishes opening, so it doesn't feel like it lags behind.
