@@ -85,7 +85,7 @@ export default function Navbar() {
               <Link
                 href={link.href}
                 {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className={`font-heading text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${
+                className={`font-heading text-[12px] sm:text-[13px] font-medium uppercase tracking-[0.2em] transition-colors duration-300 ${
                   useDarkText
                     ? `${pathname === link.href ? "text-stone-950" : "text-stone-800"} hover:text-stone-950`
                     : "text-white/90 hover:text-white drop-shadow-md"
