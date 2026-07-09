@@ -68,7 +68,7 @@ export default function Navbar() {
             priority
             className={`w-auto object-contain transition-all duration-500 ${
               useDarkText
-                ? "h-12 sm:h-12 md:h-14"
+                ? "h-16 sm:h-16 md:h-18"
                 : "h-14 sm:h-16 md:h-20 brightness-0 invert drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
             }`}
           />
