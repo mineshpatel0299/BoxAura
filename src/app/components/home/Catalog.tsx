@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import SectionBg from "../SectionBg";
 import CursorRevealBg from "../CursorRevealBg";
-import { getProductsByCategory } from "@/data/products";
+import { getProductsByCategory, PRODUCTS } from "@/data/products";
 
 
 const PANORAMA_SRC =
@@ -30,7 +30,7 @@ const CATALOG_ITEMS = [
   },
 ];
 
-const [weddingFeatured] = getProductsByCategory("wedding");
+const weddingFeatured = PRODUCTS["ivory-haveli"];
 const [giftingFeatured] = getProductsByCategory("diwali");
 
 const MOBILE_CATALOG_ITEMS = [

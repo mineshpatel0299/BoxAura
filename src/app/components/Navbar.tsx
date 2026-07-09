@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const NAV_LINKS = [
   { label: "Home", mobileLabel: "Home", href: "/" },
@@ -59,33 +59,20 @@ export default function Navbar() {
 
       {/* Desktop layout — unchanged */}
       <div className="hidden lg:flex mx-auto max-w-[1400px] items-center justify-between px-4 sm:px-6 md:px-12">
-        <AnimatePresence initial={false}>
-          {!scrolled && (
-            <motion.div
-              key="logo-desktop"
-              initial={{ opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: "auto" }}
-              exit={{ opacity: 0, width: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="overflow-hidden flex-shrink-0"
-            >
-              <Link href="/" className="block flex-shrink-0">
-                <Image
-                  src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
-                  alt="BoxAura"
-                  width={300}
-                  height={100}
-                  priority
-                  className={`w-auto object-contain transition-all duration-500 ${
-                    useDarkText
-                      ? "h-12 sm:h-12 md:h-14"
-                      : "h-14 sm:h-16 md:h-20 brightness-0 invert drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
-                  }`}
-                />
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <Link href="/" className="block flex-shrink-0">
+          <Image
+            src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
+            alt="BoxAura"
+            width={300}
+            height={100}
+            priority
+            className={`w-auto object-contain transition-all duration-500 ${
+              useDarkText
+                ? "h-12 sm:h-12 md:h-14"
+                : "h-14 sm:h-16 md:h-20 brightness-0 invert drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
+            }`}
+          />
+        </Link>
 
         <ul className="flex items-center gap-10">
           {NAV_LINKS.map((link, i) => (
@@ -113,33 +100,20 @@ export default function Navbar() {
 
       {/* Mobile layout — centered logo + inline nav strip */}
       <div className="lg:hidden flex flex-col items-center w-full px-2">
-        <AnimatePresence initial={false}>
-          {!scrolled && (
-            <motion.div
-              key="logo-mobile"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="overflow-hidden w-full flex justify-center"
-            >
-              <Link href="/" className="mb-3 block transition-transform active:scale-95">
-                <Image
-                  src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
-                  alt="BoxAura"
-                  width={300}
-                  height={100}
-                  priority
-                  className={`w-auto object-contain transition-all duration-500 ${
-                    useDarkText
-                      ? "h-14 sm:h-16 drop-shadow-sm brightness-100 invert-0"
-                      : "h-16 sm:h-20 brightness-0 invert drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
-                  }`}
-                />
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <Link href="/" className="mb-3 block transition-transform active:scale-95">
+          <Image
+            src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
+            alt="BoxAura"
+            width={300}
+            height={100}
+            priority
+            className={`w-auto object-contain transition-all duration-500 ${
+              useDarkText
+                ? "h-14 sm:h-16 drop-shadow-sm brightness-100 invert-0"
+                : "h-16 sm:h-20 brightness-0 invert drop-shadow-[0_0_15px_rgba(0,0,0,0.3)]"
+            }`}
+          />
+        </Link>
 
         <div className="flex items-stretch gap-1.5 w-full justify-center px-2 pb-1">
           {NAV_LINKS.map((link, i) => {
