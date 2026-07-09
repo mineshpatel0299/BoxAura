@@ -37,12 +37,12 @@ const MOBILE_CATALOG_ITEMS = [
   {
     category: "Wedding Invitation",
     image: weddingFeatured.closedImage,
-    href: `/product/${weddingFeatured.id}`,
+    href: "/premium-wedding-invitation",
   },
   {
     category: "Diwali Boxes & Gifting",
     image: giftingFeatured.closedImage,
-    href: `/product/${giftingFeatured.id}`,
+    href: "/diwali-boxes-gifting",
   },
 ];
 
