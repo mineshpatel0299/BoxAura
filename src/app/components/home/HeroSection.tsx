@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-stone-950 pt-14 sm:pt-20 lg:pt-28 pb-4 sm:pb-8">
+    <section className="relative w-full min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-[#7F807F] pt-14 sm:pt-20 lg:pt-28 pb-4 sm:pb-8">
       {/* Background Video */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -21,8 +21,8 @@ export default function HeroSection() {
           src="/Premium Wedding Card Showroom at a glance, Shubh Cards.mp4"
         />
         {/* Elegant overlay for contrast */}
-        <div className="absolute inset-0 bg-slate-600/20 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-700/80 via-slate-700/10 to-transparent" />
+        <div className="absolute inset-0 bg-[#7F807F]/20 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#7F807F]/80 via-[#7F807F]/10 to-transparent" />
       </motion.div>
 
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-12 flex-1 flex flex-col items-center justify-center gap-6 sm:gap-12">
