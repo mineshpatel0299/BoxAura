@@ -81,7 +81,7 @@ export default function Preloader({
         <img
           src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
           alt="BoxAura Logo"
-          className={`w-72 sm:w-96 md:w-104 h-auto object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all duration-1000 ${
+          className={`w-80 sm:w-md md:w-lg h-auto object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all duration-1000 ${
             doorOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         />
