@@ -65,7 +65,7 @@ function MobileCatalogCard({
         initial={{ opacity: 0, y: 40 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(120,100,80,0.12)]"
+        className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(120,100,80,0.12)]"
       >
         <motion.div
           className="absolute inset-0"
@@ -84,15 +84,15 @@ function MobileCatalogCard({
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-black/5" />
 
-        <div className="absolute inset-0 z-10 flex flex-col items-center justify-end pb-10 px-6">
-          <span className="font-heading text-[8px] uppercase tracking-[0.5em] text-white/40 mb-3">
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-end pb-7 px-6">
+          <span className="font-heading text-[8px] uppercase tracking-[0.5em] text-white/40 mb-2.5">
             {String(index + 1).padStart(2, "0")} — {String(MOBILE_CATALOG_ITEMS.length).padStart(2, "0")}
           </span>
-          <h3 className="text-2xl font-heading text-white text-center leading-tight tracking-tight">
+          <h3 className="text-lg font-heading text-white text-center leading-tight tracking-tight">
             {item.category}
           </h3>
-          <span className="mt-2.5 w-6 h-px bg-white/25" />
-          <span className="mt-4 text-[9px] font-medium tracking-[0.3em] uppercase text-white/60 border border-white/20 px-5 py-2 hover:bg-white/10 transition-colors">
+          <span className="mt-2 w-5 h-px bg-white/25" />
+          <span className="mt-3 text-[8px] font-medium tracking-[0.3em] uppercase text-white/60 border border-white/20 px-4 py-1.5 hover:bg-white/10 transition-colors">
             Explore
           </span>
         </div>
@@ -132,7 +132,7 @@ export default function Catalog() {
 
         </div>
 
-        <div className="relative z-10 flex flex-col gap-6">
+        <div className="relative z-10 flex flex-col gap-5">
           {MOBILE_CATALOG_ITEMS.map((item, i) => (
             <MobileCatalogCard key={i} item={item} index={i} />
           ))}
