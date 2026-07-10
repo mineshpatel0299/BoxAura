@@ -43,32 +43,32 @@ function Lightbox({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center"
+      className="fixed inset-0 z-[100] bg-white/95 backdrop-blur-xl flex items-center justify-center"
       onClick={onClose}
     >
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 z-10 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+        className="absolute top-6 right-6 z-10 w-10 h-10 rounded-full border border-black/15 flex items-center justify-center hover:bg-black/5 transition-colors"
       >
-        <svg className="w-5 h-5 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <svg className="w-5 h-5 text-black/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
 
       <button
         onClick={(e) => { e.stopPropagation(); onPrev(); }}
-        className="absolute left-4 sm:left-8 z-10 w-12 h-12 rounded-full border border-white/15 flex items-center justify-center hover:bg-white/10 transition-colors"
+        className="absolute left-4 sm:left-8 z-10 w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:bg-black/5 transition-colors"
       >
-        <svg className="w-5 h-5 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <svg className="w-5 h-5 text-black/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
       </button>
 
       <button
         onClick={(e) => { e.stopPropagation(); onNext(); }}
-        className="absolute right-4 sm:right-8 z-10 w-12 h-12 rounded-full border border-white/15 flex items-center justify-center hover:bg-white/10 transition-colors"
+        className="absolute right-4 sm:right-8 z-10 w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:bg-black/5 transition-colors"
       >
-        <svg className="w-5 h-5 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <svg className="w-5 h-5 text-black/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
         </svg>
       </button>
@@ -95,7 +95,7 @@ function Lightbox({
       </AnimatePresence>
 
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-        <span className="text-[10px] font-heading tracking-[0.4em] text-white/30">
+        <span className="text-[10px] font-heading tracking-[0.4em] text-black/30">
           {String(activeIndex + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
         </span>
       </div>
