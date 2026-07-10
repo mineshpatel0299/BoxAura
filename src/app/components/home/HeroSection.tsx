@@ -18,7 +18,7 @@ export default function HeroSection() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          src="/boxauravid.mp4"
+          src="/boxhero.mp4"
         />
         {/* Elegant overlay for contrast */}
         <div className="absolute inset-0 bg-[black]/30 " />
