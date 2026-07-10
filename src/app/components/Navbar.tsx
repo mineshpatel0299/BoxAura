@@ -8,9 +8,9 @@ import { motion } from "framer-motion";
 
 const NAV_LINKS = [
   { label: "Home", mobileLabel: "Home", href: "/" },
-  { label: "Premium Wedding Invitation", mobileLabel: "Wedding Invitation", href: "/premium-wedding-invitation" },
-  { label: "Diwali Boxes & Gifting", mobileLabel: "Boxes & Gifting", href: "/diwali-boxes-gifting" },
-  { label: "Contact", mobileLabel: "Contact", href: "https://wa.me/919999999999?text=Hi%20BoxAura!", isExternal: true },
+  { label: "Wedding Invitation", mobileLabel: "Wedding Invitation", href: "/premium-wedding-invitation" },
+  { label: "Diwali Boxes", mobileLabel: "Diwali Boxes", href: "/diwali-boxes-gifting" },
+  { label: "Contact", mobileLabel: "Contact", href: "https://wa.me/919990171703?text=Hi%20BoxAura!", isExternal: true },
 ];
 
 export default function Navbar() {
