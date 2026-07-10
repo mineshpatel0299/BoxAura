@@ -24,7 +24,7 @@ const COMPANY = [
 const SOCIALS = [
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/boxaura.boxaura?igsh=MTZpNGZqaWR5Mmw3eA==",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" />
@@ -64,6 +64,7 @@ export default function Footer() {
               <a
                 key={social.label}
                 href={social.href}
+                {...(social.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 aria-label={social.label}
                 className="w-8 h-8 rounded-full border border-stone-300 flex items-center justify-center text-stone-500 hover:bg-stone-800 hover:text-white transition-all duration-300"
               >
@@ -100,6 +101,7 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
+                  {...(social.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   aria-label={social.label}
                   className="w-10 h-10 rounded-full border border-stone-300 flex items-center justify-center text-stone-500 hover:bg-stone-800 hover:text-white transition-all duration-300"
                 >
