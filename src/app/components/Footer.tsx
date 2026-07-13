@@ -9,7 +9,7 @@ const QUICK_LINKS = [
   { label: "Home", href: "/" },
   { label: "Premium Wedding Invitation", href: "/premium-wedding-invitation" },
   { label: "Diwali Boxes & Gifting", href: "/diwali-boxes-gifting" },
-  { label: "Collections", href: "/#collections" },
+  { label: "Collections", href: "/#catalog" },
 
 ];
 

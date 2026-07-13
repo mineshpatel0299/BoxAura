@@ -114,7 +114,7 @@ export default function Catalog() {
   return (
     <>
       {/* ── Mobile View ── */}
-      <section className="md:hidden relative bg-[#EFECE5] pt-14 pb-12 px-5 overflow-hidden">
+      <section id="catalog" className="md:hidden relative bg-[#EFECE5] pt-14 pb-12 px-5 overflow-hidden">
         {/* Auto-hovering bgimage exclusively for mobile view */}
         <CursorRevealBg />
         <SectionBg variant="corner-both" />
@@ -142,7 +142,7 @@ export default function Catalog() {
       {/* ── Desktop View ── */}
       <div className="hidden md:block">
         {/* Section Header */}
-        <div className="relative bg-[#EFECE5] pt-20 lg:pt-24 pb-14 lg:pb-16 overflow-hidden border-b border-stone-300">
+        <div id="catalog" className="relative bg-[#EFECE5] pt-20 lg:pt-24 pb-14 lg:pb-16 overflow-hidden border-b border-stone-300">
           <div className="relative z-10 flex flex-col items-center px-6">
             <h2 className="text-6xl lg:text-8xl font-heading tracking-tight leading-none text-center">
               <span className="text-stone-800">Curated</span>{" "}
