@@ -18,21 +18,21 @@ export default function HeroSection() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          src="/boxhero.mp4"
+          src="/boxaura.mp4"
         />
         {/* Elegant overlay for contrast */}
         <div className="absolute inset-0 bg-[black]/30 " />
         <div className="absolute inset-0 bg-[black]/15 " />
       </motion.div>
 
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-12 flex-1 flex flex-col items-center justify-center gap-6 sm:gap-12">
-        {/* Top Typography */}
-        <div className="text-center mt-12 sm:mt-0">
+      <div className="relative z-10 w-full px-2 sm:px-3 lg:px-4 flex-1 flex flex-col items-center justify-end gap-6 sm:gap-10">
+        {/* Bottom-center Typography */}
+        <div className="text-center">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-stone-300 uppercase tracking-[0.3em] sm:tracking-[0.5em] text-[10px] sm:text-xs mb-4 sm:mb-8 font-light"
+            className="text-stone-300 uppercase tracking-[0.3em] sm:tracking-[0.5em] text-[10px] sm:text-xs mb-2 sm:mb-3 font-light"
           >
             BoxAura Unveiled
           </motion.p>
@@ -40,29 +40,29 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 1 }}
-            className="text-[2.5rem] sm:text-6xl md:text-7xl lg:text-[7.5rem] font-heading text-white font-light leading-[1.1] tracking-tight drop-shadow-lg"
+            className="whitespace-nowrap text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-white font-lightleading-[0.9] tracking-tight drop-shadow-lg"
           >
-            The Art of <br />
-            <span className="italic text-stone-200 font-light pr-2 sm:pr-4">Impressions</span>
+            The Art of{" "}
+            <span className=" text-stone-200 font-light pr-2 sm:pr-4">Impressions</span>
           </motion.h1>
-          
-          <motion.p
+
+          {/* <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-stone-300 text-xs sm:text-sm text-center px-4 font-light leading-relaxed max-w-[320px] sm:max-w-md mx-auto mt-6 sm:mt-8"
+            className="text-stone-300 text-xs sm:text-sm text-left font-light leading-relaxed max-w-[320px] sm:max-w-md mt-3 sm:mt-4"
           >
             Elevating celebrations with premium handcrafted boxes and exquisite invitations.
-          </motion.p>
+          </motion.p> */}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="w-full flex flex-col items-center text-center text-white   mt-8 sm:mt-12">
+        {/* CTA */}
+        <div className="w-full flex flex-col items-center text-center text-white mb-2 sm:mb-4">
           <motion.div
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ delay: 0.8, duration: 0.8 }}
-             className="flex flex-col items-center max-w-[280px] sm:max-w-lg mx-auto"
+             className="flex flex-col items-center max-w-70 sm:max-w-lg mx-auto"
           >
             <a href="/premium-wedding-invitation" className="inline-flex items-center justify-center rounded-none border border-white/40 bg-white/5 backdrop-blur-md text-white px-8 py-4 sm:px-12 sm:py-5 text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] hover:bg-white hover:text-stone-950 transition-all duration-500 w-max font-bold">
                Explore Collection
