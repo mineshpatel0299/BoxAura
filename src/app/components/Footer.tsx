@@ -14,10 +14,7 @@ const QUICK_LINKS = [
 ];
 
 const COMPANY = [
-  { label: "About Us", href: "/about" },
-  { label: "Our Philosophy", href: "/#philosophy" },
   { label: "Contact", href: "https://wa.me/919990171703?text=Hi%20BoxAura!" },
-
   { label: "Privacy Policy", href: "/privacy" },
 ];
 

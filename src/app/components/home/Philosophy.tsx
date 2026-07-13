@@ -34,7 +34,8 @@ export default function Philosophy() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full bg-[#EFECE5] flex flex-col items-center justify-center py-10 sm:py-24 lg:py-40 overflow-hidden border-b border-stone-400"
+      id="philosophy"
+      className="relative w-full bg-[#EFECE5] flex flex-col items-center justify-center py-10 sm:py-24 lg:py-40 overflow-hidden border-b border-stone-400 scroll-mt-16 sm:scroll-mt-20"
     >
       <CursorRevealBg />
       <SectionBg variant="left-strip" />
