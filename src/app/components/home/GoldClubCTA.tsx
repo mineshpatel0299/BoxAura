@@ -11,7 +11,7 @@ export default function GoldClubCTA() {
     target: containerRef,
     offset: ["start end", "end start"]
   });
-  
+
   // High-end cinematic parallax
   const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
 
@@ -22,8 +22,8 @@ export default function GoldClubCTA() {
     >
       {/* Parallax Background Image */}
       <motion.div style={{ y }} className="absolute inset-0 w-full h-[140%] -top-[20%] z-0">
-        <Image 
-          src="https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg" 
+        <Image
+          src="https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg"
           alt="BoxAura Craftsmanship"
           fill
           className="object-cover opacity-60 grayscale-[40%]"
@@ -36,8 +36,8 @@ export default function GoldClubCTA() {
 
       {/* Main Content Overlay */}
       <div className="relative z-10 w-full max-w-[1400px] px-4 sm:px-12 flex flex-col items-center text-center">
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -54,30 +54,30 @@ export default function GoldClubCTA() {
         {/* Staggered Line Reveal for Huge Typography */}
         <div className="flex flex-col items-center gap-1 sm:gap-4 mb-8 sm:mb-10">
           <div className="overflow-hidden py-1 sm:py-2">
-             <motion.h2
-               initial={{ y: "100%", rotate: 2 }}
-               whileInView={{ y: "0%", rotate: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-               className="text-3xl sm:text-7xl lg:text-[7rem] font-heading text-white tracking-tight leading-none"
-             >
-               Where Every Detail
-             </motion.h2>
+            <motion.h2
+              initial={{ y: "100%", rotate: 2 }}
+              whileInView={{ y: "0%", rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+              className="text-3xl sm:text-7xl lg:text-[7rem] font-heading text-white tracking-tight leading-none"
+            >
+              Where Every Detail
+            </motion.h2>
           </div>
           <div className="overflow-hidden py-1 sm:py-2 pr-3 sm:pr-6">
-             <motion.h2
-               initial={{ y: "100%", rotate: -2 }}
-               whileInView={{ y: "0%", rotate: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 1, delay: 0.1, ease: [0.76, 0, 0.24, 1] }}
-               className="text-3xl sm:text-7xl lg:text-[7rem] font-heading tracking-tight leading-none italic font-light text-white/80"
-             >
-               Tells a Story
-             </motion.h2>
+            <motion.h2
+              initial={{ y: "100%", rotate: -2 }}
+              whileInView={{ y: "0%", rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.1, ease: [0.76, 0, 0.24, 1] }}
+              className="text-3xl sm:text-7xl lg:text-[7rem] font-heading tracking-tight leading-none italic font-light text-white/80"
+            >
+              Tells a Story
+            </motion.h2>
           </div>
         </div>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -88,7 +88,7 @@ export default function GoldClubCTA() {
         </motion.p>
 
         {/* Animated Button */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -96,7 +96,7 @@ export default function GoldClubCTA() {
           className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
         >
           <a
-            href="https://wa.me/919999999999?text=Hi%20BoxAura!"
+            href="https://wa.me/919990171703?text=Hi%20BoxAura!"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative overflow-hidden inline-flex items-center justify-center border border-white/20 bg-white/10 backdrop-blur-md text-white px-8 py-4 sm:px-12 sm:py-5 text-[9px] sm:text-xs uppercase tracking-[0.2em] font-medium transition-colors hover:bg-white hover:text-stone-900"
@@ -104,11 +104,11 @@ export default function GoldClubCTA() {
             Start Your Order
           </a>
         </motion.div>
-        
+
       </div>
-      
+
       {/* Footer Anchored Stats */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}

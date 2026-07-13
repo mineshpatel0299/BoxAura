@@ -10,14 +10,14 @@ const QUICK_LINKS = [
   { label: "Premium Wedding Invitation", href: "/premium-wedding-invitation" },
   { label: "Diwali Boxes & Gifting", href: "/diwali-boxes-gifting" },
   { label: "Collections", href: "/#collections" },
-  { label: "Catalog", href: "/#catalog" },
+
 ];
 
 const COMPANY = [
   { label: "About Us", href: "/about" },
   { label: "Our Philosophy", href: "/#philosophy" },
-  { label: "Contact", href: "https://wa.me/919999999999?text=Hi%20BoxAura!" },
-  { label: "Social Media", href: "/social-media" },
+  { label: "Contact", href: "https://wa.me/919990171703?text=Hi%20BoxAura!" },
+
   { label: "Privacy Policy", href: "/privacy" },
 ];
 
@@ -171,7 +171,7 @@ export default function Footer() {
           className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400 font-light text-center md:text-left">
-            &copy; {new Date().getFullYear()} BoxAura. All rights reserved. <span className="hidden md:inline">|</span> <br className="md:hidden" /> Developed By Edigitify.
+            &copy; {new Date().getFullYear()} BoxAura. All rights reserved. <span className="hidden md:inline">|</span> <br className="md:hidden" /> Developed By <a href="https://edigitify.in">Edigitify</a>
           </p>
           <p className="text-[10px] uppercase tracking-[0.15em] text-stone-400 font-light text-center md:text-right">
             Crafted with passion in India
