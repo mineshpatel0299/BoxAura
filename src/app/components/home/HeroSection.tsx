@@ -17,8 +17,16 @@ export default function HeroSection() {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          src="/boxaura.mp4"
+          className="absolute inset-0 w-full h-full object-cover md:hidden"
+          src="/mobile.mp4"
+        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover hidden md:block"
+          src="/web.mp4"
         />
         {/* Elegant overlay for contrast */}
         <div className="absolute inset-0 bg-[black]/30 " />
