@@ -11,8 +11,6 @@ export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(
     () => typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches
   );
-  const [isMuted, setIsMuted] = useState(true);
-
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
     const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
@@ -37,10 +35,8 @@ export default function HeroSection() {
     if (!video) return;
     video.currentTime = 0;
     video.muted = false;
-    setIsMuted(false);
     video.play().catch(() => {
       video.muted = true;
-      setIsMuted(true);
       video.play().catch(() => {});
     });
   }, [playbackSignal]);
@@ -55,7 +51,6 @@ export default function HeroSection() {
       ([entry]) => {
         if (!entry.isIntersecting && !video.muted) {
           video.muted = true;
-          setIsMuted(true);
         }
       },
       { threshold: 0.25 }
@@ -63,13 +58,6 @@ export default function HeroSection() {
     observer.observe(section);
     return () => observer.disconnect();
   }, []);
-
-  const toggleMute = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.muted = !video.muted;
-    setIsMuted(video.muted);
-  };
 
   const videoSrc = isMobile ? "/mh.mp4" : "/w.mp4";
 
@@ -97,26 +85,6 @@ export default function HeroSection() {
         {/* Elegant overlay for contrast */}
         <div className="absolute inset-0 bg-[black]/30 " />
         <div className="absolute inset-0 bg-[black]/15 " />
-
-        <button
-          onClick={toggleMute}
-          aria-label={isMuted ? "Unmute video" : "Mute video"}
-          className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/40 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-colors"
-        >
-          {isMuted ? (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 sm:w-5 sm:h-5">
-              <path d="M11 5 6 9H2v6h4l5 4V5Z" />
-              <line x1="23" y1="9" x2="17" y2="15" />
-              <line x1="17" y1="9" x2="23" y2="15" />
-            </svg>
-          ) : (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 sm:w-5 sm:h-5">
-              <path d="M11 5 6 9H2v6h4l5 4V5Z" />
-              <path d="M15.5 8.5a5 5 0 0 1 0 7" />
-              <path d="M18.5 5.5a9 9 0 0 1 0 13" />
-            </svg>
-          )}
-        </button>
       </motion.div>
 
       <div className="relative z-10 w-full px-2 sm:px-3 lg:px-4 flex-1 flex flex-col items-center justify-end gap-6 sm:gap-10">
