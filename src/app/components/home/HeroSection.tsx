@@ -18,7 +18,7 @@ export default function HeroSection() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover md:hidden"
-          src="/mobile.mp4"
+          src="/mh.mp4"
         />
         <video
           autoPlay
@@ -26,7 +26,7 @@ export default function HeroSection() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover hidden md:block"
-          src="/web.mp4"
+          src="/w.mp4"
         />
         {/* Elegant overlay for contrast */}
         <div className="absolute inset-0 bg-[black]/30 " />
