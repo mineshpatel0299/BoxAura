@@ -41,25 +41,14 @@ export default function HeroSection() {
     });
   }, [playbackSignal]);
 
-  // Scrolling the hero out of view should stop the audio — mute it rather
-  // than pausing, so the background video keeps looping silently.
-  useEffect(() => {
-    const section = sectionRef.current;
-    const video = videoRef.current;
-    if (!section || !video) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting && !video.muted) {
-          video.muted = true;
-        }
-      },
-      { threshold: 0.25 }
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
   const videoSrc = isMobile ? "/mh.mp4" : "/w.mp4";
+
+  // Keep the background audio at a lower, less intrusive level so it can
+  // keep playing as the visitor scrolls through the rest of the homepage.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) video.volume = 0.4;
+  }, [videoSrc]);
 
   return (
     <section
