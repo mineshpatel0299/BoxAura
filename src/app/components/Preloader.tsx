@@ -4,8 +4,10 @@ import { useState, useRef, useEffect } from "react";
 
 export default function Preloader({
   onComplete,
+  onExplore,
 }: {
   onComplete: () => void;
+  onExplore?: () => void;
 }) {
   const [doorOpen, setDoorOpen] = useState(false);
   const [logoVisible, setLogoVisible] = useState(false);
@@ -66,6 +68,9 @@ export default function Preloader({
   };
 
   const handleExplore = () => {
+    // Fire synchronously within the click so this counts as the user gesture
+    // browsers require to allow the hero video to play with sound.
+    onExplore?.();
     setExiting(true);
     setTimeout(() => {
       onComplete();

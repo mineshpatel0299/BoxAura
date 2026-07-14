@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Preloader from "./Preloader";
+import { HeroPlaybackProvider, useHeroPlayback } from "./HeroPlaybackContext";
 
-export default function AppShell({ children }: { children: React.ReactNode }) {
+function AppShellInner({ children }: { children: React.ReactNode }) {
   const [showPreloader, setShowPreloader] = useState(false);
   const [checked, setChecked] = useState(false);
+  const { triggerPlayback } = useHeroPlayback();
 
   useEffect(() => {
     const alreadyShown = sessionStorage.getItem("boxaura-preloader-shown");
@@ -25,7 +27,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       {showPreloader && (
-        <Preloader onComplete={handleComplete} />
+        <Preloader onComplete={handleComplete} onExplore={triggerPlayback} />
       )}
       <div
         className={`transition-opacity duration-700 ${
@@ -35,5 +37,13 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         {children}
       </div>
     </>
+  );
+}
+
+export default function AppShell({ children }: { children: React.ReactNode }) {
+  return (
+    <HeroPlaybackProvider>
+      <AppShellInner>{children}</AppShellInner>
+    </HeroPlaybackProvider>
   );
 }
