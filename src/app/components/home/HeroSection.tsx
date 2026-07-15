@@ -27,28 +27,18 @@ export default function HeroSection() {
   }, []);
 
   // First-time visitors: the preloader's "Start Exploring" button click bumps
-  // this signal. It's a real user gesture, so we can (re)start the video from
-  // frame zero with sound instead of the muted-only autoplay browsers allow.
+  // this signal. Restart the video from frame zero on that gesture, but keep
+  // it muted — the site-wide soundtrack (SiteAudio) owns audio now.
   useEffect(() => {
     if (playbackSignal === 0) return;
     const video = videoRef.current;
     if (!video) return;
     video.currentTime = 0;
-    video.muted = false;
-    video.play().catch(() => {
-      video.muted = true;
-      video.play().catch(() => {});
-    });
+    video.muted = true;
+    video.play().catch(() => {});
   }, [playbackSignal]);
 
-  const videoSrc = isMobile ? "/mh.mp4" : "/w.mp4";
-
-  // Keep the background audio at a lower, less intrusive level so it can
-  // keep playing as the visitor scrolls through the rest of the homepage.
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) video.volume = 0.4;
-  }, [videoSrc]);
+  const videoSrc = isMobile ? "/mob.mp4" : "/web.mp4";
 
   return (
     <section

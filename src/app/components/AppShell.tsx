@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Preloader from "./Preloader";
+import SiteAudio from "./SiteAudio";
 import { HeroPlaybackProvider, useHeroPlayback } from "./HeroPlaybackContext";
 
 function AppShellInner({ children }: { children: React.ReactNode }) {
@@ -26,6 +27,7 @@ function AppShellInner({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <SiteAudio />
       {showPreloader && (
         <Preloader onComplete={handleComplete} onExplore={triggerPlayback} />
       )}
@@ -39,6 +41,7 @@ function AppShellInner({ children }: { children: React.ReactNode }) {
     </>
   );
 }
+
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
