@@ -17,12 +17,11 @@ export default function MainLayout({
         <a
           href="tel:+919990171703"
           aria-label="Call us"
-          className="w-14 h-14 rounded-full bg-[#BF944C] flex items-center justify-center shadow-lg shadow-black/15 hover:scale-105 hover:shadow-xl transition-all duration-300"
+          className="w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[#BF944C] flex items-center justify-center shadow-lg shadow-black/15 hover:scale-105 hover:shadow-xl transition-all duration-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="26"
-            height="26"
+            className="w-5 h-5 sm:w-7 sm:h-7"
             viewBox="0 0 24 24"
             fill="white"
           >
@@ -35,12 +34,11 @@ export default function MainLayout({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg shadow-black/15 hover:scale-105 hover:shadow-xl transition-all duration-300"
+          className="w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg shadow-black/15 hover:scale-105 hover:shadow-xl transition-all duration-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
+            className="w-5 h-5 sm:w-7 sm:h-7"
             viewBox="0 0 24 24"
             fill="white"
           >

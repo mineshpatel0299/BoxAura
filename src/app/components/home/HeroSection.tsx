@@ -38,7 +38,7 @@ export default function HeroSection() {
     video.play().catch(() => {});
   }, [playbackSignal]);
 
-  const videoSrc = isMobile ? "/mob.mp4" : "/web.mp4";
+  const videoSrc = isMobile ? "/mob.mp4" : "/webs.mp4";
 
   return (
     <section

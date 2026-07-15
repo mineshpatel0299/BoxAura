@@ -72,7 +72,7 @@ export default function Footer() {
         </motion.div>
 
         {/* Main footer grid */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 lg:gap-8 pb-6 sm:pb-16 border-b border-stone-300">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-6 md:gap-12 lg:gap-8 pb-6 sm:pb-16 border-b border-stone-300">
 
           {/* Brand column — desktop only */}
           <motion.div
@@ -113,10 +113,9 @@ export default function Footer() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="flex flex-col items-start md:items-start text-left md:text-left"
+            className="flex flex-col items-start text-left"
           >
             <h4 className="font-heading text-[10px] uppercase tracking-[0.25em] text-stone-900 mb-4 md:mb-6 flex items-center gap-3">
-              <span className="w-4 h-px bg-stone-400 hidden md:block" />
               Quick Links
             </h4>
             <ul className="space-y-2.5 md:space-y-3.5">
@@ -138,10 +137,9 @@ export default function Footer() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col items-start md:items-start text-left md:text-left"
+            className="flex flex-col items-start text-left"
           >
             <h4 className="font-heading text-[10px] uppercase tracking-[0.25em] text-stone-900 mb-4 md:mb-6 flex items-center gap-3">
-              <span className="w-4 h-px bg-stone-400 hidden md:block" />
               Company
             </h4>
             <ul className="space-y-2.5 md:space-y-3.5">
@@ -157,6 +155,36 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+          </motion.div>
+
+          {/* Address */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="col-span-2 md:col-span-2 lg:col-span-1 flex flex-col items-start text-left"
+          >
+            <h4 className="font-heading text-[10px] uppercase tracking-[0.25em] text-stone-900 mb-4 md:mb-6 flex items-center gap-3">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Visit Us
+            </h4>
+            <address className="not-italic text-xs text-stone-500 leading-relaxed font-light mb-3">
+              BOXAURA<br />2408 Chawri Bazar<br />1st and 2nd floor.<br />Delhi 110006
+            </address>
+            <a
+              href="https://www.google.com/maps/place/BOXAURA/@28.6506123,77.2310479,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfda0e2479f1b:0xe694466b49dac992!8m2!3d28.6506123!4d77.2310479!16s%2Fg%2F11zcnxj_c6!18m1!1e1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-stone-500 underline underline-offset-2 hover:text-stone-900 transition-colors duration-300 font-light"
+            >
+              Get Directions
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </a>
           </motion.div>
         </div>
 
