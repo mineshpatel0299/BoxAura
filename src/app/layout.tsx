@@ -15,9 +15,9 @@ const poppinsBody = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "BoxAura — Premium Wedding Invitation Boxes",
+  title: "BoxAura — Premium Boxes",
   description:
-    "Handcrafted premium wedding invitation boxes and festive gifting by BoxAura.",
+    "Handcrafted premium boxes and festive gifting by BoxAura.",
 };
 
 export default function RootLayout({
