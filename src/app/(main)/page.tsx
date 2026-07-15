@@ -21,7 +21,7 @@ export default function Home() {
       {/* <CategoryCards /> */}
       {/* <Collections /> */}
       <ClientExperiences />
-      <GoldClubCTA />z
+      <GoldClubCTA />
     </>
   );
 }
