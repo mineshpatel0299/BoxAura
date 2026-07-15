@@ -91,7 +91,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-xs sm:text-sm text-stone-500 leading-relaxed font-light max-w-sm mb-8">
-              Handcrafted premium invitation boxes & festive gifting — where elegance meets artistry.
+              Handcrafted premium invitation boxes & festive gifting where elegance meets artistry.
             </p>
             <div className="flex items-center gap-4">
               {SOCIALS.map((social) => (
