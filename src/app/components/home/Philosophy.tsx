@@ -83,7 +83,7 @@ export default function Philosophy() {
             transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
             className="text-sm text-stone-500 tracking-wide font-light leading-relaxed max-w-[280px] mx-auto"
           >
-            Premium crafted boxes that transform your invitation into an unforgettable moment.
+            Premium crafted boxes that transform  into an unforgettable moment.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 12 }}
