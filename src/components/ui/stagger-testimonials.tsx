@@ -9,103 +9,103 @@ const SQRT_5000 = Math.sqrt(5000);
 const testimonials = [
   {
     tempId: 0,
-    testimonial: "My favorite solution in the market. We work 5x faster with BoxAura.",
-    by: "Alex, CEO at TechCorp"
+    testimonial: "The box quality was beyond what I imagined. Every guest asked where we got our wedding invites made.",
+    by: "Priya Sharma, Delhi"
   },
   {
     tempId: 1,
-    testimonial: "I'm confident my data is safe with BoxAura. I can't say that about other providers.",
-    by: "Dan, CTO at SecureNet"
+    testimonial: "Such fine print detailing on the invitation cards. The gold foil work looked absolutely premium.",
+    by: "Rohan Malhotra, Gurugram"
   },
   {
     tempId: 2,
-    testimonial: "I know it's cliche, but we were lost before we found BoxAura. Can't thank you guys enough!",
-    by: "Stephanie, COO at InnovateCo"
+    testimonial: "We ordered Diwali gifting boxes for our clients and everyone complimented the design and finish.",
+    by: "Anjali Verma, Noida"
   },
   {
     tempId: 3,
-    testimonial: "BoxAura's products make planning for the future seamless. Can't recommend them enough!",
-    by: "Marie, CFO at FuturePlanning"
+    testimonial: "The packaging felt so royal, it made our wedding cards look like a luxury product.",
+    by: "Karan Mehta, Jaipur"
   },
   {
     tempId: 4,
-    testimonial: "If I could give 11 stars, I'd give 12.",
-    by: "Andre, Head of Design at CreativeSolutions"
+    testimonial: "Loved how sturdy the boxes were. Nothing got damaged even after courier to relatives across states.",
+    by: "Simran Kaur, Chandigarh"
   },
   {
     tempId: 5,
-    testimonial: "SO SO SO HAPPY WE FOUND YOU GUYS!!!! I'd bet you've saved me 100 hours so far.",
-    by: "Jeremy, Product Manager at TimeWise"
+    testimonial: "The team customised our design exactly the way we wanted. Print quality was crisp and colours were vibrant.",
+    by: "Aditya Rao, Mumbai"
   },
   {
     tempId: 6,
-    testimonial: "Took some convincing, but now that we're on BoxAura, we're never going back.",
-    by: "Pam, Marketing Director at BrandBuilders"
+    testimonial: "Got our shagun envelopes and invitation box done together. The whole set looked so coordinated.",
+    by: "Neha Gupta, Lucknow"
   },
   {
     tempId: 7,
-    testimonial: "I would be lost without BoxAura's in-depth analytics. The ROI is EASILY 100X for us.",
-    by: "Daniel, Data Scientist at AnalyticsPro"
+    testimonial: "Best decision for our wedding invites. The embossing and print work was flawless.",
+    by: "Vikram Singh, Delhi"
   },
   {
     tempId: 8,
-    testimonial: "It's just the best. Period.",
-    by: "Fernando, UX Designer at UserFirst"
+    testimonial: "Beautiful boxes, beautiful prints. Truly premium quality for the price.",
+    by: "Pooja Nair, Bengaluru"
   },
   {
     tempId: 9,
-    testimonial: "I switched 5 years ago and never looked back.",
-    by: "Andy, DevOps Engineer at CloudMasters"
+    testimonial: "We ordered in bulk for a corporate Diwali hamper and the finishing was consistent on every single box.",
+    by: "Arjun Kapoor, Pune"
   },
   {
     tempId: 10,
-    testimonial: "I've been searching for a solution like BoxAura for YEARS. So glad I finally found one!",
-    by: "Pete, Sales Director at RevenueRockets"
+    testimonial: "I was searching for a box maker who understood Indian wedding themes properly. BoxAura nailed it.",
+    by: "Ritu Agarwal, Kanpur"
   },
   {
     tempId: 11,
-    testimonial: "It's so simple and intuitive, we got the team up to speed in 10 minutes.",
-    by: "Marina, HR Manager at TalentForge"
+    testimonial: "The design team suggested a layout that made our card box look far more elegant than what we had in mind.",
+    by: "Manish Chawla, Delhi"
   },
   {
     tempId: 12,
-    testimonial: "BoxAura's customer support is unparalleled. They're always there when we need them.",
-    by: "Olivia, Customer Success Manager at ClientCare"
+    testimonial: "Their support was always available whenever we needed changes in the print proof.",
+    by: "Divya Reddy, Hyderabad"
   },
   {
     tempId: 13,
-    testimonial: "The efficiency gains we've seen since implementing BoxAura are off the charts!",
-    by: "Raj, Operations Manager at StreamlineSolutions"
+    testimonial: "The colour matching between the box and the card insert was perfect, exactly as per our theme.",
+    by: "Sandeep Joshi, Ahmedabad"
   },
   {
     tempId: 14,
-    testimonial: "BoxAura has revolutionized how we handle our workflow. It's a game-changer!",
-    by: "Lila, Workflow Specialist at ProcessPro"
+    testimonial: "From box texture to card thickness, everything felt premium and well thought out.",
+    by: "Kavya Iyer, Chennai"
   },
   {
     tempId: 15,
-    testimonial: "The scalability of BoxAura's solution is impressive. It grows with our business seamlessly.",
-    by: "Trevor, Scaling Officer at GrowthGurus"
+    testimonial: "The magnetic box closure and the print finish gave our invites a very luxury boutique feel.",
+    by: "Rahul Bhatia, Delhi"
   },
   {
     tempId: 16,
-    testimonial: "I appreciate how BoxAura continually innovates. They're always one step ahead.",
-    by: "Naomi, Innovation Lead at FutureTech"
+    testimonial: "Every relative kept the box after the wedding, that's how good the design and print quality was.",
+    by: "Shalini Desai, Surat"
   },
   {
     tempId: 17,
-    testimonial: "The ROI we've seen with BoxAura is incredible. It's paid for itself many times over.",
-    by: "Victor, Finance Analyst at ProfitPeak"
+    testimonial: "The turnaround time was quick and the printing was sharp with no colour bleeding at all.",
+    by: "Amit Trivedi, Indore"
   },
   {
     tempId: 18,
-    testimonial: "BoxAura's platform is so robust, yet easy to use. It's the perfect balance.",
-    by: "Yuki, Tech Lead at BalancedTech"
+    testimonial: "We got matching gift boxes and invitation cards, the whole set looked like it came from a premium brand.",
+    by: "Meera Pillai, Kochi"
   },
   {
     tempId: 19,
-    testimonial: "We've tried many solutions, but BoxAura stands out in terms of reliability and performance.",
-    by: "Zoe, Performance Manager at ReliableSystems"
+    testimonial: "Handcrafted feel with modern print finishing, exactly what we wanted for our wedding gifting boxes.",
+    by: "Nikhil Bansal, Chandigarh"
   }
 ];
 
