@@ -47,7 +47,7 @@ export default function Philosophy() {
           <div className="relative w-full sm:w-[90%] md:w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[450px] aspect-[4/5] flex flex-col items-center justify-center">
 
             {/* Hint text above cube */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -57,7 +57,7 @@ export default function Philosophy() {
               <span className="w-6 sm:w-10 h-px bg-stone-400" />
               Click to rotate
               <span className="w-6 sm:w-10 h-px bg-stone-400" />
-            </motion.div>
+            </motion.div> */}
 
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
