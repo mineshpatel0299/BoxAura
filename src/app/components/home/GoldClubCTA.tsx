@@ -23,7 +23,7 @@ export default function GoldClubCTA() {
       {/* Parallax Background Image */}
       <motion.div style={{ y }} className="absolute inset-0 w-full h-[140%] -top-[20%] z-0">
         <Image
-          src="https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg"
+          src="https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg"
           alt="BoxAura Craftsmanship"
           fill
           className="object-cover opacity-60 grayscale-[40%]"

@@ -1,5 +1,5 @@
 const IMG =
-  "https://res.cloudinary.com/de4pazo51/image/upload/v1781687620/-44_hcqogx.jpg";
+  "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/-44_hcqogx.jpg";
 
 type Variant =
   | "top-right"

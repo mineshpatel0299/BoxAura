@@ -104,7 +104,7 @@ export default function Preloader({
 
       <div className="relative z-10 flex flex-col items-center gap-10">
         <img
-          src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
+          src="https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
           alt="BoxAura Logo"
           className={`w-80 sm:w-md md:w-lg h-auto object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all duration-1000 ${
             logoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"

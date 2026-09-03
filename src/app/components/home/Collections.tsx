@@ -9,31 +9,31 @@ import SectionBg from "../SectionBg";
 const COLLECTIONS = [
   {
     image:
-      "https://res.cloudinary.com/de4pazo51/image/upload/v1781696656/box_F_sample-6_reb2ss.png",
+      "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/box_F_sample-6_reb2ss.png",
     title: "Timeless",
     subtitle: "Elegance Redefined",
     category: "Signature Collection",
   },
   {
-    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg",
+    image: "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg",
     title: "Wedding",
     subtitle: "Love in Every Detail",
     category: "Bespoke Event",
   },
   {
-    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.09_1_qzulax.jpg",
+    image: "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_15.05.09_1_qzulax.jpg",
     title: "Festive",
     subtitle: "Celebrate in Style",
     category: "Seasonal Edition",
   },
   {
-    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861841/ChatGPT_Image_Jun_19_2026_01_46_12_PM_1_1_egihmx.png",
+    image: "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/ChatGPT_Image_Jun_19_2026_01_46_12_PM_1_1_egihmx.png",
     title: "Premium",
     subtitle: "Crafted to Perfection",
     category: "Luxury Line",
   },
   {
-    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861840/ChatGPT_Image_Jun_19_2026_01_43_40_PM_zfkduw.png",
+    image: "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/ChatGPT_Image_Jun_19_2026_01_43_40_PM_zfkduw.png",
     title: "Custom",
     subtitle: "Your Vision, Our Craft",
     category: "Personalized",

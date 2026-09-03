@@ -9,19 +9,19 @@ import SectionBg from "../SectionBg";
 const CATEGORIES = [
   {
     label: "Fabric",
-    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg",
+    image: "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg",
   },
   {
     label: "Fabric",
-    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_wyo6jf.jpg",
+    image: "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_15.05.10_wyo6jf.jpg",
   },
   {
     label: "Accessory",
-    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861841/ChatGPT_Image_Jun_19_2026_01_46_12_PM_1_1_egihmx.png",
+    image: "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/ChatGPT_Image_Jun_19_2026_01_46_12_PM_1_1_egihmx.png",
   },
   {
     label: "Velvet",
-    image: "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.09_1_qzulax.jpg",
+    image: "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_15.05.09_1_qzulax.jpg",
   },
 ];
 

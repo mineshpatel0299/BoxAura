@@ -50,7 +50,7 @@ export default function Navbar() {
          <div 
             className="absolute inset-0 opacity-[0.25] mix-blend-multiply"
             style={{
-              backgroundImage: "url('https://res.cloudinary.com/de4pazo51/image/upload/v1782384033/Untitled-1_copy_2_gxjmly.jpg')",
+              backgroundImage: "url('https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/Untitled-1_copy_2_gxjmly.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -61,7 +61,7 @@ export default function Navbar() {
       <div className="hidden lg:flex mx-auto max-w-[1400px] items-center justify-between px-4 sm:px-6 md:px-12">
         <Link href="/" className="block flex-shrink-0">
           <Image
-            src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
+            src="https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
             alt="BoxAura"
             width={300}
             height={100}
@@ -102,7 +102,7 @@ export default function Navbar() {
       <div className="lg:hidden flex flex-col items-center w-full px-2">
         <Link href="/" className="mb-3 block transition-transform active:scale-95">
           <Image
-            src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
+            src="https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
             alt="BoxAura"
             width={300}
             height={100}

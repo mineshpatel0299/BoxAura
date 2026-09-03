@@ -4,7 +4,7 @@ import { getProductsByCategory } from "@/data/products";
 import CategoryPage from "../../components/CategoryPage";
 
 const HERO_IMAGE =
-  "https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg";
+  "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg";
 
 export default function PremiumWeddingInvitation() {
   const products = getProductsByCategory("wedding");
