@@ -479,7 +479,7 @@ export default function ProductDetail({
       {/* ── CTA ── */}
       <section className="relative w-full bg-stone-950 py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-15">
-          <Image src="https://res.cloudinary.com/de4pazo51/image/upload/v1781861915/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg" alt="" fill className="object-cover" sizes="100vw" />
+          <Image src="https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_15.05.10_1_cythps.jpg" alt="" fill className="object-cover" sizes="100vw" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-stone-950/40 via-stone-950/80 to-stone-950" />
 

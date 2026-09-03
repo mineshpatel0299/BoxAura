@@ -3,7 +3,7 @@
 import { useRef, useEffect, useCallback } from "react";
 
 const BG_URL =
-  "https://res.cloudinary.com/de4pazo51/image/upload/v1782384033/Untitled-1_copy_2_gxjmly.jpg";
+  "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/Untitled-1_copy_2_gxjmly.jpg";
 
 export default function CursorRevealBg() {
   const revealRef = useRef<HTMLDivElement>(null);

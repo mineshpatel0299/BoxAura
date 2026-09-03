@@ -10,7 +10,7 @@ export default function ComingSoon() {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url('https://res.cloudinary.com/de4pazo51/image/upload/v1781861841/ChatGPT_Image_Jun_19_2026_01_46_12_PM_1_1_egihmx.png')",
+          backgroundImage: "url('https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/ChatGPT_Image_Jun_19_2026_01_46_12_PM_1_1_egihmx.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -36,7 +36,7 @@ export default function ComingSoon() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
             <Image
-              src="https://res.cloudinary.com/de4pazo51/image/upload/v1781949351/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
+              src="https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-19_at_17.10.04__1_-removebg-preview_hdhqbp.png"
               alt="BoxAura"
               width={240}
               height={100}

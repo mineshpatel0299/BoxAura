@@ -4,7 +4,7 @@ import { getProductsByCategory } from "@/data/products";
 import CategoryPage from "../../components/CategoryPage";
 
 const HERO_IMAGE =
-  "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.1_kofhcn.png";
+  "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/box_F_sample-2.1_kofhcn.png";
 
 export default function DiwaliBoxesGifting() {
   const products = getProductsByCategory("diwali");

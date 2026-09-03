@@ -10,23 +10,23 @@ import { getProductsByCategory, PRODUCTS } from "@/data/products";
 
 
 const PANORAMA_SRC =
-  "https://res.cloudinary.com/de4pazo51/image/upload/v1782377703/slider_horizontal-4.2_v5b6ie.png";
+  "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/slider_horizontal-4.2_v5b6ie.png";
 
 const CATALOG_ITEMS = [
   {
     category: "Wedding",
     image:
-      "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.1_kofhcn.png",
+      "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/box_F_sample-2.1_kofhcn.png",
   },
   {
     category: "Diwali Boxes",
     image:
-      "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.2_p6edgp.png",
+      "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/box_F_sample-2.2_p6edgp.png",
   },
   {
     category: "Gifting",
     image:
-      "https://res.cloudinary.com/de4pazo51/image/upload/v1781865563/box_F_sample-2.3_hrfbhm.png",
+      "https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/box_F_sample-2.3_hrfbhm.png",
   },
 ];
 

@@ -49,7 +49,7 @@ export default function Footer() {
         >
           <Link href="/">
             <Image
-              src="https://res.cloudinary.com/de4pazo51/image/upload/v1781679251/WhatsApp_Image_2026-06-17_at_09.42.19__1_-removebg-preview_1_cupphn.png"
+              src="https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-17_at_09.42.19__1_-removebg-preview_1_cupphn.png"
               alt="BoxAura"
               width={160}
               height={64}
@@ -83,7 +83,7 @@ export default function Footer() {
           >
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="https://res.cloudinary.com/de4pazo51/image/upload/v1781679251/WhatsApp_Image_2026-06-17_at_09.42.19__1_-removebg-preview_1_cupphn.png"
+                src="https://pub-37c7085b3a964a70aee9d7586ef459c4.r2.dev/WhatsApp_Image_2026-06-17_at_09.42.19__1_-removebg-preview_1_cupphn.png"
                 alt="BoxAura"
                 width={160}
                 height={64}
